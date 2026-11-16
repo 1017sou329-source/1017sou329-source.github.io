@@ -1,0 +1,1179 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="飲食店・宿・観光施設のメニュー・POP・注文画面・ホームページを、英語・韓国語・繁体字に。見本は無料、お支払いは納品・ご確認の後。">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
+<title>多言語メニュー作成｜飲食店・宿・観光施設の多言語化</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap">
+<style>
+:root{
+  --bg:#FFFDF8; --surface:#FFFFFF; --ink:#0A2350; --sub:#33415C; --mute:#5B6578; --line:#E4DCC8;
+  --band:#FFFFFF; --band2:#143A7A; --on-band:#0A2350; --on-band-sub:#33415C;
+  --gold:#D6AE52; --gold2:#F3D683; --on-gold:#0A2350;
+  --chip:#FFFFFF; --chip-on:#0A2350; --chip-on-ink:#F3D683;
+  --mark:#F3D683; --soft:#F8F1DE; --ok:#1E7A4C; --bar:#143A7A; --grid:#E4DCC8; --paper:#FFFDF6; --paper-ink:#2B2B2B;
+  --navy:#0A2350; --accent-text:#8F6608; --icon:#0A2350; --t-warm:#FFF8E8; --t-cool:#F1F6FF; --t-white:#FFFFFF; --t-gold:#FFF0C9;
+  --font:"Noto Sans JP","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,"Malgun Gothic","Apple SD Gothic Neo","Microsoft JhengHei","PingFang TC",sans-serif;
+  --r:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#071634; --surface:#0E2450; --ink:#F4EEDD; --sub:#D2D9E8; --mute:#A3AEC6; --line:#2A4379;
+    --band:#04102A; --band2:#3D63B0; --on-band:#FFFFFF; --on-band-sub:#C9D3E8;
+    --gold:#D6AE52; --gold2:#F3D683; --on-gold:#0A2350;
+    --chip:#0E2450; --chip-on:#F3D683; --chip-on-ink:#0A2350;
+    --mark:#6B5416; --soft:#112B5E; --ok:#6FD29E; --bar:#6F93D8; --grid:#2A4379; --paper:#FFFDF6; --paper-ink:#2B2B2B;
+    --navy:#04102A; --accent-text:#F3D683; --icon:#F3D683; --t-warm:#0B2150; --t-cool:#071634; --t-white:#0A1C44; --t-gold:#0B2150;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#071634; --surface:#0E2450; --ink:#F4EEDD; --sub:#D2D9E8; --mute:#A3AEC6; --line:#2A4379;
+  --band:#04102A; --band2:#3D63B0; --on-band:#FFFFFF; --on-band-sub:#C9D3E8;
+  --gold:#D6AE52; --gold2:#F3D683; --on-gold:#0A2350;
+  --chip:#0E2450; --chip-on:#F3D683; --chip-on-ink:#0A2350;
+  --mark:#6B5416; --soft:#112B5E; --ok:#6FD29E; --bar:#6F93D8; --grid:#2A4379; --paper:#FFFDF6; --paper-ink:#2B2B2B;
+    --navy:#04102A; --accent-text:#F3D683; --icon:#F3D683; --t-warm:#0B2150; --t-cool:#071634; --t-white:#0A1C44; --t-gold:#0B2150;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.7;font-weight:500;font-feature-settings:"palt";-webkit-text-size-adjust:100%}
+h1,h2,h3,h4,p,ul,ol,figure,dl,dd{margin:0;padding:0}
+ul,ol{list-style:none}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+.bgsec{--v:88%;background-color:var(--tint);background-image:linear-gradient(color-mix(in srgb,var(--tint) var(--v),transparent),color-mix(in srgb,var(--tint) var(--v),transparent)),var(--photo,none);background-size:cover;background-position:var(--pos,center)}
+.bgsec.strong{--v:85%}
+@media (min-width:640px){.bgsec{--v:85%}.bgsec.strong{--v:80%}}
+section{border-bottom:1px solid var(--line)}
+.draft{background:var(--gold);color:var(--on-gold);font-size:12px;font-weight:700;text-align:center}
+.draft .in{padding-block:5px}
+.top{color:var(--on-band);border-bottom:8px solid var(--gold)}
+.top .in{padding-block:14px 34px}
+.bar{display:flex;align-items:center;gap:10px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand img{width:40px;height:40px;border-radius:50%;flex:none}
+.brand b{font-weight:900;font-size:15px;line-height:1.25;display:block}
+.brand span{font-size:12px;color:var(--accent-text);font-weight:700;display:block;line-height:1.3}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:8px 20px;border-radius:999px;border:2px solid var(--gold);background:var(--gold);color:var(--on-gold);font-weight:900;text-decoration:none;line-height:1.3;text-align:center}
+.btn.ghost{background:var(--surface);color:var(--on-band)}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.sm{min-height:38px;padding:4px 14px;font-size:13px;white-space:nowrap}
+.hero{display:grid;gap:24px;margin-top:24px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--accent-text);font-weight:700;font-size:14px;letter-spacing:.03em}
+.kicker::before{content:"";width:6px;height:18px;border-radius:2px;background:var(--gold)}
+h1{font-size:clamp(38px,10.4vw,64px);line-height:1.18;font-weight:900;letter-spacing:.01em;margin-top:8px;text-wrap:balance}
+h1 em{font-style:normal;background:linear-gradient(transparent 64%,var(--mark) 64%)}
+.lead{margin-top:14px;font-size:16px;color:var(--on-band-sub);max-width:34em}
+.lead b{color:var(--on-band);font-weight:700}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.promise{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.promise li{border:1.5px solid var(--gold);background:var(--surface);color:var(--ink);border-radius:10px;padding:4px 10px;font-size:13px;font-weight:700;line-height:1.5}
+.map{display:grid;gap:8px}
+.map-k{font-size:12.5px;font-weight:900;color:var(--accent-text);letter-spacing:.04em;margin-bottom:6px}
+.who ul{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.who li{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:8px 2px 6px;text-align:center;font-size:11.5px;font-weight:700;line-height:1.3}
+.who svg{width:28px;height:28px;display:block;margin:0 auto 3px;color:var(--icon)}
+.map-arrow{justify-self:center;color:var(--gold);line-height:0}
+.map-arrow svg{width:26px;height:26px;transform:rotate(90deg)}
+.what ol{display:grid;gap:8px}
+.what li{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;align-items:center;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:0 2px 10px rgba(10,35,80,.06)}
+.what i{font-style:normal;grid-row:1/3;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--gold2);font-weight:900;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--gold)}
+.what b{font-weight:900;font-size:15.5px;line-height:1.35}
+.what span{grid-column:2/3;font-size:12px;color:var(--mute);line-height:1.5}
+.what em{font-style:normal;grid-row:1/3;grid-column:3;font-weight:900;font-size:17px;white-space:nowrap;text-align:right}
+.what em small{font-size:11px;font-weight:700}
+.map-note{font-size:12px;color:var(--on-band-sub);margin-top:6px}
+section .in{padding-block:44px}
+.sec-h{margin-bottom:20px}
+.sec-h .kicker{color:var(--ink)}
+h2{font-size:clamp(26px,6.6vw,38px);line-height:1.3;font-weight:900;text-wrap:balance;margin-top:4px}
+h2 em,.mk{font-style:normal;background:linear-gradient(transparent 62%,var(--mark) 62%)}
+.sec-h p{margin-top:8px;color:var(--sub);max-width:40em}
+.small{font-size:12.5px;color:var(--mute);line-height:1.65}
+.small a{text-underline-offset:3px}
+.stats{display:grid;gap:18px}
+.bigs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bigs li{background:var(--surface);border:2px solid var(--gold);border-radius:16px;padding:12px 12px 10px}
+.bigs small{display:block;font-size:12.5px;font-weight:700;color:var(--mute);line-height:1.4}
+.bigs b{display:block;font-weight:900;font-size:clamp(44px,13.5vw,76px);line-height:1.1;letter-spacing:-.02em}
+.bigs b span{font-size:.3em;letter-spacing:0;margin-left:2px}
+.bigs em{font-style:normal;display:inline-block;font-size:12.5px;font-weight:900;background:var(--gold);color:var(--on-gold);border-radius:8px;padding:1px 8px;line-height:1.6;margin-top:4px}
+.chart{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:14px 14px 10px}
+.chart-t{font-size:13px;font-weight:900;margin-bottom:10px}
+.plot{position:relative;height:150px;margin-left:44px;border-bottom:2px solid var(--mute)}
+.gl{position:absolute;left:0;right:0;border-top:1px solid var(--grid)}
+.gl span{position:absolute;left:-44px;top:-9px;width:38px;text-align:right;font-size:11px;color:var(--mute)}
+.bars{position:absolute;inset:0;display:grid;grid-template-columns:repeat(var(--n,8),1fr);gap:2px;align-items:end;padding:0 2px}
+.bw{position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;outline-offset:0}
+.bw .b{width:72%;max-width:44px;min-height:3px;background:var(--bar);border-radius:4px 4px 0 0}
+.bw.hi .b{background:var(--gold)}
+.bl{position:absolute;left:50%;transform:translateX(-50%);font-size:11.5px;font-weight:900;color:var(--ink);white-space:nowrap;padding-bottom:3px}
+.tt{position:absolute;left:50%;top:0;transform:translateX(-50%);background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;border-radius:8px;padding:3px 8px;white-space:nowrap;display:none;z-index:2}
+.bw:hover .tt,.bw:focus .tt{display:block}
+.bw:nth-child(n+6) .tt{left:auto;right:0;transform:none}
+.bw:nth-child(-n+2) .tt{left:0;transform:none}
+.xl{display:grid;grid-template-columns:repeat(var(--n,8),1fr);gap:2px;margin-left:44px;padding:4px 2px 0;font-size:11.5px;color:var(--mute);text-align:center}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.tiles2{grid-template-columns:1fr}
+.tile{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px}
+.tile small{display:block;font-size:12px;color:var(--mute);font-weight:700;line-height:1.4}
+.tile b{font-size:clamp(24px,7vw,30px);font-weight:900;line-height:1.25}
+.tile b span{font-size:14px}
+.tile em{font-style:normal;display:block;font-size:12.5px;font-weight:700;color:var(--sub);line-height:1.4}
+.tbl{margin-top:8px;font-size:13px}
+.tbl summary{cursor:pointer;font-weight:700;color:var(--sub)}
+.tbl table{border-collapse:collapse;margin-top:6px}
+.tbl td,.tbl th{border-bottom:1px solid var(--line);padding:3px 12px 3px 0;text-align:right;font-weight:500}
+.tbl th{text-align:left;font-weight:700}
+.egs{display:grid;gap:10px}
+.eg{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:2px;align-content:start}
+.eg-p{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:900;font-size:19px;line-height:1.3}
+.pill{display:inline-block;border-radius:999px;padding:0 10px;font-size:11.5px;font-weight:900;line-height:1.9;background:var(--soft);color:var(--ink)}
+.pill.gold{background:var(--gold);color:var(--on-gold)}
+.pill.open{background:var(--ok);color:var(--surface)}
+.pill.end{background:var(--mute);color:var(--surface)}
+.eg-f{font-size:13px;color:var(--sub);margin-top:6px}
+.eg-f s{text-decoration-thickness:2px;text-decoration-color:var(--gold)}
+.eg-n{font-weight:900;line-height:1.15;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+.eg-n small{font-size:13px;font-weight:700}
+.eg-n b{font-size:40px}
+.eg-c{font-size:12px;color:var(--mute);line-height:1.55}
+.eg button{justify-self:start;margin-top:8px;min-height:40px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);font-weight:900;padding:4px 14px;font-size:13px}
+.sum-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:16px}
+.sum-row p{font-weight:700;font-size:14px}
+.ba{display:grid;grid-template-columns:1fr;gap:6px;justify-items:center;background:var(--soft);color:var(--ink);border:1.5px solid var(--line);border-radius:22px;padding:18px 14px}
+.ba figcaption{display:flex;align-items:center;gap:8px;font-weight:900;font-size:15px;margin-bottom:8px}
+.tag{display:inline-block;flex:none;white-space:nowrap;border-radius:8px;padding:1px 10px;font-size:13px;font-weight:900;line-height:1.7}
+.tag.b{background:var(--ink);color:var(--surface)}
+.tag.a{background:var(--gold);color:var(--on-gold)}
+.ba-before,.ba-after{width:100%;max-width:340px}
+.paper{position:relative;background:var(--paper);color:var(--paper-ink);border-radius:6px;padding:12px 16px 14px;transform:rotate(-1.6deg);box-shadow:0 8px 20px rgba(0,0,0,.28);font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:700}
+.paper-h{text-align:center;border-bottom:1px solid #2B2B2B;padding-bottom:4px;margin-bottom:6px;letter-spacing:.4em;font-size:14px}
+.paper li{display:flex;justify-content:space-between;gap:10px;font-size:15px;line-height:1.75}
+.q{position:absolute;right:-6px;top:-16px;background:#C8342B;color:#fff;font-family:var(--font);font-weight:900;font-size:13px;border-radius:999px;padding:3px 12px;transform:rotate(4deg);box-shadow:0 3px 8px rgba(0,0,0,.25)}
+.ba-arrow{color:var(--gold);line-height:0;margin:10px 0 4px}
+.ba-arrow svg{width:30px;height:30px;transform:rotate(90deg)}
+.phone{background:#101828;border-radius:28px;padding:10px;box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.screen{background:#fff;color:#1B2540;border-radius:20px;padding:10px 12px 14px;min-height:268px}
+.tabs{display:flex;gap:6px;margin-bottom:10px}
+.tabs button{flex:1;min-height:38px;border-radius:999px;border:1.5px solid #C9CFDB;background:#fff;color:#1B2540;font-weight:700;font-size:13px;padding:2px 4px}
+.tabs button[aria-pressed="true"]{background:#0A2350;border-color:#0A2350;color:#F3D683}
+.dish{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:start}
+.dish .no{grid-row:1/3;width:30px;height:30px;border-radius:50%;background:#8A3B12;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px;margin-top:2px}
+.dish .nm{font-weight:900;font-size:17px;line-height:1.35}
+.dish .jp{font-size:11px;color:#5B6578;border:1.5px solid #D6AE52;border-radius:5px;padding:0 6px;justify-self:start;line-height:1.6}
+.dish .ds,.dish .kv,.dish .pr{grid-column:1/3;font-size:13px;line-height:1.55}
+.dish .ds{margin-top:6px}
+.dish .kv{margin-top:5px}
+.dish .kv b{display:block;font-size:11px;color:#8A6A12;font-weight:900;letter-spacing:.02em}
+.dish .pr{margin-top:6px;font-weight:900;font-size:16px;text-align:right}
+.order{margin-top:8px;background:#F4EDDC;color:#0A2350;border-radius:10px;padding:5px 10px;font-size:12px;font-weight:700}
+.photo{display:grid;gap:12px;align-items:center;margin-top:18px}
+.photo img{border-radius:var(--r);border:1px solid var(--line);width:100%}
+.photo figcaption{font-size:12.5px;color:var(--mute);line-height:1.65}
+.photo figcaption b{display:block;color:var(--ink);font-size:17px;font-weight:900;margin-bottom:4px;line-height:1.45}
+.deliver{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.dv{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center;font-size:12.5px;line-height:1.5;color:var(--sub)}
+.dv svg{width:44px;height:44px;margin:0 auto 4px;display:block;color:var(--ink)}
+.dv b{display:block;color:var(--ink);font-size:14px;font-weight:900;line-height:1.4}
+.sample{margin-top:14px}
+.sample summary{cursor:pointer;font-weight:900;padding:10px 0}
+.sample .tabs button{border-color:var(--line);background:var(--chip);color:var(--ink);min-height:42px;font-size:14px}
+.sample .tabs button[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-ink)}
+.cards{display:grid;gap:10px}
+.sample .dish{border:1.5px solid var(--line);border-radius:14px;padding:12px;background:var(--surface);color:var(--ink)}
+.sample .dish .jp,.sample .dish .kv b{color:var(--mute)}
+.rules{margin-top:12px;background:var(--soft);border-radius:14px;padding:12px 14px}
+.rules b{font-weight:900;font-size:14px}
+.rules li{font-size:13.5px;line-height:1.6;padding-left:14px;position:relative;margin-top:4px}
+.rules li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.flows{display:grid;gap:26px}
+.flow-t{font-size:19px;font-weight:900;line-height:1.4;margin-bottom:4px}
+.flow-s{font-size:13px;color:var(--sub);margin-bottom:12px}
+.flow{display:grid;gap:10px}
+.flow li{position:relative;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:start;background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:12px 14px}
+.flow li:not(:last-child)::after{content:"";position:absolute;left:30px;bottom:-12px;width:6px;height:12px;background:var(--gold)}
+.flow i{font-style:normal;grid-row:1/4;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--gold2);font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--gold)}
+.flow b{font-size:17px;font-weight:900;line-height:1.4}
+.flow span{font-size:13px;color:var(--sub);line-height:1.55}
+.flow .we{justify-self:start;font-size:12px;font-weight:900;background:var(--gold);color:var(--on-gold);border-radius:6px;padding:0 8px;line-height:1.8;margin-top:4px}
+.flow li.hot{background:var(--soft);border:2px solid var(--gold);color:var(--ink)}
+.flow li.hot span:not(.we){color:var(--on-band-sub)}
+.flow li.hot i{background:var(--gold);color:var(--on-gold)}
+.free{color:var(--on-gold);background:var(--gold2);border-radius:6px;padding:0 6px;font-size:12px;font-weight:900;margin-left:6px;vertical-align:2px}
+.alert{margin-top:12px;background:var(--gold);color:var(--on-gold);border-radius:16px;padding:12px 14px;text-align:center;font-weight:900;line-height:1.4}
+.alert b{font-size:24px}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.facts li{background:var(--soft);border-radius:8px;padding:2px 10px;font-size:13px;font-weight:700}
+.cav{margin-top:8px;display:grid;gap:3px}
+.cav li{font-size:12.5px;color:var(--sub);line-height:1.6;padding-left:1em;text-indent:-1em}
+.cav li::before{content:"※"}
+.faq{display:grid;gap:8px}
+.faq details{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:0 14px}
+.faq summary{cursor:pointer;font-weight:900;padding:13px 26px 13px 0;position:relative;list-style:none;line-height:1.5}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"＋";position:absolute;right:0;top:12px;color:var(--gold);font-weight:900}
+.faq details[open] summary::after{content:"−"}
+.faq p{padding:0 0 14px;color:var(--sub);font-size:14px}
+.apply{color:var(--on-band);border-top:8px solid var(--gold);text-align:center}
+.apply h2{color:var(--on-band)}
+.apply p{color:var(--on-band-sub);margin:10px auto 0;max-width:34em}
+.apply-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+.apply .btn{min-height:58px;font-size:17px;padding:10px 26px}
+.apply .btn.line{background:var(--surface)}
+.apply .id{margin-top:12px;font-weight:900;color:var(--accent-text);font-size:15px}
+.apply .id a{text-underline-offset:3px}
+.mailbox{margin-top:6px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;font-size:14px;font-weight:700}
+.mailbox span{user-select:all;-webkit-user-select:all;overflow-wrap:anywhere}
+.minibtn{min-height:36px;border-radius:999px;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);font-weight:700;padding:2px 12px;font-size:12.5px}
+.copymsg{margin-top:10px;font-weight:700;font-size:14px;background:var(--surface);border:1.5px solid var(--gold);border-radius:12px;padding:8px 12px;color:var(--ink);text-align:center}
+.apply .copymsg{display:inline-block;color:var(--ink)}
+footer .in{padding-block:28px 110px}
+.owner{display:grid;gap:4px;font-size:14px}
+.owner dt{font-size:12px;color:var(--mute);font-weight:700}
+.owner dd{margin:0 0 8px;font-weight:700}
+.fine{margin-top:14px;display:grid;gap:4px}
+.fine li{font-size:12px;color:var(--mute);line-height:1.6}
+.fab{position:fixed;z-index:40;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;min-height:60px;padding:8px 20px 8px 14px;border-radius:999px;border:2.5px solid var(--gold);background:#0A2350;color:#FFFFFF;font-weight:900;font-size:16px;line-height:1.25;text-align:left;box-shadow:0 8px 24px rgba(0,0,0,.32)}
+.fab svg{width:34px;height:34px;flex:none;color:#F3D683}
+.fab small{display:block;font-size:11.5px;color:#F3D683;font-weight:700}
+.backdrop{position:fixed;inset:0;z-index:45;background:rgba(4,16,42,.55)}
+.win{position:fixed;z-index:50;left:0;right:0;bottom:0;height:90%;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);border-top:3px solid var(--gold);border-radius:22px 22px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.35);overflow:hidden}
+.win-h{flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#0A2350;color:#FFFFFF;padding:10px 12px 10px 16px}
+.win-h b{font-weight:900;font-size:16px;line-height:1.3}
+.win-h b small{display:block;font-size:11.5px;color:#F3D683;font-weight:700}
+.win-x{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);background:transparent;color:#FFFFFF;font-size:20px;font-weight:900;line-height:1}
+.nav{flex:none;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 10px;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav button{min-height:44px;border-radius:10px;border:1.5px solid var(--line);background:var(--chip);color:var(--ink);padding:2px 4px;font-size:11px;font-weight:700;line-height:1.3;overflow:hidden}
+.nav button b{display:block;font-size:12px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav button[aria-current="step"]{border-color:var(--gold);border-width:2.5px}
+.nav button.done{background:var(--soft)}
+.nav button:disabled{opacity:.45;cursor:default}
+.win-b{flex:1;min-height:0;overflow-y:auto;padding:14px 14px 18px;-webkit-overflow-scrolling:touch}
+.qb{display:inline-block;background:var(--surface);border:1.5px solid var(--line);border-radius:4px 16px 16px 16px;padding:8px 14px;font-weight:900;font-size:15.5px;line-height:1.5;margin-bottom:12px}
+.lbl{font-size:12.5px;font-weight:700;color:var(--mute);margin:12px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:6px 14px;border-radius:12px;border:2px solid var(--line);background:var(--chip);color:var(--ink);font-weight:700;line-height:1.3}
+.chip.s{min-height:42px;padding:4px 12px;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-ink)}
+.chip.dot::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:6px;vertical-align:middle}
+.hint{font-size:12px;color:var(--mute);margin-top:10px;line-height:1.6}
+.hint i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-right:4px;vertical-align:middle}
+.biz{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.bz{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:86px;padding:10px 4px;border-radius:14px;border:2px solid var(--line);background:var(--chip);color:var(--ink);font-weight:700;font-size:13px;line-height:1.3;text-align:center}
+.bz svg{width:32px;height:32px;flex:none}
+.bz[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-ink)}
+.svcs{display:grid;gap:8px}
+.sv{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;text-align:left;padding:11px 13px;border-radius:14px;border:2px solid var(--line);background:var(--chip);color:var(--ink);width:100%}
+.sv .n{font-weight:900;font-size:15.5px;line-height:1.4}
+.sv .d{grid-column:1/2;font-size:12.5px;color:var(--mute);line-height:1.55;font-weight:500}
+.sv .p{grid-row:1/3;grid-column:2;font-weight:900;font-size:17px;white-space:nowrap;text-align:right}
+.sv .p small{font-size:12px;font-weight:700}
+.sv .rec{display:inline-block;background:var(--gold);color:var(--on-gold);font-size:11px;font-weight:900;border-radius:6px;padding:0 7px;margin-left:6px;vertical-align:2px;line-height:1.7}
+.sv[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-ink)}
+.sv[aria-pressed="true"] .d{color:inherit;opacity:.85}
+.addon{margin-top:10px;display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 14px;border-radius:14px;border:2px dashed var(--gold);background:var(--chip);color:var(--ink);font-weight:700;line-height:1.45}
+.addon .box{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;color:transparent}
+.addon[aria-pressed="true"]{border-style:solid;background:var(--soft)}
+.addon[aria-pressed="true"] .box{background:var(--gold);color:var(--on-gold)}
+.stepper{display:flex;align-items:center;gap:10px}
+.stepper button{width:56px;height:50px;border-radius:12px;border:2px solid var(--line);background:var(--chip);font-weight:900;font-size:22px;line-height:1}
+.stepper output{min-width:110px;text-align:center;font-weight:900;font-size:22px}
+.res{background:var(--surface);color:var(--ink);border-radius:18px;border:2px solid var(--gold);padding:14px}
+.res-k{font-weight:900;color:var(--accent-text);font-size:13px;letter-spacing:.03em}
+.res-k small{color:var(--on-band-sub);font-weight:700;margin-left:6px}
+.res-total{font-weight:900;line-height:1.15;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px}
+.res-total b{font-size:50px;letter-spacing:-.01em}
+.res-total span{font-size:18px}
+.res-total em{font-style:normal;font-size:13px;color:var(--accent-text)}
+.res-sel{font-size:12.5px;color:var(--on-band-sub);margin-top:2px}
+.lines{margin-top:8px;border-top:1px solid var(--line)}
+.lines li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid var(--line);font-size:13px}
+.lines li span:last-child{white-space:nowrap;font-weight:700}
+.pnote{margin-top:8px;background:var(--soft);border-radius:10px;padding:6px 10px;font-size:12.5px;color:var(--ink);font-weight:700;line-height:1.55}
+.blk{margin-top:12px;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:16px;padding:12px 14px}
+.blk h4{font-size:14px;font-weight:900;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.net{font-weight:900;line-height:1.2;margin-top:4px;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px}
+.net b{font-size:40px}
+.net small{font-size:13px;color:var(--sub);font-weight:700}
+.sbar{display:flex;height:14px;border-radius:7px;overflow:hidden;margin-top:6px;gap:2px}
+.sbar .pay{background:var(--bar)}
+.sbar .aid{background:var(--gold)}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;font-weight:700;margin-top:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+.prog{margin-top:10px;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.prog + .prog{border-top:1px dashed var(--line);padding-top:10px}
+.prog b{font-weight:900}
+.prog a{font-weight:700;text-underline-offset:3px}
+.rec-n{font-weight:900;font-size:16px;line-height:1.4;margin-top:6px}
+.rec-r{font-size:13px;color:var(--sub);margin-top:2px}
+.incl{margin-top:8px;display:grid;gap:4px}
+.incl li{font-size:13px;line-height:1.55;padding-left:16px;position:relative}
+.incl li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.swap{margin-top:8px;min-height:40px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);font-weight:900;padding:4px 16px;font-size:13.5px}
+.res-cta{display:grid;gap:8px;margin-top:12px}
+.res-cta .btn{width:100%}
+.res-cta .btn.line{background:var(--surface)}
+.res-cta .copymsg{margin-top:0}
+.res-cta .alt{font-size:12.5px;color:var(--sub);text-align:center;overflow-wrap:anywhere}
+.res-cta .alt a{text-underline-offset:3px}
+#dmtext{width:100%;min-height:150px;border-radius:12px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:13px;padding:10px}
+.win-f{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--surface);border-top:1px solid var(--line);padding:8px 14px calc(8px + env(safe-area-inset-bottom,0px))}
+.win-f div{min-width:0}
+.win-f span{font-size:11.5px;color:var(--mute);font-weight:700;display:block;line-height:1.3}
+.win-f b{font-size:22px;font-weight:900;line-height:1.2;white-space:nowrap}
+.win-f .btn{min-height:44px;padding:6px 18px;white-space:nowrap}
+.win-f .btn:disabled{opacity:.4;cursor:default}
+@media (min-width:640px){
+  .ba{grid-template-columns:1fr auto 1.15fr;align-items:center;gap:12px;padding:24px}
+  .ba-arrow svg{transform:none}
+  .photo{grid-template-columns:1.5fr 1fr;gap:24px}
+  .cards{grid-template-columns:repeat(3,1fr)}
+  .egs{grid-template-columns:repeat(2,1fr)}
+  .tiles2{grid-template-columns:1fr 1fr}
+  .deliver{gap:14px}
+  .win{left:auto;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:410px;height:min(700px,calc(100% - 32px));border:2.5px solid var(--gold);border-radius:22px}
+  .backdrop{display:none}
+}
+@media (min-width:900px){
+  .hero{grid-template-columns:1fr 1fr;gap:40px;margin-top:36px}
+  .top .in{padding-block:16px 48px}
+  .stats{grid-template-columns:1fr 1.15fr;gap:28px;align-items:start}
+  .egs{grid-template-columns:repeat(4,1fr)}
+  .flows{grid-template-columns:1fr 1fr;gap:32px}
+  section .in{padding-block:60px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .chip,.bz,.sv,.addon{transition:background-color .12s,border-color .12s,color .12s}
+  .win{animation:up .18s ease-out}
+  @keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
+}
+</style>
+</head>
+<body>
+<header class="top bgsec strong" style="--photo:url(images/bg_hero.jpg);--pos:22% center;--tint:var(--t-warm)">
+  <div class="in">
+    <div class="bar">
+      <div class="brand">
+        <img src="icon.png" alt="" width="40" height="40">
+        <div><b>多言語メニュー作成</b><span>訪日のお客様向けの多言語化</span></div>
+      </div>
+      <a class="btn sm" href="https://ig.me/m/tagengo.menu" target="_blank" rel="noopener">インスタDMで相談</a>
+    </div>
+
+    <div class="hero">
+      <div>
+        <div class="kicker">英語・韓国語・繁体字</div>
+        <h1>「読めない」を、<br><em>「伝わる」</em>に。</h1>
+        <p class="lead">メニュー・POP・注文画面の多言語化と、ホームページの英語・韓国語の校正で、<b>海外のお客様に伝わる言葉</b>に。飲食店から宿・観光施設・観光協会・お店まで承ります。</p>
+        <ul class="promise">
+          <li>まず無料の見本から</li>
+          <li>お支払いは納品・ご確認の後</li>
+          <li>納品後30日以内の直しは無料</li>
+        </ul>
+        <div class="cta">
+          <button type="button" class="btn" data-open-sim>ポチポチ選んで見積もり</button>
+          <a class="btn ghost" href="https://ig.me/m/tagengo.menu" target="_blank" rel="noopener">インスタのDMで相談する</a>
+        </div>
+      </div>
+
+      <div class="map" aria-label="サービスの図解">
+        <div class="who">
+          <div class="map-k">こんな方に</div>
+          <ul>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6v14a5 5 0 0 0 10 0V6M19 6v36M34 6c-4 3-6 9-6 16h6zm0 16v20" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>飲食店</li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 12v26M5 30h38v8M43 30v-5a6 6 0 0 0-6-6H21v11" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="22" r="4" fill="currentColor"/></svg>宿</li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18 24 6l19 12z" fill="currentColor"/><path d="M11 22v14M19 22v14M29 22v14M37 22v14M5 41h38" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>観光施設</li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 42V6M12 8h24l-5 8 5 8H12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>観光協会</li>
+            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 18h32l-3 24H11z" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/><path d="M17 22v-7a7 7 0 0 1 14 0v7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>お店</li>
+          </ul>
+        </div>
+        <div class="map-arrow" aria-hidden="true"><svg viewBox="0 0 40 44"><path d="M4 4 L36 22 L4 40 Z" fill="currentColor"/></svg></div>
+        <div class="what">
+          <div class="map-k">3つのサービス</div>
+          <ol>
+            <li><i>1</i><b>メニューとPOPの多言語化</b><span>英語＋韓国語。繁体字も入る3言語版は89,800円</span><em class="num">59,800<small>円〜</small></em></li>
+            <li><i>2</i><b>タブレット・スマホ注文のデータパック</b><span>今の注文の仕組みのまま、訳を入れるだけ</span><em class="num">59,800<small>円</small></em></li>
+            <li><i>3</i><b>英語・韓国語ページの校正</b><span>5ページまで9,800円・6ページ目から1ページ＋3,000円</span><em class="num">9,800<small>円〜</small></em></li>
+          </ol>
+          <p class="map-note">韓国語だけのメニュー一式・施設案内一式（各29,800円）もあります。英語・韓国語・繁体字の案の作成にはAIを活用しています。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="bgsec" style="--photo:url(images/bg_inbound.jpg);--pos:center;--tint:var(--t-cool)">
+  <div class="in">
+    <div class="sec-h">
+      <div class="kicker">訪日のお客様の数字</div>
+      <h2>韓国・台湾のお客様が<em style="white-space:nowrap">過去最高ペース</em>で増加中。</h2>
+      <p>2026年1〜9月の訪日のお客様は、韓国・台湾とも、1〜9月として過去最高です。</p>
+    </div>
+    <div class="stats">
+      <div>
+        <ul class="bigs">
+          <li><small>韓国から（2026年1〜9月）</small><b class="num">826<span>万人</span></b><em>前年の同じ時期より 21.6%増</em></li>
+          <li><small>台湾から（2026年1〜9月）</small><b class="num">600<span>万人</span></b><em>前年の同じ時期より 19.1%増</em></li>
+        </ul>
+        <ul class="tiles tiles2" style="margin-top:8px">
+          <li class="tile"><small>訪日のお客様 全体（2025年）</small><b class="num">4,268<span>万人</span></b><em>年間で過去最高。2026年1〜9月は3,073万人（前年の同じ時期より2.9%減）</em></li>
+          <li class="tile"><small>札幌に泊まった外国人（2025年度）</small><b class="num">約249<span>万人</span></b><em>前年度より14.1%増。新千歳空港の調査（1,036人）では、90.2%が札幌で「美味しいものを食べる」</em></li>
+        </ul>
+      </div>
+      <div>
+        <div class="chart">
+          <div class="chart-t">韓国からのお客様（各年の1〜9月・万人）</div>
+          <div class="plot" id="plotKo" role="img"></div>
+          <div class="xl" id="xlKo" aria-hidden="true"></div>
+          <div class="chart-t" style="margin-top:16px">台湾からのお客様（各年の1〜9月・万人）</div>
+          <div class="plot" id="plotTw" role="img"></div>
+          <div class="xl" id="xlTw" aria-hidden="true"></div>
+          <details class="tbl"><summary>数字を表で見る</summary><div style="overflow-x:auto"><table class="num" id="tbl"></table></div></details>
+        </div>
+        <p class="small" style="margin-top:8px">出どころ：日本政府観光局（JNTO）「国籍/月別 訪日外客数（2003年～2026年）」（2026年10月21日公表。2026年8・9月は推計値）、「年別 訪日外客数、出国日本人数の推移（1964年‐2025年）」（確定値）。「1〜9月として過去最高」は、同じ表の2003年からの各年の1〜9月を足して比べたものです。札幌市「2025年度札幌の観光動向に関する調査結果」「令和7年度新千歳空港における観光客動態調査」。2026年11月16日に確認。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bgsec" style="--photo:url(images/bg_subsidy.jpg);--pos:74% center;--tint:var(--t-warm)">
+  <div class="in">
+    <div class="sec-h">
+      <div class="kicker">補助金のまとめ</div>
+      <h2>費用の<em>半分〜3分の2</em>が補助される地域があります。</h2>
+      <p>外国語メニューの翻訳・制作に補助を出している自治体の例です。</p>
+    </div>
+    <div class="egs" id="egs"></div>
+    <div class="sum-row">
+      <p id="subCount"></p>
+      <button type="button" class="btn line" data-open-sim>自分の地域で調べる</button>
+    </div>
+    <p class="small" style="margin-top:10px">金額は、補助が最大で出た場合の目安です（税の扱いは別）。対象になる場合があります。最終判断は自治体・事務局です。申請はお店ご自身で行います（申請書の作成はできません）。</p>
+  </div>
+</section>
+
+<section class="bgsec" style="--photo:url(images/bg_sample.jpg);--pos:18% center;--tint:var(--t-white)">
+  <div class="in">
+    <div class="sec-h">
+      <div class="kicker">見本（メニューの場合）</div>
+      <h2>料理名だけで終わらせない。<em>説明・食材・アレルギー表示</em>まで。</h2>
+    </div>
+    <div class="ba" aria-label="ビフォー・アフターの図解">
+      <figure class="ba-before">
+        <figcaption><span class="tag b">ビフォー</span>日本語だけのメニュー</figcaption>
+        <div class="paper">
+          <span class="q">？ 何の料理…</span>
+          <div class="paper-h">お品書き</div>
+          <ul>
+            <li><span>ジンギスカン</span><span>1,580円</span></li>
+            <li><span>スープカレー</span><span>1,380円</span></li>
+            <li><span>味噌ラーメン</span><span>980円</span></li>
+          </ul>
+        </div>
+      </figure>
+      <div class="ba-arrow" aria-hidden="true"><svg viewBox="0 0 40 44"><path d="M4 4 L36 22 L4 40 Z" fill="currentColor"/></svg></div>
+      <figure class="ba-after">
+        <figcaption><span class="tag a">アフター</span>3言語で、番号で注文</figcaption>
+        <div class="phone"><div class="screen">
+          <div class="tabs" id="heroTabs" role="group" aria-label="見本の言語"></div>
+          <div id="heroDish"></div>
+        </div></div>
+      </figure>
+    </div>
+
+    <ul class="deliver">
+      <li class="dv">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="5" width="28" height="38" rx="3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M16 15h16M16 22h16M16 29h10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        <b>メニュー</b>40品まで・印刷用PDF（A4）
+      </li>
+      <li class="dv">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 8h24l4 30H8z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M6 41h36M17 17h14M16 24h16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        <b>卓上POP 2枚</b>注文と会計のきまり／指でさして伝える表
+      </li>
+      <li class="dv">
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="4" width="20" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M19 13h10M19 19h10M19 25h6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="21" y="36" width="6" height="3" rx="1.5" fill="currentColor"/></svg>
+        <b>スマホで見るメニュー</b>読み取りコードの図柄つき
+      </li>
+    </ul>
+
+    <figure class="photo">
+      <img src="before_after.jpg" alt="左：日本語のメニューを見て困っている海外のお客様。右：スマホで韓国語・繁体字のメニューを見て笑顔のお客様。" width="1200" height="640">
+      <figcaption>
+        <b>卓上のコードを読み取ると、<span class="mk">お客様のスマホ</span>に外国語メニュー。</b>
+        注文の仕方・お通し・お会計などの「お店のきまり」は卓上POPでご案内します。<br>
+        画像はAIで作ったイメージです。画面は見本（例）です。※QRコードは(株)デンソーウェーブの登録商標です
+      </figcaption>
+    </figure>
+
+    <details class="sample" open>
+      <summary>見本をもっと見る（3品・お店のきまり）</summary>
+      <div class="tabs" id="sampleTabs" role="group" aria-label="見本の言語"></div>
+      <div class="cards" id="sampleCards"></div>
+      <div class="rules" id="sampleRules"></div>
+      <p class="small" style="margin-top:10px">見本は架空の店（例）です。料理・値段・食材・アレルギー・お店のきまりはすべて例で、実際はお店からいただいたメニューと質問票の答えのとおりに作ります。繁体字は台湾向けの言い方です。</p>
+    </details>
+  </div>
+</section>
+
+<section class="bgsec" style="--photo:url(images/bg_flow.jpg);--pos:10% center;--tint:var(--t-cool)">
+  <div class="in">
+    <div class="sec-h">
+      <div class="kicker">流れの図解</div>
+      <h2>見本から。<em>お支払いは最後</em>です。</h2>
+    </div>
+    <div class="flows">
+      <div>
+        <div class="flow-t">納品までの流れ</div>
+        <div class="flow-s">気に入っていただけたら、ご依頼ください。</div>
+        <ol class="flow">
+          <li><i>1</i><b>無料の見本<span class="free">無料</span></b><span>インスタのDMかメールでひと言。メニューは3品の見本、ページの校正は修正案を3点、お作りします。</span></li>
+          <li><i>2</i><b>ご依頼</b><span>メニューや資料と、お店のきまりをうかがう質問票をお送りいただきます。</span></li>
+          <li><i>3</i><b>納品</b><span>メニューは材料がそろってから7日前後（3言語版・データパックは10日前後）。直しは2回まで無料。</span></li>
+          <li class="hot"><i>4</i><b>ご確認の後にお支払い</b><span>請求書から7日以内に銀行振込（振込手数料はご負担ください）。</span></li>
+        </ol>
+        <p class="small" style="margin-top:12px">納品後30日以内に「伝わっていない」という声があれば、無料で直します。</p>
+      </div>
+      <div>
+        <div class="flow-t">補助金の流れ（札幌市の例）</div>
+        <div class="flow-s">札幌市「観光施設受入環境整備補助金」（飲食店）</div>
+        <ul class="facts"><li>補助率 1/2</li><li>上限 50万円</li><li>2026年12月21日まで</li><li>先着順・審査あり</li></ul>
+        <ol class="flow">
+          <li><i>1</i><b>申請</b><span>お店ご自身で。申請書類はメールで提出。</span><span class="we">当方：内訳つきの見積書をお出しします</span></li>
+          <li><i>2</i><b>交付決定</b><span>目安は約14日（前後する場合があります）。</span></li>
+          <li class="hot"><i>3</i><b>発注・お支払い</b><span>交付決定のあとで。完了とお支払いは2027年2月28日までに。</span><span class="we">当方：制作・納品</span></li>
+          <li><i>4</i><b>実績報告</b><span>請求書・領収書・納品書・写真など。</span></li>
+          <li><i>5</i><b>振込</b><span>金額確定の通知のあと。</span></li>
+        </ol>
+        <div class="alert">交付決定の前に発注すると<br><b>対象外</b>です</div>
+        <ul class="cav">
+          <li>流れは制度ごとに違います。消費税は原則として補助の対象外とされています。</li>
+          <li>出典：札幌市「観光施設受入環境整備補助金」公式ページ（2026年11月15日確認）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bgsec" style="--pos:center;--tint:var(--t-white)">
+  <div class="in">
+    <div class="sec-h">
+      <div class="kicker">よくある質問</div>
+      <h2>ご依頼の前に</h2>
+    </div>
+    <div class="faq">
+      <details open><summary>見本は本当に無料ですか？</summary><p>無料です。メニューはお店のメニューから3品、ページの校正は修正案を3点お作りして、DMでお送りします。見本だけで終わっても費用はかかりません。</p></details>
+      <details><summary>お支払いはいつですか？</summary><p>納品して、ご確認いただいた後です。請求書から7日以内に銀行振込でお願いします（振込手数料はご負担ください）。表示の金額は総額です。</p></details>
+      <details><summary>直しは何回までですか？</summary><p>2回まで無料です（こちらの訳の誤り・抜けの直しは回数に数えません）。3回目からは1回3,000円です。納品後30日以内に「伝わっていない」という声があれば、無料で直します。</p></details>
+      <details><summary>対応している言語は？</summary><p>メニューとPOPは英語・韓国語・繁体字（台湾向けの言い方）です。簡体字は含みません。ページの校正は英語と韓国語です。</p></details>
+      <details><summary>ホームページの英語・韓国語も見てもらえますか？</summary><p>はい。5ページまでは一律9,800円、6ページ目からは1ページごとに3,000円を足します（10ページで24,800円）。「現在の文 → 修正案 → 理由」の形でお渡しします。</p></details>
+      <details><summary>訳はどうやって作っていますか？</summary><p>英語・韓国語・繁体字の案の作成にはAIを活用しています。</p></details>
+      <details><summary>アレルギーの表示はどうなりますか？</summary><p>お店の表示のとおりに訳します（足したり引いたりしません）。中身の確認はお店でお願いします。</p></details>
+      <details><summary>印刷やホームページへの組み込みもお願いできますか？</summary><p>含みません。印刷用のPDFとデータでお渡しします。写真の撮影・加工も含みません（スマホで見るメニューには、お店でご用意いただいた写真を入れます）。</p></details>
+      <details><summary>タブレット注文・スマホ注文の画面も外国語にできますか？</summary><p>「タブレット注文 3言語データパック」で、料理名・説明・使用食材の訳を、お店の仕組みに合わせた取り込み用のファイルか貼り付け用の表と、入れ方の手順書でお渡しします。ログイン情報はお預かりせず、お店の画面にも触れません。「注文する」などのボタンの文字は、こちらでは変えられません。</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="apply bgsec strong" style="--pos:center;--tint:var(--t-gold)">
+  <div class="in">
+    <h2>まずは<em>無料の見本</em>から。</h2>
+    <p>インスタのDMかメールで「見本を見たい」とひと言お送りください。見積もりの結果を貼っていただくと、話が早く進みます。</p>
+    <div class="apply-btns">
+      <a class="btn" href="https://ig.me/m/tagengo.menu" target="_blank" rel="noopener">インスタのDMで相談する</a>
+      <a class="btn line" data-mail href="mailto:1017.sou.329@gmail.com">メールで相談する</a>
+    </div>
+    <div class="id"><a href="https://www.instagram.com/tagengo.menu/" target="_blank" rel="noopener">インスタ：@tagengo.menu</a></div>
+    <div class="mailbox">メール：<span class="mailtext">1017.sou.329@gmail.com</span><button type="button" class="minibtn" data-copy-mail>アドレスをコピー</button></div>
+    <p class="copymsg" data-mailmsg role="status" hidden></p>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <dl class="owner">
+      <dt>運営者</dt><dd>畠山元希</dd>
+      <dt>所在地</dt><dd>宮城県仙台市青葉区角五郎2-5-13</dd>
+      <dt>お問い合わせ</dt><dd>インスタグラムのDM（<a href="https://www.instagram.com/tagengo.menu/" target="_blank" rel="noopener">@tagengo.menu</a>）<br>メール：<a data-mail href="mailto:1017.sou.329@gmail.com">1017.sou.329@gmail.com</a></dd>
+    </dl>
+    <ul class="fine">
+      <li>お見積もりは目安です。正式な金額は、メニューや資料を拝見してからDMかメールでお伝えします。</li>
+      <li>英語・韓国語・繁体字の案の作成にはAIを活用しています。</li>
+      <li>※QRコードは(株)デンソーウェーブの登録商標です</li>
+    </ul>
+  </div>
+</footer>
+
+<button type="button" class="fab" id="fab" aria-haspopup="dialog" aria-controls="simWin">
+  <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="4" width="30" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="3.2"/><rect x="15" y="10" width="18" height="8" rx="2" fill="currentColor"/><path d="M16 26h3M23 26h3M30 26h3M16 33h3M23 33h3M30 33h3" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/></svg>
+  <span>かんたん見積もり<small>補助金の目安も出ます</small></span>
+</button>
+<div class="backdrop" id="backdrop" hidden></div>
+<div class="win" id="simWin" role="dialog" aria-modal="false" aria-labelledby="simTitle" hidden>
+  <div class="win-h">
+    <b id="simTitle" tabindex="-1">かんたん見積もり<small>ポチポチ選ぶだけ・目安です</small></b>
+    <button type="button" class="win-x" id="simClose" aria-label="見積もりを閉じる">×</button>
+  </div>
+  <div class="nav" id="simNav" role="group" aria-label="えらぶ順番"></div>
+  <div class="win-b" id="simBody" aria-live="polite"></div>
+  <div class="win-f" id="simFoot"></div>
+</div>
+
+<script type="application/json" id="subsidy-data">
+[
+ {"都道府県": "静岡県", "市区町村": "熱海市", "制度名": "外国人観光客等受入環境整備事業費補助金（多言語化対応事業）", "対象の事業者": "旅館業許可の宿・観光施設・食品衛生法許可の飲食施設", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2以内", "上限額": "30万円（千円未満切捨）", "受付期間・締切": "2026-04-15〜2027-03-12", "受付状況": "受付中", "先着か審査か": "不明（ページに記載なし）", "交付決定前の発注が対象外か": "不明（ページに記載なし）", "公式URL": "https://www.city.atami.lg.jp/jigyosha/kigyoshien/1001756.html", "確認日": "2026-11-16", "締切": "2027-03-12", "業種": ["飲食店", "宿", "観光施設"], "条件": "増刷・改定は対象外。", "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "滋賀県", "市区町村": "大津市", "制度名": "大津市外国人観光客受入等整備促進補助金", "対象の事業者": "市内で宿泊・商業・観光施設など観光客が使う施設を運営する者", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2以内", "上限額": "20万円（1者・年度1回）", "受付期間・締切": "2026-04-01〜2027-02-26", "受付状況": "受付中", "先着か審査か": "先着順で審査・予算到達で終了", "交付決定前の発注が対象外か": "不明（要綱・チラシに記載を見つけられず）", "公式URL": "https://www.city.otsu.lg.jp/material/files/group/146/R8_gaikokuzinukeireseibihozyokin_chirahi_new_.pdf", "確認日": "2026-11-16", "締切": "2027-02-26", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "条件": "英語その他の外国語で、新しく作るか改訂するメニューが対象。過去の補助で作ったものは対象外。", "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "岐阜県", "市区町村": "岐阜市", "制度名": "岐阜市外国人観光客受入環境整備支援事業補助金", "対象の事業者": "観光施設・宿・飲食施設・小売店", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2", "上限額": "事業ごと10万円・1事業者合計20万円", "受付期間・締切": "〜2027-01末日（予算枠到達で終了）", "受付状況": "受付中", "先着か審査か": "予算枠到達で終了（事前相談あり）", "交付決定前の発注が対象外か": "はい（「事業着手は交付決定後」）", "公式URL": "https://www.city.gifu.lg.jp/business/sangyoushinkou/1005687/1005709/1005710.html", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "観光施設", "小売"], "条件": "電子注文システムの表示は対象外。着手は交付決定の後。", "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "岐阜県", "市区町村": "関市", "制度名": "関市観光客受入環境整備事業補助金", "対象の事業者": "市内で宿泊・物販・飲食・交通など外国人観光客に関わる事業者", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2以内", "上限額": "20万円（体験創出は50万円）", "受付期間・締切": "2026-08-20〜（予算到達で終了）", "受付状況": "受付中", "先着か審査か": "予算到達で終了（観光課へ事前相談）", "交付決定前の発注が対象外か": "不明（ページに記載なし）", "公式URL": "https://www.city.seki.lg.jp/0000022426.html", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "条件": "観光課への事前相談が必要。", "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "新潟県", "市区町村": "新潟市", "制度名": "新潟市外国人観光客受入整備補助金", "対象の事業者": "宿泊・観光・飲食・商業施設・交通・体験型観光", "外国語メニューの翻訳・制作が対象か": "はい（ほぼ）", "補助率": "1/2以内", "上限額": "20万円", "受付期間・締切": "2026-04-01〜2027-01-29", "受付状況": "受付中", "先着か審査か": "不明（事前相談がないと交付できない場合あり）", "交付決定前の発注が対象外か": "不明（「通知後に事業開始」とあり通知前の着手は想定されない）", "公式URL": "https://www.city.niigata.lg.jp/kanko/kanko/gyosei/ukeireseibi.html", "確認日": "2026-11-16", "締切": "2027-01-29", "業種": ["飲食店", "宿", "観光施設", "小売"], "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "石川県", "市区町村": "金沢市", "制度名": "金沢市外国人旅行者受入環境整備事業費補助金", "対象の事業者": "宿泊・観光事業者・飲食店・商業施設（民間。指定管理は不可）", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2", "上限額": "20万円（1施設・年度1回）", "受付期間・締切": "公式資料に受付期間の記載なし", "受付状況": "不明（令和8年度版の様式・Q&Aは公開中）", "先着か審査か": "不明（交付決定まで約2週間）", "交付決定前の発注が対象外か": "はい（Q&A「交付決定前に着手した場合は交付しない」）", "公式URL": "https://www4.city.kanazawa.lg.jp/soshikikarasagasu/kankoseisakuka/gyomuannai/1/2/1/6536.html", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "観光施設", "小売"], "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "福井県", "市区町村": "福井市", "制度名": "福井市外国人観光客受入環境整備事業", "対象の事業者": "宿泊・観光事業者・飲食店営業者・商業施設", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2以内", "上限額": "10万円（1事業者1施設・年度1回）", "受付期間・締切": "期間の記載なし（予算到達で年度途中でも終了）", "受付状況": "不明（年度・期間が書かれていない）", "先着か審査か": "予算到達で終了（先着とは書いていない）", "交付決定前の発注が対象外か": "不明（ページに記載なし）", "公式URL": "https://www.city.fukui.lg.jp/kankou/osirase/osirase/p023181.html", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "観光施設", "小売"], "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "福井県", "市区町村": "坂井市", "制度名": "外国人観光客受入環境整備事業補助金", "対象の事業者": "宿泊・観光・飲食店・商業施設", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2以内", "上限額": "10万円（1事業者1回）", "受付期間・締切": "期間の記載なし（ページ更新2025-04-17）", "受付状況": "不明（令和8年度の募集か未確認）", "先着か審査か": "予算到達で終了", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.city.fukui-sakai.lg.jp/kankou/gaikokujinkannkoukyaku/hojyokin.html", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "観光施設", "小売"], "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "兵庫県", "市区町村": "養父市", "制度名": "令和8年度 養父市訪日インバウンド受入環境整備促進補助金", "対象の事業者": "市内に施設・店舗を持つ事業者・団体（業種を問わない）", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2以内", "上限額": "50万円（複数事業も合算）", "受付期間・締切": "2026-04-01〜随時（予算がなくなり次第終了）。事業は〜2027-02-26", "受付状況": "受付中", "先着か審査か": "予算がなくなり次第（先着とは書いていない）", "交付決定前の発注が対象外か": "はい（交付決定前の発注・施工は対象外）", "公式URL": "https://www.city.yabu.hyogo.jp/jigyosha/kigyoshien/7101.html", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "条件": "交付決定の前の発注は対象外。", "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "大阪府", "市区町村": "", "制度名": "令和8年度 宿泊施設の環境整備促進事業", "対象の事業者": "府内の宿泊施設（営業許可者）、5者以上の団体", "外国語メニューの翻訳・制作が対象か": "宿の案内・パンフ・HPの多言語化は対象。飲食店は対象外", "補助率": "1/2（災害協定ありは2/3）", "上限額": "1施設200万円（一部40万円）", "受付期間・締切": "2026-08-20〜2027-02-26（予算到達で終了）", "受付状況": "受付中", "先着か審査か": "予算到達で終了", "交付決定前の発注が対象外か": "はい（申請・決定前の契約・発注は対象外）", "公式URL": "https://www.pref.osaka.lg.jp/o070070/toshimiryoku/syukuhaku_hojyo/r8syukuhaku_hojyo.html", "確認日": "2026-11-16", "地域の注記": "（府）宿泊施設", "締切": "2027-02-26", "業種": ["宿"], "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "大阪府", "市区町村": "", "制度名": "令和8年度 大阪府特区民泊施設の環境整備促進事業", "対象の事業者": "特区民泊の認定者・認定予定者", "外国語メニューの翻訳・制作が対象か": "宿の案内・パンフ・HPの多言語化は対象。メニューは対象外", "補助率": "1/2以内", "上限額": "1施設40万円", "受付期間・締切": "2026-08-20〜2027-02-26（予算到達で終了）", "受付状況": "受付中", "先着か審査か": "予算到達で終了", "交付決定前の発注が対象外か": "不明（要領で確認）", "公式URL": "https://www.pref.osaka.lg.jp/o070070/toshimiryoku/syukuhaku_hojyo/r8tokku_hojyo.html", "確認日": "2026-11-16", "地域の注記": "（府）特区民泊", "締切": "2027-02-26", "業種": ["宿"], "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "大阪府", "市区町村": "", "制度名": "令和8年度 大阪府新法民泊施設の環境整備促進事業", "対象の事業者": "住宅宿泊事業の届出事業者・予定者", "外国語メニューの翻訳・制作が対象か": "宿の案内・パンフ・HPの多言語化は対象。メニューは対象外", "補助率": "1/2以内", "上限額": "1施設40万円", "受付期間・締切": "2026-08-20〜2027-02-26（予算到達で終了）", "受付状況": "受付中", "先着か審査か": "予算到達で終了", "交付決定前の発注が対象外か": "不明（要領で確認）", "公式URL": "https://www.pref.osaka.lg.jp/o070070/toshimiryoku/syukuhaku_hojyo/r8shinpou_hojyo.html", "確認日": "2026-11-16", "地域の注記": "（府）新法民泊", "締切": "2027-02-26", "業種": ["宿"], "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "富山県", "市区町村": "", "制度名": "持続可能な観光地域づくり支援事業費補助金（受入環境整備）", "対象の事業者": "県内の観光事業者・観光関係団体など", "外国語メニューの翻訳・制作が対象か": "はい（ほぼ）", "補助率": "1/2（二次情報・未確認）", "上限額": "100万円（二次情報・未確認）", "受付期間・締切": "第3期 2026-09-01〜10-20（事前相談は〜10-13・必須）", "受付状況": "終了（来年度未定）", "先着か審査か": "審査", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.pref.toyama.jp/810111/hojokin/kankochiikidukuri.html", "確認日": "2026-11-16", "地域の注記": "（県）", "締切": "2026-10-20", "業種": ["観光施設", "観光協会・団体"], "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "三重県", "市区町村": "", "制度名": "インバウンド・ユニバーサルツーリズム・観光防災推進補助事業", "対象の事業者": "宿泊施設・観光施設", "外国語メニューの翻訳・制作が対象か": "宿・観光施設の多言語対応のみ（飲食店は不明）", "補助率": "1/2", "上限額": "100万〜1,000万円", "受付期間・締切": "令和8年度分は審査済み", "受付状況": "終了（来年度未定）", "先着か審査か": "審査", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.pref.mie.lg.jp/KANKOSHI/HP/m0369700022.htm", "確認日": "2026-11-16", "地域の注記": "（県）", "締切": "", "業種": ["宿", "観光施設"], "出どころ": "中部近畿_2026-11-16.csv"},
+ {"都道府県": "東京都", "市区町村": "", "制度名": "インバウンド対応力強化支援事業補助金（令和8年度）", "対象の事業者": "都内の宿泊施設・飲食店・小売店・体験施設等（中小企業要件あり）", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2（多言語対応は2/3以内）", "上限額": "1施設・店舗あたり300万円", "受付期間・締切": "2026-04-01〜2027-03-31（当日消印有効・Jグランツ電子申請可）", "受付状況": "受付中（予算到達で終了。現在の残り予算は未確認）", "先着か審査か": "書類審査（予算額に達した時点で受付終了）", "交付決定前の発注が対象外か": "はい：「交付決定日より前に補助事業を開始した場合は、補助金は交付しません」", "公式URL": "https://www.tcvb.or.jp/jp/project/R8_fore_tebiki_3.pdf", "確認日": "2026-11-16", "地域の注記": "（都内全域）東京観光財団", "締切": "2027-03-31", "業種": ["飲食店", "宿", "観光施設", "小売"], "条件": "中小企業であること、飲食店は「EAT東京」に外国語メニューを掲載済みであることが条件。交付決定の前に始めた事業は対象外。", "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "東京都", "市区町村": "港区", "制度名": "港区チャレンジ商店街店舗応援事業補助金（令和8年度）", "対象の事業者": "区内商店会加盟店（賛助会員含む）の小売・飲食・一部サービス。区内3年以上営業、資本金1000万円以下または従業員30人以下", "外国語メニューの翻訳・制作が対象か": "不明（一部）", "補助率": "1/2", "上限額": "50万円", "受付期間・締切": "〜2027-01-29（郵送は必着）", "受付状況": "受付中（予算額に達した時点で終了）", "先着か審査か": "先着（予算到達で終了）", "交付決定前の発注が対象外か": "はい：「交付決定以降に事業を実施することが条件」", "公式URL": "https://www.city.minato.tokyo.jp/sangyousinkou/sangyo/shinko/challenge0928hozyokin.html", "確認日": "2026-11-16", "締切": "2027-01-29", "業種": ["飲食店", "小売"], "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "栃木県", "市区町村": "宇都宮市", "制度名": "外国人観光客受入体制整備事業補助金", "対象の事業者": "市内に施設・店舗を持つ宿泊施設・飲食店・土産品販売店・観光施設等", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2（千円未満切捨）", "上限額": "15万円（1事業者年度1回）", "受付期間・締切": "2026-04-01〜2027-02末", "受付状況": "受付中（予算がなくなり次第終了）", "先着か審査か": "先着（予算がなくなり次第）", "交付決定前の発注が対象外か": "不明（要綱・概要に明記なし。過去にこの補助金を使った事業は対象外）", "公式URL": "https://www.city.utsunomiya.lg.jp/_res/projects/default_project/_page_/001/017/899/r8gaiyou.pdf", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "観光施設", "小売"], "条件": "過去にこの補助金を使った事業は対象外。", "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "栃木県", "市区町村": "日光市", "制度名": "商品メニュー等多言語化促進事業補助金", "対象の事業者": "市内に事務所・店舗を持つ宿泊事業者・飲食事業者・土産品販売店等", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2", "上限額": "5万円（1事業者年度1回）", "受付期間・締切": "要綱に期間の記載なし。公式ページ（更新2024-04-01）にも受付期間の記載なし", "受付状況": "不明（要綱は有効。募集期間・予算残は電話確認が必要）", "先着か審査か": "不明（要綱に先着・審査の記載なし）", "交付決定前の発注が対象外か": "不明（要綱に明記なし）", "公式URL": "https://www.city.nikko.lg.jp/soshiki/6/1024/7/592.html", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "小売"], "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "宮城県", "市区町村": "名取市", "制度名": "インバウンド受入環境整備事業補助金（令和8年度）", "対象の事業者": "宿泊・製造・飲食・観光・交通・小売事業者等（県内に事業所を有する法人または個人）", "外国語メニューの翻訳・制作が対象か": "不明", "補助率": "1/2", "上限額": "50万円（消費税除く）", "受付期間・締切": "2026-04-15〜2027-02-26 17時", "受付状況": "受付中（予算がなくなり次第終了）", "先着か審査か": "先着（受付順に交付可否を決定）", "交付決定前の発注が対象外か": "不明（公式ページに記載なし。精算払い）", "公式URL": "https://www.city.natori.miyagi.jp/page/19330.html", "確認日": "2026-11-16", "締切": "2027-02-26", "業種": ["飲食店", "宿", "観光施設", "小売"], "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "北海道", "市区町村": "札幌市", "制度名": "観光施設受入環境整備補助金（令和8年度・飲食店）", "対象の事業者": "食品衛生法の許可を受けた市内の飲食店（1年以上営業。テイクアウト専門等は対象外）", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2", "上限額": "50万円（飲食店。観光施設は100万円）", "受付期間・締切": "2026-07-24〜2026-12-21", "受付状況": "受付中（予算額に達したら終了）", "先着か審査か": "先着（既存資料。公式ページは予算到達で終了とのみ記載）", "交付決定前の発注が対象外か": "はい（既存資料：交付決定前の発注・着手は対象外）", "公式URL": "https://www.city.sapporo.jp/keizai/kanko/hojo/r8ukeirekannkyouseibi.html", "確認日": "2026-11-16", "締切": "2026-12-21", "業種": ["飲食店"], "条件": "英語が必須。料理写真の掲載や使用食材等の説明が求められます。交付決定の前のご発注は対象外。", "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "北海道", "市区町村": "札幌市", "制度名": "食の海外展開チャレンジ支援補助金（令和8年度）", "対象の事業者": "海外展開に取り組む／予定している食関連事業者（飲食店向けメニューあり）。事前相談が必要", "外国語メニューの翻訳・制作が対象か": "不明", "補助率": "1/2", "上限額": "10万・20万・50万円（事業内容で異なる。令和7年度要領）", "受付期間・締切": "令和8年度の申請期限は2027-01-29（検索結果の要約＝未確認）", "受付状況": "受付中（令和8年度は要領未確認）", "先着か審査か": "予算がなくなり次第終了（令和7年度要領）", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.city.sapporo.jp/keizai/tradeinfo/food/documents/chyarebosyuu.pdf", "確認日": "2026-11-16", "地域の注記": "札幌市（小樽市も対象地域）", "締切": "", "業種": ["飲食店"], "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "青森県", "市区町村": "十和田市", "制度名": "インバウンド対応強化事業補助金（令和8年度。旧：インバウンド受入環境整備事業補助金）", "対象の事業者": "市内に事務所のある宿泊・製造・飲食・観光・交通・小売・商店街組織等", "外国語メニューの翻訳・制作が対象か": "はい（令和7年度の資料）", "補助率": "1/2", "上限額": "100万円（受入環境整備事業。誘客促進事業は10万円）", "受付期間・締切": "令和8年度の期間は公式ページに記載なし（令和7年度は2025-04-01〜2026-03-31）", "受付状況": "終了（公式ページ：「予算に達したため、現在申請受付を停止しています」）", "先着か審査か": "先着（令和7年度チラシ）", "交付決定前の発注が対象外か": "不明（事業前に商工観光課へ相談するよう案内あり）", "公式URL": "https://www.city.towada.lg.jp/sangyo/shoukou/inbound.html", "確認日": "2026-11-16", "締切": "2026-03-31", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "山形県", "市区町村": "", "制度名": "インバウンド受入環境整備支援事業費補助金（令和8年度）", "対象の事業者": "県内の宿泊事業者・飲食事業者・観光立寄施設・観光協会等", "外国語メニューの翻訳・制作が対象か": "不明", "補助率": "1/2", "上限額": "100万円（1事業者）", "受付期間・締切": "2026-04-17〜2026-06-30", "受付状況": "終了（提出締切を過ぎた。2次募集の有無は未確認）", "先着か審査か": "先着（郵送・持参。予算上限で期間前に終了あり）", "交付決定前の発注が対象外か": "はい：「交付決定前に発注・契約・支出した経費…補助対象外」", "公式URL": "https://www200.pref.yamagata.jp/documents/51845/01gaiyo.pdf", "確認日": "2026-11-16", "地域の注記": "（県内全域）", "締切": "2026-06-30", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体"], "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "山形県", "市区町村": "鶴岡市", "制度名": "インバウンド受入環境向上補助金（令和8年度）", "対象の事業者": "市内のインバウンド誘客に取り組む事業者（宿泊・観光施設・土産品販売店等。飲食店は明記なし＝未確認）", "外国語メニューの翻訳・制作が対象か": "不明", "補助率": "1/2", "上限額": "20万円", "受付期間・締切": "2026-07-01〜2026-08-28（9/15に「申請期限延長」の新着あり。新しい期限は未確認）", "受付状況": "終了（延長後の期限は未確認）", "先着か審査か": "予算が上限に達し次第終了", "交付決定前の発注が対象外か": "はい（検索要約：交付決定前の事前着手はできない）", "公式URL": "https://www.city.tsuruoka.lg.jp/kanko/kankou-sonota/inboundohozyo.html", "確認日": "2026-11-16", "締切": "2026-08-28", "業種": ["飲食店", "宿", "観光施設", "小売"], "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "岡山県", "市区町村": "倉敷市", "制度名": "令和8年度 倉敷市外国人観光客おもてなし促進事業補助金", "対象の事業者": "市内の飲食店・宿泊施設・土産店・文化観光施設・鉄道/バス/タクシー", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "対象経費の1/2以内（消費税は対象外）", "上限額": "20万円（同一年度に1事業者1回限り）", "受付期間・締切": "2026-04-01から。終了日の記載なし（予算額に達した時点で終了）", "受付状況": "受付中（終了の表示なし）", "先着か審査か": "先着順で受付・審査", "交付決定前の発注が対象外か": "公式ページには記載なし（未確認。県の別制度は対象外と明記）", "公式URL": "https://www.city.kurashiki.okayama.jp/culture/tourism/1005076/1014745/1005081.html", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "観光施設", "小売"], "条件": "消費税は対象外。交付決定の前の発注の扱いは市にご確認ください。", "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "岡山県", "市区町村": "", "制度名": "令和8年度 岡山県インバウンド対応力強化支援事業（ア 観光事業者等受入環境整備事業）", "対象の事業者": "県内の宿泊施設・飲食店（食品衛生法の許可）・観光施設・交通機関", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "対象経費の2/3以内", "上限額": "100万円（1施設1申請）", "受付期間・締切": "第1期2026-04-15〜05-29、第2期2026-06-22〜07-31（13時）", "受付状況": "終了（第3期の案内は見つからず）", "先着か審査か": "先着ではない。予算超過時は抽選", "交付決定前の発注が対象外か": "はい（交付決定前の契約・発注・支払いはすべて対象外）", "公式URL": "https://www.okayama-kanko.jp/asset/news/flyer_inbound", "確認日": "2026-11-16", "地域の注記": "岡山県全域（岡山県観光連盟）", "締切": "2026-05-29", "業種": ["飲食店", "宿", "観光施設"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "鳥取県", "市区町村": "米子市", "制度名": "米子市飲食店向けインバウンド受入環境整備支援補助金", "対象の事業者": "市内の飲食店（外国語表記メニューの整備・提供を誓約する店）", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "補助対象経費の2/3（1,000円未満切り捨て）", "上限額": "10万円×対象飲食店数", "受付期間・締切": "〜2026-12-25（事業完了後の報告は2027-02-26まで）", "受付状況": "受付中", "先着か審査か": "先着（予算額に達し次第終了）", "交付決定前の発注が対象外か": "はい（補助事業は交付決定後に着手）", "公式URL": "https://www.city.yonago.lg.jp/item/62158.htm", "確認日": "2026-11-16", "締切": "2026-12-25", "業種": ["飲食店"], "条件": "英語メニューの整備が必須（韓国語・中国語は推奨）。着手は交付決定の後。", "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "鳥取県", "市区町村": "米子市", "制度名": "インバウンド観光客歓迎飲食店受入環境整備事業（第2弾）", "対象の事業者": "米子駅・朝日町・角盤町・皆生温泉周辺の飲食店", "外国語メニューの翻訳・制作が対象か": "はい（Q&Aの例に外国語表記メニュー表の作成）", "補助率": "不明", "上限額": "不明", "受付期間・締切": "不明", "受付状況": "不明（令和8年度の公募か未確認。上の令和8年度制度に置き換わった可能性）", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.city.yonago.lg.jp/46153.htm", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "鳥取県", "市区町村": "鳥取市", "制度名": "鳥取市インバウンド受入環境整備事業補助金（令和8年度。対象拡大）", "対象の事業者": "観光事業者等。ただし鳥取市観光コンベンション協会の会員、または指定セミナー参加者などの条件あり", "外国語メニューの翻訳・制作が対象か": "不明（「多言語対応パンフレットやHP、その他ツールの作成」が対象。メニューの文言なし）", "補助率": "区分で異なる（(1)は2/3。表が結合セルで(4)の率は確実に読めず）", "上限額": "区分で異なる（(1)20万円、(6)以降40万円。(4)は確実に読めず）", "受付期間・締切": "2026-04-01から。予算上限に達した時点で終了（二次では2027-03-31まで）", "受付状況": "受付中", "先着か審査か": "先着（申請書を受理した順）", "交付決定前の発注が対象外か": "不明（申請は事業着手の30日前までと二次に記載）", "公式URL": "https://www.city.tottori.lg.jp/page/5340.html", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "島根県", "市区町村": "", "制度名": "外国人観光客誘致事業補助金", "対象の事業者": "県内に事業所を有し外国人観光客誘致に取り組む事業者・団体", "外国語メニューの翻訳・制作が対象か": "不明（多言語パンフレット・HPの翻訳料、看板の翻訳料、OTA掲載内容の翻訳料が対象。メニューの文言なし）", "補助率": "1/2", "上限額": "50万円（OTA等の区分は20万円、同一事業者の申請は合計50万円まで）", "受付期間・締切": "2026-04-01以降の事業が対象。事業実施の20日前までに申請", "受付状況": "不明（令和8年度の募集開始は確認。終了の表示は見つからず）", "先着か審査か": "予算額に達し次第終了", "交付決定前の発注が対象外か": "はい（交付決定前に着手した事業は対象外）", "公式URL": "https://www.pref.shimane.lg.jp/tourism/tourist/kankou/kokusai/gaikokujin_yuchi.html", "確認日": "2026-11-16", "地域の注記": "島根県全域", "締切": "", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "徳島県", "市区町村": "", "制度名": "令和8年度 徳島県インバウンド等受入環境整備促進事業補助金", "対象の事業者": "県内の飲食店・宿泊施設・免税店・観光施設・交通事業者など", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "多言語対応は2/3以内、その他は1/2以内", "上限額": "50万円（飲食・宿泊等）／100万円（バス・鉄道）／300万円（空港）", "受付期間・締切": "2026-05-15〜2027-01-29（二次情報。前の調べで公式確認済み）", "受付状況": "受付中", "先着か審査か": "不明", "交付決定前の発注が対象外か": "はい（交付決定前に発注・施工・導入した経費は対象外）", "公式URL": "https://www.awanavi.jp/wp-content/uploads/2026/05/R8受入環境整備事業補助金交付要綱.pdf", "確認日": "2026-11-16", "地域の注記": "徳島県全域（徳島県観光協会）", "締切": "2027-01-29", "業種": ["飲食店", "宿", "観光施設"], "条件": "英語が基本。すでに多言語化されている場合は、言語を追加する場合のみ対象。飲食店は県の「外国語メニューがある飲食店検索サイト」の掲載店が対象。交付決定の前の発注は対象外。", "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "徳島県", "市区町村": "", "制度名": "インバウンド受入環境整備事業助成金", "対象の事業者": "徳島東部圏域の観光関連事業者", "外国語メニューの翻訳・制作が対象か": "不明", "補助率": "不明", "上限額": "10万円", "受付期間・締切": "2026-05-18〜2027-02-10", "受付状況": "不明（二次では受付期間内）", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://hojyokin-portal.jp/subsidies/84523", "確認日": "2026-11-16", "地域の注記": "徳島東部圏域（イーストとくしま観光推進機構）", "締切": "2027-02-10", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "福岡県", "市区町村": "", "制度名": "令和8年度 新たな観光地域づくり補助金（第3期）", "対象の事業者": "県が指定する広域観光エリア内の観光関連事業者（飲食店・土産店・観光施設等）", "外国語メニューの翻訳・制作が対象か": "不明（「多言語パンフレット制作」「外国語表記の案内板設置」が例。メニューの文言なし）", "補助率": "補助対象経費の1/2以内", "上限額": "200万円（前の調べ2026-11-14の公式確認）", "受付期間・締切": "第3期 2026-11-05〜12-25", "受付状況": "受付中", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明（今回は確認せず）", "公式URL": "https://www.pref.fukuoka.lg.jp/contents/r8aratanakanko-hojo.html", "確認日": "2026-11-16", "地域の注記": "福岡県（福岡市・北九州市を除く広域観光エリア）", "締切": "2026-12-25", "業種": ["飲食店", "観光施設", "小売"], "対象外の市区町村": ["福岡市", "北九州市"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "福岡県", "市区町村": "福岡市", "制度名": "令和8年度 福岡市宿泊事業者受入環境充実支援補助金", "対象の事業者": "宿泊事業者（旅館業・民泊。宿泊税の申告あり）。飲食店は対象外", "外国語メニューの翻訳・制作が対象か": "宿のみ（多言語化のHP・広報物・館内案内は対象）", "補助率": "1/2", "上限額": "客室数に応じた上限（前の調べ）。民泊は10万円", "受付期間・締切": "2026-05-13〜11-30", "受付状況": "受付中", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.city.fukuoka.lg.jp/keizai/kankou-s/ukeireshien_1.html", "確認日": "2026-11-15（前の調べ。今回は再確認できず）", "締切": "2026-11-30", "業種": ["宿"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "福岡県", "市区町村": "久留米市", "制度名": "久留米市インバウンド推進事業費補助金（令和7年度）", "対象の事業者": "宿泊施設・飲食店など", "外国語メニューの翻訳・制作が対象か": "不明", "補助率": "1/2", "上限額": "10万円", "受付期間・締切": "申請期限 2026-02-06", "受付状況": "終了（令和8年度版は見つからず）", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://hojyokin-portal.jp/subsidies/59938", "確認日": "2026-11-16", "締切": "", "業種": ["飲食店", "宿"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "福岡県", "市区町村": "大川市", "制度名": "大川市おもてなし環境整備事業補助金", "対象の事業者": "市内に事業所のある法人・個人事業主", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "補助対象経費の1/2以内", "上限額": "20万円以内", "受付期間・締切": "〜2026-12-25（事業の完了は2027-02-28まで）", "受付状況": "受付中", "先着か審査か": "予算枠に達した時点で終了（先着に近い）", "交付決定前の発注が対象外か": "はい（交付決定が済むまで契約・発注はできない）", "公式URL": "http://www.city.okawa.fukuoka.jp/s034/030/20250627140542.html", "確認日": "2026-11-16", "締切": "2026-12-25", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "条件": "交付決定が済むまで、契約・発注はできません。", "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "熊本県", "市区町村": "熊本市", "制度名": "令和8年度 熊本市宿泊事業者受入環境充実支援補助金", "対象の事業者": "旅館業・民泊の宿泊事業者（宿泊税の経営申告書を提出している者）。飲食店は対象外", "外国語メニューの翻訳・制作が対象か": "宿のみ（多言語化は政策項目。飲食店のメニューは対象外）", "補助率": "1/2以内", "上限額": "客室数に応じた上限", "受付期間・締切": "2026-09-04〜2026-11-30", "受付状況": "受付中（あと14日）", "先着か審査か": "先着順", "交付決定前の発注が対象外か": "はい（交付決定日前に実施した事業は対象外）", "公式URL": "https://www.city.kumamoto.jp/kiji00371784/index.html", "確認日": "2026-11-16", "締切": "2026-11-30", "業種": ["宿"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "熊本県", "市区町村": "山鹿市", "制度名": "山鹿市インバウンド受入環境整備促進事業補助金（令和8年度）", "対象の事業者": "観光施設・宿泊施設・飲食業施設・旅客運送の施設と車両", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "市単独型1/2以内（観光庁補助金併用型は3/4以内）", "上限額": "100万円", "受付期間・締切": "2026-05-20〜07-31（補助対象期間は交付決定後〜2027-02-26）", "受付状況": "終了（公式の募集期間が過ぎた）", "先着か審査か": "予算の上限に達し次第終了", "交付決定前の発注が対象外か": "はい（補助対象期間は交付決定後から）", "公式URL": "https://www.city.yamaga.kumamoto.jp/kiji0032599/index.html", "確認日": "2026-11-16", "締切": "2026-07-31", "業種": ["飲食店", "宿", "観光施設"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "熊本県", "市区町村": "大津町", "制度名": "商品メニュー等の多言語化事業補助金（令和7年度）", "対象の事業者": "宿泊施設・飲食店・中小企業など", "外国語メニューの翻訳・制作が対象か": "はい（制度名にメニューの多言語化）", "補助率": "1/2", "上限額": "3万円", "受付期間・締切": "〜2026-03-31", "受付状況": "終了（令和8年度版は見つからず）", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://hojyokin-portal.jp/subsidies/66120", "確認日": "2026-11-16", "締切": "2026-03-31", "業種": ["飲食店", "宿"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "熊本県", "市区町村": "高森町", "制度名": "外国人観光客受入基盤整備事業補助金（令和8年度）", "対象の事業者": "外国人観光客受入に新たに取り組む事業者", "外国語メニューの翻訳・制作が対象か": "不明", "補助率": "1/2", "上限額": "20万円", "受付期間・締切": "〜2026-10-30", "受付状況": "終了（二次）", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://hojyokin-portal.jp/subsidies/79210", "確認日": "2026-11-16", "締切": "2026-10-30", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "長崎県", "市区町村": "五島市", "制度名": "令和8年度 五島市インバウンド誘客促進事業補助金", "対象の事業者": "船舶・旅客運送・宿泊・飲食事業者・体験提供事業者（飲食は補助金ポータルの記載。公式は交付要領を見るよう案内）", "外国語メニューの翻訳・制作が対象か": "不明（「パンフレット、リーフレット等の多言語化」「自社サイトの多言語化」「施設案内板の多言語化」。メニューの文言なし）", "補助率": "対象経費の1/2以内", "上限額": "パンフ等10万円・自社サイト30万円・案内板20万円（1事業者60万円は二次）", "受付期間・締切": "事業期間 2026-04-01〜2027-03-10。募集は2026-04-16掲載", "受付状況": "受付中（予算額に達した時点で終了。到達の表示は見つからず）", "先着か審査か": "先着に近い（予算額に達した時点で終了）", "交付決定前の発注が対象外か": "事前に申請書提出が必要（二次）。交付決定前の発注の扱いは交付要領PDFを未確認", "公式URL": "https://www.city.goto.nagasaki.jp/s054/020/010/010/20260413114125.html", "確認日": "2026-11-16", "締切": "2027-03-10", "業種": ["飲食店", "宿", "観光施設"], "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "鹿児島県", "市区町村": "指宿市", "制度名": "指宿市外国人観光客受入体制整備費助成事業補助金（令和7年度）", "対象の事業者": "宿泊・観光・飲食施設・土産品店", "外国語メニューの翻訳・制作が対象か": "不明（外国語表記などの受入体制整備）", "補助率": "1/2", "上限額": "20万円", "受付期間・締切": "2025-06-02〜2026-01-30", "受付状況": "終了（令和8年度版は見つからず）", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://hojyokin-portal.jp/subsidies/60356", "確認日": "2026-11-16", "締切": "2026-01-30", "業種": ["飲食店", "宿", "観光施設", "小売"], "出どころ": "西日本_2026-11-16.csv"}
+]
+</script>
+
+<script>
+/*CALC-START*/
+var PRICE = {
+  menu2: 59800,
+  menu3: 89800,
+  addon: 9800,
+  datapack: 59800,
+  datapackPer10: 9000,
+  ko: 29800,
+  koPer10: 3000,
+  facility: 29800,
+  facilityPerSheet: 5000,
+  proofPage: 3000,
+  proofUpTo5: 9800
+};
+var ITEM_STEPS = [40,50,60,70,80,90,100,101];
+var SHEET_STEPS = [3,4,5,6,7];
+var PAGE_MIN = 1, PAGE_MAX = 20;
+var BIZ = {
+  paper:      {kind:'飲食店',         name:'飲食店（紙のメニュー）',           svcs:['menu2','menu3','ko','proof'], rec:'menu2'},
+  ticket:     {kind:'飲食店',         name:'飲食店（券売機）',                 svcs:['menu2','menu3','ko','proof'], rec:'menu2'},
+  tablet:     {kind:'飲食店',         name:'飲食店（タブレット・スマホ注文）', svcs:['datapack','menu2','menu3','ko','proof'], rec:'datapack'},
+  lodging:    {kind:'宿',             name:'宿（ホテル・旅館）',               svcs:['proof'], rec:'proof'},
+  attraction: {kind:'観光施設',       name:'観光施設',                         svcs:['facility','proof'], rec:'facility'},
+  assoc:      {kind:'観光協会・団体', name:'観光協会・団体',                   svcs:['proof'], rec:'proof'},
+  retail:     {kind:'小売',           name:'小売・お土産店',                   svcs:['proof'], rec:'proof'}
+};
+var SVC = {
+  menu2:    {name:'メニューとPOPの多言語化（英語＋韓国語）', qty:'items'},
+  menu3:    {name:'メニューとPOPの多言語化（英語＋韓国語＋繁体字）', qty:'items'},
+  datapack: {name:'タブレット・スマホ注文 3言語データパック', qty:'items'},
+  ko:       {name:'韓国語メニュー一式', qty:'items'},
+  facility: {name:'韓国語の施設案内一式', qty:'sheets'},
+  proof:    {name:'英語・韓国語ページの校正', qty:'pages'}
+};
+function normalize(s){
+  var o = {};
+  o.pref = s.pref; o.city = s.city; o.biz = BIZ[s.biz] ? s.biz : 'paper';
+  var b = BIZ[o.biz];
+  o.svc = b.svcs.indexOf(s.svc) >= 0 ? s.svc : b.rec;
+  o.addon = !!s.addon && o.biz === 'tablet' && (o.svc === 'menu2' || o.svc === 'menu3');
+  o.items = ITEM_STEPS.indexOf(s.items) >= 0 ? s.items : 40;
+  o.sheets = SHEET_STEPS.indexOf(s.sheets) >= 0 ? s.sheets : 3;
+  o.pages = Math.min(PAGE_MAX, Math.max(PAGE_MIN, s.pages | 0 || 5));
+  return o;
+}
+function quote(s0){
+  var s = normalize(s0), L = [], total = 0, partial = '', base = 0, k;
+  if (s.svc === 'menu2' || s.svc === 'menu3'){
+    base = PRICE[s.svc]; total = base;
+    L.push([SVC[s.svc].name + '（40品まで）', base]);
+    if (s.addon){ L.push(['データパック（メニューと一緒のご依頼）', PRICE.addon]); total += PRICE.addon; }
+    if (s.items > 40) partial = '41品以上の分は、DMでお見積もりします（上は40品までの金額です）';
+  } else if (s.svc === 'datapack'){
+    total = PRICE.datapack; L.push([SVC.datapack.name + '（40品まで）', PRICE.datapack]);
+    if (s.items > 100) partial = '101品以上の分は、DMでお見積もりします（上は40品までの金額です）';
+    else if (s.items > 40){ k = Math.ceil((s.items - 40) / 10); L.push(['追加 ' + (s.items - 40) + '品（10品ごとに9,000円）', k * PRICE.datapackPer10]); total += k * PRICE.datapackPer10; }
+  } else if (s.svc === 'ko'){
+    total = PRICE.ko; L.push([SVC.ko.name + '（40品まで）', PRICE.ko]);
+    if (s.items > 100) partial = '101品以上の分は、DMでお見積もりします（上は40品までの金額です）';
+    else if (s.items > 40){ k = Math.ceil((s.items - 40) / 10); L.push(['追加 ' + (s.items - 40) + '品（10品ごとに3,000円）', k * PRICE.koPer10]); total += k * PRICE.koPer10; }
+  } else if (s.svc === 'facility'){
+    total = PRICE.facility; L.push([SVC.facility.name + '（A4片面3枚まで）', PRICE.facility]);
+    if (s.sheets > 6) partial = '7枚以上の分は、DMでお見積もりします（上は3枚までの金額です）';
+    else if (s.sheets > 3){ k = s.sheets - 3; L.push(['追加 ' + k + '枚（1枚ごとに5,000円）', k * PRICE.facilityPerSheet]); total += k * PRICE.facilityPerSheet; }
+  } else {
+    if (s.pages <= 5){ total = PRICE.proofUpTo5; L.push([SVC.proof.name + ' ' + s.pages + 'ページ（5ページまで一律）', total]); }
+    else { k = s.pages - 5; total = PRICE.proofUpTo5 + k * PRICE.proofPage; L.push([SVC.proof.name + ' 5ページまで', PRICE.proofUpTo5]); L.push(['6ページ目から ' + k + 'ページ（1ページ3,000円）', k * PRICE.proofPage]); }
+  }
+  return {lines: L, total: total, partial: partial, base: base, state: s};
+}
+function fld(r, keys){ for (var i = 0; i < keys.length; i++){ var v = r[keys[i]]; if (v != null && String(v).trim() !== '') return String(v).trim(); } return ''; }
+var MENU_KEYS = ['外国語メニューの翻訳・制作が対象か', 'メニュー翻訳が対象か'];
+var TERM_KEYS = ['受付期間・締切', '締切'];
+function parseRate(t){
+  t = String(t || '');
+  var m = /多言語[^0-9]*(\d+)\s*[\/／]\s*(\d+)/.exec(t); if (m && +m[2]) return +m[1] / +m[2];
+  m = /(\d+)\s*[\/／]\s*(\d+)/.exec(t); if (m && +m[2]) return +m[1] / +m[2];
+  m = /(\d+)\s*分の\s*(\d+)/.exec(t); if (m && +m[1]) return +m[2] / +m[1];
+  m = /(\d+(?:\.\d+)?)\s*[%％]/.exec(t); if (m) return +m[1] / 100;
+  return 0;
+}
+function parseYen(t){
+  t = String(t || '').replace(/[,，\s]/g, '');
+  var m = /(\d+(?:\.\d+)?)万/.exec(t); if (m) return Math.round(+m[1] * 10000);
+  m = /(\d+)千円/.exec(t); if (m) return +m[1] * 1000;
+  m = /(\d{4,})/.exec(t); if (m) return +m[1];
+  return 0;
+}
+function deadlineOf(r){
+  var t = String(r['締切'] || ''), m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(t);
+  if (!m){ t = fld(r, TERM_KEYS).split('。')[0]; m = /〜\s*(\d{4})-(\d{1,2})-(\d{1,2})/.exec(t); }
+  return m ? m[1] + '-' + ('0' + m[2]).slice(-2) + '-' + ('0' + m[3]).slice(-2) : '';
+}
+function cityOf(r){
+  var c = String(r['市区町村'] || '').replace(/（[^）]*）/g, '').trim();
+  if (c === '' || c === '-' || c === r['都道府県'] || /全域$|全県$|圏域$/.test(c) || !/[市区町村]$/.test(c)) return '';
+  return c;
+}
+var KIND_RE = {'飲食店': /飲食|料飲/, '宿': /宿|旅館|ホテル|民泊/, '観光施設': /観光施設|観光関連|観光事業/, '観光協会・団体': /観光協会|団体/, '小売': /小売|土産|商業|物販/};
+function kindsOf(r){
+  if (Array.isArray(r['業種'])) return r['業種'];
+  var t = String(r['対象の事業者'] || '').split('。').filter(function(p){ return !/対象外|不可/.test(p); }).join('。'), out = [];
+  for (var k in KIND_RE) if (KIND_RE[k].test(t)) out.push(k);
+  return out;
+}
+function findPrograms(data, pref, city, biz, today){
+  var kind = (BIZ[biz] || BIZ.paper).kind, out = [];
+  data.forEach(function(r){
+    if (r['都道府県'] !== pref) return;
+    var c = cityOf(r);
+    if (c === ''){ if ((r['対象外の市区町村'] || []).indexOf(city) >= 0) return; }
+    else if (c !== city) return;
+    if (kindsOf(r).indexOf(kind) < 0) return;
+    var d = deadlineOf(r), st = fld(r, ['受付状況']), v = fld(r, MENU_KEYS);
+    var ended = /^終了/.test(st) || (d !== '' && d < today);
+    var menuYes = v === 'はい' || v === '対象' || v === '○' || v === '〇';
+    var rateText = String(r['補助率'] || '') + String(r['上限額'] || '');
+    out.push({row: r, deadline: d, rate: parseRate(r['補助率']), cap: parseYen(r['上限額']),
+      roundK: /(千円|1,000円|1000円)未満切/.test(rateText),
+      mode: ended ? 'ended' : (/^受付中/.test(st) && menuYes ? 'full' : 'check')});
+  });
+  var order = {full: 0, check: 1, ended: 2};
+  return out.sort(function(a, b){ return order[a.mode] - order[b.mode]; });
+}
+function subsidyAmount(base, p){
+  var a = Math.floor(base * p.rate + 1e-9);
+  if (p.roundK) a = Math.floor(a / 1000) * 1000;
+  if (p.cap > 0) a = Math.min(a, p.cap);
+  return a;
+}
+function subsidy(q, progs){
+  var s = q.state, full = progs.filter(function(p){ return p.mode === 'full'; }), best = null, why = '';
+  if (!progs.length) return {kind: 'unknown', progs: progs};
+  if (BIZ[s.biz].kind === '飲食店' && q.base > 0){
+    full.forEach(function(p){
+      if (!(p.rate > 0)) return;
+      var a = subsidyAmount(q.base, p);
+      if (!best || a > best.amount) best = {prog: p, amount: a};
+    });
+  }
+  if (best) return {kind: 'amount', prog: best.prog, amount: best.amount, net: q.total - best.amount, progs: progs};
+  if (full.length){
+    if (s.svc === 'datapack') why = 'データパックが補助の対象になるかは未確認のため、実質負担の目安は出していません。メニューとPOPの多言語化は、対象になる場合があります。';
+    else if (s.svc === 'ko' || s.svc === 'facility') why = '韓国語だけの版は、英語を必須・基本とする制度があるため、実質負担の目安は出していません。';
+    else if (s.svc === 'proof') why = 'ページの校正が対象になるかは未確認のため、実質負担の目安は出していません。';
+    else why = 'この業種・商品が対象になるかは未確認のため、実質負担の目安は出していません。';
+  }
+  return {kind: 'list', progs: progs, why: why};
+}
+/*CALC-END*/
+(function(){
+  var DATA = [];
+  try { DATA = JSON.parse(document.getElementById('subsidy-data').textContent); } catch (e) { DATA = []; }
+  var $ = function(id){ return document.getElementById(id); };
+  var DM_URL = 'https://ig.me/m/tagengo.menu';
+  var MAIL = '1017.sou.329@gmail.com', MAIL_SUBJECT = '多言語メニューの相談', MAIL_MAX = 1500;
+  function mailto(body){ return 'mailto:' + MAIL + '?subject=' + encodeURIComponent(MAIL_SUBJECT) + (body ? '&body=' + encodeURIComponent(body) : ''); }
+  Array.prototype.forEach.call(document.querySelectorAll('a[data-mail]'), function(a){ a.href = mailto(''); });
+  function copyText(text, ta, done){
+    function legacy(){
+      var ok = false;
+      try { ta.hidden = false; ta.value = text; ta.focus(); ta.select(); ta.setSelectionRange(0, text.length); ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      if (ok) ta.hidden = true;
+      return ok;
+    }
+    if (navigator.clipboard && window.isSecureContext){
+      try { navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(legacy()); }); return; } catch (e) {}
+    }
+    done(legacy());
+  }
+  function esc(t){ return String(t == null ? '' : t).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function yen(n){ return Number(n).toLocaleString('ja-JP'); }
+  function today(){ var d = new Date(); return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); }
+  function jdate(iso){ var m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(iso || ''); return m ? m[1] + '年' + (+m[2]) + '月' + (+m[3]) + '日' : (iso || ''); }
+  function chip(label, on, attrs, cls){ return '<button type="button" class="' + (cls || 'chip') + '" aria-pressed="' + (on ? 'true' : 'false') + '" ' + attrs + '>' + label + '</button>'; }
+  var KO = [[2019,4934315],[2020,480285],[2021,13941],[2022,118206],[2023,4894767],[2024,6468715],[2025,6793644],[2026,8262700]];
+  var TW = [[2019,3736530],[2020,691066],[2021,3925],[2022,26377],[2023,2974579],[2024,4585890],[2025,5036711],[2026,5997600]];
+  var ALL = {2019:31882049, 2020:4115828, 2021:245862, 2022:3832110, 2023:25066350, 2024:36870148, 2025:42683301};
+  (function(){
+    var MAX = 9000000, man = function(n){ return yen(Math.round(n / 10000)); }, label = {2019:1, 2025:1, 2026:1};
+    function bars(plot, xl, data, name){
+      var h = [4000000, 8000000].map(function(g){ return '<div class="gl" style="bottom:' + (g / MAX * 100) + '%"><span>' + man(g) + '</span></div>'; }).join('');
+      h += '<div class="bars" style="--n:' + data.length + '">' + data.map(function(y){
+        var pct = y[1] / MAX * 100;
+        return '<div class="bw' + (y[0] === 2026 ? ' hi' : '') + '" tabindex="0" aria-label="' + y[0] + '年1〜9月 ' + man(y[1]) + '万人"><div class="tt num">' + y[0] + '年1〜9月 ' + yen(y[1]) + '人</div>' +
+          (label[y[0]] ? '<div class="bl num" style="bottom:' + pct + '%">' + man(y[1]) + '</div>' : '') + '<div class="b" style="height:' + pct + '%"></div></div>';
+      }).join('') + '</div>';
+      $(plot).innerHTML = h;
+      $(plot).setAttribute('aria-label', name + 'からのお客様の、各年1〜9月の棒グラフ。' + data.map(function(y){ return y[0] + '年' + man(y[1]) + '万人'; }).join('、') + '。');
+      $(xl).style.setProperty('--n', data.length);
+      $(xl).innerHTML = data.map(function(y){ return '<span>' + String(y[0]).slice(2) + '年</span>'; }).join('');
+    }
+    bars('plotKo', 'xlKo', KO, '韓国'); bars('plotTw', 'xlTw', TW, '台湾');
+    $('tbl').innerHTML = '<tr><th>年</th><th style="text-align:right">韓国（1〜9月）</th><th style="text-align:right">台湾（1〜9月）</th><th style="text-align:right">全体（年間）</th></tr>' + KO.map(function(y, i){
+      return '<tr><th>' + y[0] + '年</th><td>' + yen(y[1]) + '</td><td>' + yen(TW[i][1]) + '</td><td>' + (ALL[y[0]] ? yen(ALL[y[0]]) : '1〜9月 30,730,200') + '</td></tr>'; }).join('');
+  })();
+  var EXAMPLES = [['東京都','','menu3','中小企業・EAT東京に掲載の店が対象'],['北海道','札幌市','menu2'],['鳥取県','米子市','menu2'],['静岡県','熱海市','menu3']];
+  var OTHER = 'そのほかの市区町村';
+  function rateLabel(x){ return Math.abs(x - 2 / 3) < 0.01 ? '2/3' : Math.abs(x - 0.5) < 0.01 ? '1/2' : Math.abs(x - 0.75) < 0.01 ? '3/4' : Math.round(x * 100) + '%'; }
+  function renderExamples(){
+    $('egs').innerHTML = EXAMPLES.map(function(e){
+      var q = quote({biz:'paper', svc:e[2], items:40}), sb = subsidy(q, findPrograms(DATA, e[0], e[1] || OTHER, 'paper', today()));
+      var place = e[1] ? e[1] : e[0], lang = e[2] === 'menu3' ? '3言語' : '英語＋韓国語';
+      if (sb.kind !== 'amount') return '<div class="eg"><div class="eg-p">' + esc(place) + '</div><div class="eg-c">受付の状況が変わりました。見積もりの窓でご確認ください。</div><button type="button" data-open-sim data-pref="' + esc(e[0]) + '" data-city="' + esc(e[1]) + '">この地域で見積もる</button></div>';
+      return '<div class="eg"><div class="eg-p">' + esc(place) + '<span class="pill gold">補助率 ' + rateLabel(sb.prog.rate) + '</span></div>' +
+        '<div class="eg-f num">' + yen(q.total) + '円のメニュー（' + lang + '）が</div>' +
+        '<div class="eg-n num"><small>実質</small><b>' + yen(sb.net) + '</b><small>円</small></div>' +
+        '<div class="eg-c">補助 最大' + yen(sb.amount) + '円の場合。' + (sb.prog.deadline ? '受付は' + jdate(sb.prog.deadline) + 'まで。' : '予算に達するまで。') + (e[3] ? '<br>' + esc(e[3]) + '。' : '') + '</div>' +
+        '<button type="button" data-open-sim data-pref="' + esc(e[0]) + '" data-city="' + esc(e[1]) + '">この地域で見積もる</button></div>';
+    }).join('');
+    var t = today(), full = 0;
+    DATA.forEach(function(r){ var d = deadlineOf(r), s = fld(r, ['受付状況']); if (/^受付中/.test(s) && !(d && d < t) && fld(r, MENU_KEYS) === 'はい') full++; });
+    $('subCount').innerHTML = '調べて載せている制度は全国で <b class="num">' + DATA.length + '</b>件。うち、受付中でメニューの翻訳・制作が対象のものは <b class="num">' + full + '</b>件（2026年11月16日時点）。';
+  }
+  var AREAS = [
+    ['北海道・東北', [['北海道',['札幌市']],['青森県',['青森市']],['岩手県',['盛岡市']],['宮城県',['仙台市']],['秋田県',['秋田市']],['山形県',['山形市']],['福島県',['福島市']]]],
+    ['関東', [['茨城県',['水戸市']],['栃木県',['宇都宮市']],['群馬県',['前橋市']],['埼玉県',['さいたま市']],['千葉県',['千葉市']],['東京都',[]],['神奈川県',['横浜市','川崎市','相模原市']]]],
+    ['中部', [['新潟県',['新潟市']],['富山県',['富山市']],['石川県',['金沢市']],['福井県',['福井市']],['山梨県',['甲府市']],['長野県',['長野市']],['岐阜県',['岐阜市']],['静岡県',['静岡市','浜松市']],['愛知県',['名古屋市']]]],
+    ['近畿', [['三重県',['津市']],['滋賀県',['大津市']],['京都府',['京都市']],['大阪府',['大阪市','堺市']],['兵庫県',['神戸市']],['奈良県',['奈良市']],['和歌山県',['和歌山市']]]],
+    ['中国', [['鳥取県',['鳥取市']],['島根県',['松江市']],['岡山県',['岡山市']],['広島県',['広島市']],['山口県',['山口市']]]],
+    ['四国', [['徳島県',['徳島市']],['香川県',['高松市']],['愛媛県',['松山市']],['高知県',['高知市']]]],
+    ['九州・沖縄', [['福岡県',['福岡市','北九州市']],['佐賀県',['佐賀市']],['長崎県',['長崎市']],['熊本県',['熊本市']],['大分県',['大分市']],['宮崎県',['宮崎市']],['鹿児島県',['鹿児島市']],['沖縄県',['那覇市']]]]
+  ];
+  var ICON = {
+    restaurant: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6v14a5 5 0 0 0 10 0V6M19 6v36M34 6c-4 3-6 9-6 16h6zm0 16v20" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    lodging: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 12v26M5 30h38v8M43 30v-5a6 6 0 0 0-6-6H21v11" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="22" r="4" fill="currentColor"/></svg>',
+    attraction: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18 24 6l19 12z" fill="currentColor"/><path d="M11 22v14M19 22v14M29 22v14M37 22v14M5 41h38" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>',
+    assoc: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 42V6M12 8h24l-5 8 5 8H12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+    retail: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 18h32l-3 24H11z" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/><path d="M17 22v-7a7 7 0 0 1 14 0v7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>'
+  };
+  var TOPS = [['restaurant','飲食店'],['lodging','宿（ホテル・旅館）'],['attraction','観光施設'],['assoc','観光協会・団体'],['retail','小売・お土産店']];
+  var ORDER = [['paper','紙のメニュー'],['ticket','券売機'],['tablet','タブレット・スマホ注文']];
+  var SHORT = {paper:'飲食店・紙', ticket:'飲食店・券売機', tablet:'飲食店・タブレット', lodging:'宿', attraction:'観光施設', assoc:'観光協会', retail:'小売'};
+  var PROOF_INCL = ['英語・韓国語ページの見直し（「現在の文 → 修正案 → 理由」の形でお渡し）','まず修正案を3点、無料でお送りします','修正案の作成にはAIを活用しています'];
+  var SVC_UI = {
+    menu2: {short:'メニュー2言語', price:'59,800<small>円</small>', desc:'英語＋韓国語。メニュー40品まで・卓上POP 2枚・スマホで見るメニュー',
+      why:{paper:'料理ごとに説明・使用食材・お店のアレルギー表示まで入れた、英語＋韓国語のメニュー。卓上POP 2枚とスマホで見るメニューつきです。',
+           ticket:'外国語の名前の下に日本語の名前を並べるので、券売機のボタンと見比べられます。食券の買い方は卓上POPでご案内します。'},
+      incl:['メニュー40品まで（料理名・説明1行・使用食材・お店のアレルギー表示・値段）','卓上POP 2枚（注文と会計のきまり／指でさして伝える表。A5・印刷用PDF）','メニューの印刷用PDF（A4・英語版と韓国語版）','スマホで見るメニュー（英語・韓国語）と読み取りコードの図柄'],
+      days:'材料がそろってから7日前後（初稿は3日以内）'},
+    menu3: {short:'メニュー3言語', price:'89,800<small>円</small>', desc:'繁体字（台湾向け）も入る3言語版',
+      incl:['メニュー40品まで（英語・韓国語・繁体字。料理名・説明1行・使用食材・お店のアレルギー表示・値段）','卓上POP（英語・韓国語版 2枚＋繁体字版 2枚。A5・印刷用PDF）','メニューの印刷用PDF（A4・言語ごと）','スマホで見るメニュー（3言語）と読み取りコードの図柄'],
+      days:'材料がそろってから10日前後（初稿は5日以内）'},
+    datapack: {short:'データパック', price:'59,800<small>円</small>', desc:'今の注文の仕組みのまま、訳を入れるだけ',
+      why:{tablet:'今の注文の仕組みはそのまま。料理の訳を、お店の仕組みに入る形（取り込み用のファイルか貼り付け用の表）と手順書でお渡しします。メニューとPOPと一緒なら＋9,800円です。'},
+      incl:['40品までの料理名・説明1行・使用食材を、英語・韓国語・繁体字に','お店の仕組みに合わせた取り込み用のファイル（CSV）か、貼り付け用の表','入れ方の手順書','入れた後の画面写真で点検1回','ログイン情報はお預かりしません。「注文する」などのボタンの文字は変えられません'],
+      days:'資料を受け取ってから10日前後（初稿は5日以内）'},
+    ko: {short:'韓国語一式', price:'29,800<small>円</small>', desc:'韓国語だけ・文字だけの簡単な体裁',
+      incl:['韓国語メニュー40品まで（番号つき・日本語を併記）','卓上POP 2枚（注文と会計のきまり／指さしの表）','スマホで見るメニューのデータと読み取りコードの図柄','そのまま印刷できる、文字だけの簡単な体裁のPDF'],
+      days:'材料がそろってから7日前後（初稿は3日以内）'},
+    facility: {short:'施設案内', price:'29,800<small>円</small>', desc:'施設案内・掲示用の案内表示3枚・スマホで見るページ',
+      why:{attraction:'料金・営業時間・入り方・館内のきまりを韓国語に。掲示用の案内表示3枚と、スマホで見るページつきです。'},
+      incl:['韓国語の施設案内（A4片面3枚ぶんまで。料金・営業時間・入り方・館内のきまり・よくある質問）','掲示用の案内表示 3枚（A4・印刷用PDF）','スマホで見るページと読み取りコードの図柄'],
+      days:'材料がそろってから7日前後（初稿は3日以内）'},
+    proof: {short:'ページ校正', price:'9,800<small>円〜</small>', desc:'ホームページの英語・韓国語ページ。5ページまで9,800円・6ページ目から1ページ＋3,000円',
+      why:{lodging:'ホームページの英語・韓国語ページの誤り（機械翻訳の崩れなど）を見直します。まず修正案を3点、無料でお送りします。',
+           assoc:'観光協会・組合のホームページの英語・韓国語ページを見直します。まず修正案を3点、無料でお送りします。',
+           retail:'お店のホームページの英語・韓国語ページを見直します。まず修正案を3点、無料でお送りします。'},
+      incl:PROOF_INCL, days:''}
+  };
+  var st = {area:0, pref:'北海道', city:'', top:'', biz:'paper', svc:'menu2', addon:false, items:40, sheets:3, pages:5, step:0, done:[false,false,false,false]};
+  function citiesOf(pref){
+    var list = [];
+    AREAS.forEach(function(a){ a[1].forEach(function(p){ if (p[0] === pref) list = p[1].slice(); }); });
+    DATA.forEach(function(r){ var c = cityOf(r); if (r['都道府県'] === pref && c && list.indexOf(c) < 0) list.push(c); });
+    return list;
+  }
+  function hasData(pref, city){ return DATA.some(function(r){ return r['都道府県'] === pref && (city ? cityOf(r) === city : true); }); }
+  function qtyText(s){
+    var k = SVC[s.svc].qty;
+    if (k === 'items') return s.items > 100 ? '101品以上' : s.items + '品まで';
+    if (k === 'sheets') return s.sheets > 6 ? 'A4 7枚以上' : 'A4 ' + s.sheets + '枚' + (s.sheets === 3 ? 'まで' : '');
+    return s.pages + 'ページ';
+  }
+  function link(r){ return /^https?:\/\//.test(r['公式URL'] || '') ? '<a href="' + esc(r['公式URL']) + '" target="_blank" rel="noopener">公式ページ</a>・' : ''; }
+  function progHtml(p){
+    var r = p.row, bits = [], name = '<b>' + esc(r['制度名']) + '</b>', foot = '<br>' + link(r) + '確認日 ' + esc(jdate(r['確認日']));
+    if (p.mode === 'ended') return '<div class="prog">' + name + ' <span class="pill end">今年度は終了（来年度は未定）</span>' + foot + '</div>';
+    if (p.mode === 'check') return '<div class="prog">' + name + ' <span class="pill">要確認</span><br>対象か・受付中かは事務局にご確認ください。' + foot + '</div>';
+    if (r['補助率']) bits.push('補助率 ' + esc(r['補助率']));
+    if (r['上限額']) bits.push('上限 ' + esc(r['上限額']));
+    var term = fld(r, TERM_KEYS), fs = r['先着か審査か'] || '';
+    return '<div class="prog">' + name + ' <span class="pill open">受付中</span><br>' + bits.join('・') +
+      (term ? '<br>受付：' + esc(term) : '') + (fs && !/^不明/.test(fs) ? '<br>' + esc(fs) : '') +
+      '<br>対象：' + esc(r['対象の事業者']) + (r['条件'] ? '<br>条件：' + esc(r['条件']) : '') + foot + '</div>';
+  }
+  function navHtml(){
+    var s = normalize(st), vals = [
+      st.done[0] ? (st.city && st.city !== OTHER ? st.city : st.pref) : '—',
+      st.done[1] ? SHORT[s.biz] : '—',
+      st.done[2] ? SVC_UI[s.svc].short + (s.addon ? '＋' : '') : '—',
+      st.done[3] ? qtyText(s) : '—'];
+    return ['地域','業種','サービス','数'].map(function(n, i){
+      var can = i === 0 || st.done[i - 1];
+      return '<button type="button" data-step="' + i + '"' + (st.step === i ? ' aria-current="step"' : '') + (st.done[i] ? ' class="done"' : '') + (can ? '' : ' disabled') + '>' + (i + 1) + ' ' + n + '<b>' + esc(vals[i]) + '</b></button>';
+    }).join('');
+  }
+  function stepHtml(){
+    var h = '', s = normalize(st), bz = BIZ[s.biz];
+    if (st.step === 0){
+      h += '<div class="qb">どちらの地域ですか？</div><div class="lbl">都道府県</div><div class="chips">' +
+        AREAS.map(function(a, i){ return chip(a[0], i === st.area, 'data-area="' + i + '"', 'chip s'); }).join('') + '</div><div class="chips" style="margin-top:8px">' +
+        AREAS[st.area][1].map(function(p){ return chip(esc(p[0]), p[0] === st.pref, 'data-pref="' + esc(p[0]) + '"', 'chip s' + (hasData(p[0]) ? ' dot' : '')); }).join('') + '</div>' +
+        '<div class="lbl">' + esc(st.pref) + 'の市区町村</div><div class="chips">' +
+        citiesOf(st.pref).map(function(c){ return chip(esc(c), c === st.city, 'data-city="' + esc(c) + '"', 'chip s' + (hasData(st.pref, c) ? ' dot' : '')); }).join('') +
+        chip(OTHER, st.city === OTHER, 'data-city="' + OTHER + '"', 'chip s') + '</div><p class="hint"><i></i>の印は、補助金の制度を調べてある地域です。</p>';
+    } else if (st.step === 1){
+      h += '<div class="qb">業種をえらんでください</div><div class="biz">' + TOPS.map(function(t){
+        return '<button type="button" class="bz" data-top="' + t[0] + '" aria-pressed="' + (st.top === t[0]) + '">' + ICON[t[0]] + '<span>' + t[1] + '</span></button>'; }).join('') + '</div>';
+      if (st.top === 'restaurant') h += '<div class="qb" style="margin-top:14px">ご注文の仕方は？</div><div class="chips">' + ORDER.map(function(o){ return chip(o[1], st.done[1] && st.biz === o[0], 'data-biz="' + o[0] + '"'); }).join('') + '</div>';
+    } else if (st.step === 2){
+      h += '<div class="qb">サービスをえらんでください</div><div class="svcs">' + bz.svcs.map(function(k){
+        var u = SVC_UI[k];
+        return '<button type="button" class="sv" data-svc="' + k + '" aria-pressed="' + (st.done[2] && s.svc === k) + '"><span class="n">' + SVC[k].name + (bz.rec === k ? '<span class="rec">おすすめ</span>' : '') + '</span><span class="d">' + u.desc + '</span><span class="p num">' + u.price + '</span></button>';
+      }).join('') + '</div>';
+      if (s.biz === 'tablet' && st.done[2] && (s.svc === 'menu2' || s.svc === 'menu3'))
+        h += '<button type="button" class="addon" id="addonBtn" aria-pressed="' + (s.addon ? 'true' : 'false') + '"><span class="box">✓</span><span>データパックも一緒に（＋9,800円）。メニューの訳を注文画面にも使い回せます</span></button>';
+      if (bz.svcs.length === 1) h += '<p class="hint">館内・店内の案内やPOPなど、ほかの内容はDMでご相談ください。</p>';
+    } else if (st.step === 3){
+      var kind = SVC[s.svc].qty;
+      if (kind === 'items') h += '<div class="qb">メニューは何品ですか？</div><div class="chips">' + ITEM_STEPS.map(function(n){ return chip(n > 100 ? '101品以上' : n + '品まで', st.done[3] && s.items === n, 'data-items="' + n + '"'); }).join('') + '</div><p class="hint">料理・飲み物・セットを合わせた数です。40品までは基本の金額に入っています。</p>';
+      else if (kind === 'sheets') h += '<div class="qb">施設案内は何枚ぶんですか？</div><div class="chips">' + SHEET_STEPS.map(function(n){ return chip(n > 6 ? '7枚以上' : (n === 3 ? '3枚まで' : n + '枚'), st.done[3] && s.sheets === n, 'data-sheets="' + n + '"'); }).join('') + '</div><p class="hint">A4の片面で数えます（日本語でおよそ3,000字までが3枚ぶん）。</p>';
+      else h += '<div class="qb">外国語のページは何ページですか？</div><div class="stepper"><button type="button" id="pgMinus" aria-label="1ページ減らす">−</button><output class="num">' + s.pages + 'ページ</output><button type="button" id="pgPlus" aria-label="1ページ増やす">＋</button></div><p class="hint">5ページまでは一律9,800円。6ページ目からは1ページごとに3,000円を足します（10ページで24,800円）。21ページ以上はDMでご相談ください。</p>';
+    } else h = resultHtml();
+    return h;
+  }
+  function resultHtml(){
+    var q = quote(st), s = q.state, sb = subsidy(q, findPrograms(DATA, s.pref, s.city, s.biz, today()));
+    var place = esc(s.pref) + (s.city === OTHER ? '' : ' ' + esc(s.city)), h = '<div class="res">';
+    h += '<div class="res-k">お見積もり<small>目安・総額</small></div>';
+    h += '<div class="res-total num"><b>' + yen(q.total) + '</b><span>円</span>' + (q.partial ? '<em>＋別途お見積もり</em>' : '') + '</div>';
+    h += '<div class="res-sel">' + place + '／' + BIZ[s.biz].name + '／' + qtyText(s) + '</div>';
+    h += '<ul class="lines num">' + q.lines.map(function(l){ return '<li><span>' + esc(l[0]) + '</span><span>' + yen(l[1]) + '円</span></li>'; }).join('') + '</ul>';
+    if (q.partial) h += '<div class="pnote">' + esc(q.partial) + '</div>';
+    h += '</div><div class="blk">';
+    if (sb.kind === 'unknown'){
+      h += '<h4>補助金<span class="pill">確認中</span></h4><div class="prog">この地域の補助金は確認中です。DMでお問い合わせください。</div>';
+    } else if (sb.kind === 'amount'){
+      h += '<h4>補助金を使った場合の実質負担の目安</h4>';
+      h += '<div class="net num"><small>最大で補助されると</small><b>' + yen(sb.net) + '</b><span>円</span></div>';
+      h += '<div class="sbar" aria-hidden="true"><span class="pay" style="flex:' + sb.net + '"></span><span class="aid" style="flex:' + sb.amount + '"></span></div>';
+      h += '<div class="legend num"><span><i style="background:var(--bar)"></i>ご負担 ' + yen(sb.net) + '円</span><span><i style="background:var(--gold)"></i>補助 最大' + yen(sb.amount) + '円</span></div>';
+      h += sb.progs.map(progHtml).join('');
+      h += '<ul class="cav"><li>対象になる場合があります。最終判断は自治体・事務局です。申請はお店ご自身で行います（申請書の作成はできません）。税の扱いは別です。</li>' +
+        (s.addon ? '<li>データパックが対象になるかは未確認のため、＋9,800円は全額ご負担で計算しています。</li>' : '') +
+        (q.partial ? '<li>40品までの金額で計算しています。</li>' : '') + '</ul>';
+    } else {
+      h += '<h4>補助金</h4>' + sb.progs.map(progHtml).join('') + '<ul class="cav">' + (sb.why ? '<li>' + esc(sb.why) + '</li>' : '') +
+        '<li>最終判断は自治体・事務局です。申請はお店ご自身で行います（申請書の作成はできません）。</li></ul>';
+    }
+    if (sb.kind !== 'unknown' && s.city === OTHER) h += '<ul class="cav"><li>市区町村の制度は確認中です。DMでお問い合わせください。</li></ul>';
+    h += '</div>';
+    var rec = BIZ[s.biz].rec, ru = SVC_UI[rec], u = SVC_UI[s.svc];
+    h += '<div class="blk"><h4>おすすめのサービス<span class="pill">' + BIZ[s.biz].name + '</span></h4>';
+    h += '<div class="rec-n">' + SVC[rec].name + '</div><div class="rec-r">' + ((ru.why && ru.why[s.biz]) || ru.desc) + '</div>';
+    if (rec !== s.svc) h += '<button type="button" class="swap" data-swap="' + rec + '">おすすめに切り替える</button>';
+    h += '<h4 style="margin-top:14px">' + (rec === s.svc ? 'このサービス' : 'いまえらんでいるサービス') + 'に入るもの</h4><ul class="incl">' + u.incl.map(function(t){ return '<li>' + t + '</li>'; }).join('') +
+      (s.addon ? '<li>データパック：訳を注文画面に入れる形（取り込み用のファイルか貼り付け用の表）・入れ方の手順書・点検1回</li>' : '') + '</ul>';
+    if (u.days) h += '<div class="rec-r" style="margin-top:8px">納期の目安：' + u.days + '</div>';
+    if (s.svc !== 'proof') h += '<div class="rec-r">写真の撮影・加工、印刷、ホームページへの組み込みは含みません。</div>';
+    h += '</div>';
+    var txt = '【見積もりの結果】\n地域：' + s.pref + (s.city === OTHER ? '' : ' ' + s.city) + '\n業種：' + BIZ[s.biz].name + '\nサービス：' + SVC[s.svc].name + (s.addon ? '＋データパック' : '') + '\n数：' + qtyText(s) + '\nお見積もり（目安）：' + yen(q.total) + '円' + (q.partial ? '＋別途お見積もり' : '') + '\n見本をお願いします。';
+    var mbody = txt;
+    if (encodeURIComponent(mbody).length > MAIL_MAX)
+      mbody = '【見積もりの結果】\n' + SVC[s.svc].name + (s.addon ? '＋データパック' : '') + '・' + qtyText(s) + '\n目安：' + yen(q.total) + '円' + (q.partial ? '＋別途' : '') + '\n見本をお願いします。';
+    h += '<div class="res-cta"><a class="btn" id="dmCopy" href="' + DM_URL + '" target="_blank" rel="noopener">この内容をコピーしてDMで相談</a>' +
+      '<p class="copymsg" id="dmMsg" role="status" hidden></p>' +
+      '<textarea id="dmtext" readonly hidden aria-label="DMに貼る文">' + esc(txt) + '</textarea>' +
+      '<a class="btn line" href="' + esc(mailto(mbody)) + '">この内容をメールで相談</a>' +
+      '<p class="alt">メールが開かないときは ' + esc(MAIL) + ' へ。インスタのアカウントは <a href="https://www.instagram.com/tagengo.menu/" target="_blank" rel="noopener">@tagengo.menu</a></p></div>';
+    h += '<p class="small" style="margin-top:10px">見本は無料。お支払いは納品・ご確認の後。お見積もりは目安で、正式な金額は資料を拝見してからお伝えします。</p>';
+    return h;
+  }
+  function footHtml(){
+    var q = quote(st), left;
+    if (st.done[2]) left = '<div><span>お見積もり（目安・総額）</span><b class="num">' + yen(q.total) + '円' + (q.partial ? '＋' : '') + '</b></div>';
+    else left = '<div><span>えらぶと金額が出ます</span><b>—</b></div>';
+    if (st.step === 4) return left + '<button type="button" class="btn" id="simRestart">最初からやり直す</button>';
+    var ok = st.done[st.step] || (st.step === 3 && SVC[normalize(st).svc].qty === 'pages');
+    return left + '<button type="button" class="btn" id="simNext"' + (ok ? '' : ' disabled') + '>' + (st.step === 3 ? '結果を見る' : '次へ') + '</button>';
+  }
+  function renderWin(scrollTop){
+    var n = normalize(st); st.svc = n.svc; st.addon = n.addon;
+    $('simNav').innerHTML = navHtml(); $('simBody').innerHTML = stepHtml(); $('simFoot').innerHTML = footHtml();
+    if (scrollTop) $('simBody').scrollTop = 0;
+  }
+  function openSim(pref, city){
+    if (pref){
+      AREAS.forEach(function(a, i){ a[1].forEach(function(p){ if (p[0] === pref) st.area = i; }); });
+      st.pref = pref; st.city = city || OTHER; st.done[0] = true; if (st.step === 0) st.step = 1;
+    }
+    $('simWin').hidden = false; $('backdrop').hidden = false; $('fab').hidden = true;
+    renderWin(true); $('simTitle').focus();
+  }
+  function closeSim(){ $('simWin').hidden = true; $('backdrop').hidden = true; $('fab').hidden = false; $('fab').focus(); }
+  var COPIED = 'コピーしました。DMに貼り付けてください';
+  var NOCOPY = 'コピーできませんでした。下の文を長押し（パソコンは選んで Ctrl+C）でコピーしてから、DMに貼り付けてください';
+  function dmCopy(a, e){
+    var ta = $('dmtext'), msg = $('dmMsg'), text = ta.value;
+    function show(t){ msg.textContent = t; msg.hidden = false; }
+    function fail(){ ta.hidden = false; ta.focus(); ta.select(); show(NOCOPY); a.textContent = 'コピーしたらDMを開く'; a.setAttribute('data-fallback', ''); }
+    if (a.hasAttribute('data-fallback')) return;
+    if (navigator.clipboard && window.isSecureContext){
+      show(COPIED);
+      copyText(text, ta, function(ok){ if (!ok) fail(); });
+      return;
+    }
+    e.preventDefault();
+    copyText(text, ta, function(ok){
+      if (!ok){ fail(); return; }
+      show(COPIED);
+      window.open(DM_URL, '_blank', 'noopener');
+    });
+  }
+  function copyMail(btn){
+    var box = btn.closest('.mailbox'), span = box && box.querySelector('.mailtext');
+    var msg = btn.closest('.in').querySelector('[data-mailmsg]');
+    var ta = document.createElement('textarea'); ta.hidden = true; ta.readOnly = true; ta.style.cssText = 'position:fixed;left:-9999px;top:0'; box.appendChild(ta);
+    copyText(MAIL, ta, function(ok){
+      ta.remove();
+      if (!ok && span){ var r = document.createRange(); r.selectNodeContents(span); var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r); }
+      if (msg){ msg.textContent = ok ? 'アドレスをコピーしました' : 'アドレスを選びました。長押し（パソコンは Ctrl+C）でコピーしてください'; msg.hidden = false; }
+    });
+  }
+  function go(step){ st.step = step; renderWin(true); }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('#dmCopy'); if (a){ dmCopy(a, e); return; }
+    var t = e.target.closest('button'); if (!t) return;
+    var d = t.dataset;
+    if ('copyMail' in d){ copyMail(t); return; }
+    if (d.lang){ lang = d.lang; renderSample(); return; }
+    if ('openSim' in d){ openSim(d.pref, d.city); return; }
+    if (t.id === 'fab'){ openSim(); return; }
+    if (!t.closest('#simWin')) return;
+    if (d.step != null){ go(+d.step); return; }
+    if (d.area != null){ st.area = +d.area; st.pref = AREAS[st.area][1][0][0]; st.city = ''; st.done[0] = false; }
+    else if (d.pref){ st.pref = d.pref; st.city = ''; st.done[0] = false; }
+    else if (d.city){ st.city = d.city; st.done[0] = true; go(st.done[1] && st.done[2] && st.done[3] ? 4 : 1); return; }
+    else if (d.top){
+      st.top = d.top; st.addon = false;
+      if (d.top === 'restaurant'){ st.done[1] = false; }
+      else { st.biz = d.top; st.svc = BIZ[st.biz].rec; st.done[1] = true; st.done[2] = false; st.done[3] = false; go(2); return; }
+    }
+    else if (d.biz){ st.biz = d.biz; st.svc = BIZ[st.biz].rec; st.addon = false; st.done[1] = true; st.done[2] = false; st.done[3] = false; go(2); return; }
+    else if (d.svc){
+      st.svc = d.svc; st.done[2] = true; st.done[3] = false;
+      if (!(st.biz === 'tablet' && (d.svc === 'menu2' || d.svc === 'menu3'))){ st.addon = false; go(3); return; }
+    }
+    else if (t.id === 'addonBtn'){ st.addon = !st.addon; }
+    else if (d.items){ st.items = +d.items; st.done[3] = true; go(4); return; }
+    else if (d.sheets){ st.sheets = +d.sheets; st.done[3] = true; go(4); return; }
+    else if (t.id === 'pgMinus'){ st.pages = Math.max(PAGE_MIN, st.pages - 1); st.done[3] = true; }
+    else if (t.id === 'pgPlus'){ st.pages = Math.min(PAGE_MAX, st.pages + 1); st.done[3] = true; }
+    else if (t.id === 'simNext'){ if (st.step === 3) st.done[3] = true; go(Math.min(4, st.step + 1)); return; }
+    else if (t.id === 'simRestart'){ st.done = [false,false,false,false]; st.city = ''; st.top = ''; st.addon = false; go(0); return; }
+    else if (d.swap){ st.svc = d.swap; st.addon = false; }
+    else return;
+    renderWin(false);
+  });
+  $('backdrop').addEventListener('click', closeSim);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !$('simWin').hidden) closeSim(); });
+  var LANGS = [['en','English'],['ko','한국어'],['zh','繁體中文'],['ja','日本語']];
+  var SAMPLE = {
+    ja: {ing:'使用食材', alg:'アレルギー（お店の表示）', order:'番号でご注文いただけます。', rt:'このお店のきまり（例）',
+      rules:['お席にお通し（小さなおつまみ）をお出しします。ご注文がなくてもお出しし、お一人様300円です。','ご注文は、メニューの番号をスタッフにお伝えください。','ご飯のおかわりは有料です（150円）。','お会計は、お帰りのときにレジでお願いします。','チップは要りません。'],
+      d:[['ジンギスカン','','北海道の名物。羊肉と野菜を、ドーム形の鍋で焼いて食べます。','羊肉、玉ねぎ、もやし、かぼちゃ、たれ（しょうゆ・りんご・にんにく）','小麦、大豆、りんご','1,580円（税込）'],
+         ['スープカレー（チキン）','','さらっとしたスパイスのスープに、骨付きの鶏肉と焼き野菜が入ったカレーです。ご飯つき。','鶏もも肉（骨付き）、じゃがいも、にんじん、なす、ピーマン、スパイス、スープ（鶏がら・トマト・バター・しょうゆ）、ご飯','小麦、乳、大豆、鶏肉','1,380円（税込）'],
+         ['味噌ラーメン','','札幌の名物。こくのある味噌のスープに、太めの縮れ麺です。','中華麺、豚骨と鶏がらのスープ、味噌、チャーシュー（豚肉）、もやし、ねぎ、コーン、バター、すりごま','小麦、卵、乳、大豆、豚肉、ごま','980円（税込）']]},
+    en: {ing:'Ingredients', alg:'Allergens (as listed by the restaurant)', order:'You can order by number.', rt:'Good to know at this restaurant（例）',
+      rules:['A small appetizer (otoshi) is served at your table even if you do not order it. It costs ¥300 per person.','To order, please tell our staff the number of the dish.','Extra rice: ¥150.','Please pay at the register when you leave.','No tip is needed.'],
+      d:[['Genghis Khan (Grilled Lamb)','ジンギスカン','A Hokkaido specialty. Lamb and vegetables grilled on a dome-shaped pan.','lamb, onion, bean sprouts, kabocha squash, sauce (soy sauce, apple, garlic)','wheat, soybeans, apple','¥1,580 (tax incl.)'],
+         ['Soup Curry with Chicken','スープカレー（チキン）','A light, spiced curry soup with a bone-in chicken leg and grilled vegetables. Served with rice.','chicken leg (bone-in), potato, carrot, eggplant, green pepper, spices, soup (chicken broth, tomato, butter, soy sauce), rice','wheat, milk, soybeans, chicken','¥1,380 (tax incl.)'],
+         ['Miso Ramen','味噌ラーメン','A Sapporo specialty. Thick, wavy noodles in a rich miso soup.','Chinese-style noodles, pork and chicken broth, miso, chashu (pork), bean sprouts, green onion, corn, butter, ground sesame','wheat, egg, milk, soybeans, pork, sesame','¥980 (tax incl.)']]},
+    ko: {ing:'재료', alg:'알레르기(가게 표시)', order:'번호로 주문하실 수 있습니다.', rt:'저희 가게 이용 안내（例）',
+      rules:['자리에 오토시(간단한 안주)가 나옵니다. 주문하지 않으셔도 나오며, 1인당 300엔입니다.','주문하실 때는 메뉴 번호를 직원에게 말씀해 주십시오.','밥 추가는 유료입니다(150엔).','계산은 나가실 때 계산대에서 해 주십시오.','팁은 필요 없습니다.'],
+      d:[['징기스칸(양고기 구이)','ジンギスカン','홋카이도 명물입니다. 양고기와 채소를 돔 모양의 철판에 구워 드시는 요리입니다.','양고기, 양파, 숙주, 단호박, 소스(간장·사과·마늘)','밀, 대두, 사과','1,580엔(세금 포함)'],
+         ['수프카레(치킨)','スープカレー（チキン）','묽은 향신료 수프에 뼈 있는 닭다리와 구운 채소가 들어간 카레입니다. 밥이 함께 나옵니다.','닭다리(뼈 있음), 감자, 당근, 가지, 피망, 향신료, 수프(닭 육수·토마토·버터·간장), 밥','밀, 우유, 대두, 닭고기','1,380엔(세금 포함)'],
+         ['미소라멘','味噌ラーメン','삿포로 명물입니다. 진한 미소(일본식 된장) 국물에 굵고 꼬불꼬불한 면을 넣은 라멘입니다.','중화면, 돼지 뼈·닭 뼈 육수, 미소(일본식 된장), 차슈(돼지고기), 숙주, 파, 옥수수, 버터, 간 참깨','밀, 달걀, 우유, 대두, 돼지고기, 참깨','980엔(세금 포함)']]},
+    zh: {ing:'使用食材', alg:'過敏原（本店標示）', order:'可以用編號點餐。', rt:'本店須知（例）',
+      rules:['座位上會提供小菜（Otoshi）。即使沒有點餐也會提供，每人收費300日圓。','點餐時，請告訴店員菜單上的編號。','加飯需另外收費（150日圓）。','離開時請到櫃檯結帳。','不需要給小費。'],
+      d:[['成吉思汗烤羊肉','ジンギスカン','北海道名物。將羊肉和蔬菜放在圓頂形的鐵鍋上燒烤食用。','羊肉、洋蔥、豆芽菜、南瓜、醬汁（醬油、蘋果、大蒜）','小麥、大豆、蘋果','1,580日圓（含稅）'],
+         ['湯咖哩（雞肉）','スープカレー（チキン）','以清爽的香料湯為底，加入帶骨雞腿和烤蔬菜的咖哩。附白飯。','雞腿肉（帶骨）、馬鈴薯、紅蘿蔔、茄子、青椒、香料、湯底（雞骨高湯、番茄、奶油、醬油）、白飯','小麥、乳製品、大豆、雞肉','1,380日圓（含稅）'],
+         ['味噌拉麵','味噌ラーメン','札幌名物。濃郁的味噌湯頭，搭配較粗的捲麵。','中華麵、豬骨與雞骨高湯、味噌、叉燒（豬肉）、豆芽菜、蔥、玉米、奶油、芝麻碎','小麥、蛋、乳製品、大豆、豬肉、芝麻','980日圓（含稅）']]}
+  };
+  var lang = 'en';
+  function dishHtml(L, d, i){
+    return '<div class="dish"><span class="no">' + (i + 1) + '</span><span class="nm">' + esc(d[0]) + '</span>' + (d[1] ? '<span class="jp">' + esc(d[1]) + '</span>' : '<span></span>') +
+      '<span class="ds">' + esc(d[2]) + '</span><span class="kv"><b>' + esc(L.ing) + '</b>' + esc(d[3]) + '</span><span class="kv"><b>' + esc(L.alg) + '</b>' + esc(d[4]) + '</span><span class="pr num">' + esc(d[5]) + '</span></div>';
+  }
+  function renderSample(){
+    var L = SAMPLE[lang], hl = lang === 'ja' ? 'en' : lang, H = SAMPLE[hl];
+    $('heroTabs').innerHTML = LANGS.slice(0, 3).map(function(l){ return '<button type="button" data-lang="' + l[0] + '" aria-pressed="' + (hl === l[0]) + '">' + l[1] + '</button>'; }).join('');
+    $('heroDish').innerHTML = dishHtml(H, H.d[0], 0) + '<div class="order">' + esc(H.order) + '</div>';
+    $('sampleTabs').innerHTML = LANGS.map(function(l){ return '<button type="button" data-lang="' + l[0] + '" aria-pressed="' + (lang === l[0]) + '">' + l[1] + '</button>'; }).join('');
+    $('sampleCards').innerHTML = L.d.map(function(d, i){ return dishHtml(L, d, i); }).join('');
+    $('sampleRules').innerHTML = '<b>' + esc(L.rt) + '</b><ul>' + L.rules.map(function(r){ return '<li>' + esc(r) + '</li>'; }).join('') + '</ul>';
+  }
+  renderExamples(); renderSample();
+})();
+</script>
+</body>
+</html>
