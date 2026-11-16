@@ -43,7 +43,7 @@
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.7;font-weight:500;font-feature-settings:"palt";-webkit-text-size-adjust:100%}
 h1,h2,h3,h4,p,ul,ol,figure,dl,dd{margin:0;padding:0}
 ul,ol{list-style:none}
-img{max-width:100%;display:block}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
@@ -177,7 +177,7 @@ h2 em,.mk{font-style:normal;background:linear-gradient(transparent 62%,var(--mar
 .dish .pr{margin-top:6px;font-weight:900;font-size:16px;text-align:right}
 .order{margin-top:8px;background:#F4EDDC;color:#0A2350;border-radius:10px;padding:5px 10px;font-size:12px;font-weight:700}
 .photo{display:grid;gap:12px;align-items:center;margin-top:18px}
-.photo img{border-radius:var(--r);border:1px solid var(--line);width:100%}
+.photo img{border-radius:var(--r);border:1px solid var(--line);width:100%;height:auto;aspect-ratio:1200/640;object-fit:contain}
 .photo figcaption{font-size:12.5px;color:var(--mute);line-height:1.65}
 .photo figcaption b{display:block;color:var(--ink);font-size:17px;font-weight:900;margin-bottom:4px;line-height:1.45}
 .deliver{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
@@ -1108,6 +1108,7 @@ function subsidy(q, progs){
     if (d.lang){ lang = d.lang; renderSample(); return; }
     if ('openSim' in d){ openSim(d.pref, d.city); return; }
     if (t.id === 'fab'){ openSim(); return; }
+    if (t.id === 'simClose'){ closeSim(); return; }
     if (!t.closest('#simWin')) return;
     if (d.step != null){ go(+d.step); return; }
     if (d.area != null){ st.area = +d.area; st.pref = AREAS[st.area][1][0][0]; st.city = ''; st.done[0] = false; }
