@@ -2,326 +2,351 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<meta name="description" content="飲食店・宿・観光施設のメニュー・POP・注文画面・ホームページを、英語・韓国語・繁体字に。見本は無料、お支払いは納品・ご確認の後。">
+<meta name="description" content="飲食店・宿・観光施設のメニュー・POPを英語・韓国語・繁体字に。ホームページの英語・韓国語の校正も。見本は無料、お支払いは納品・ご確認の後。">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
 <title>多言語メニュー作成｜飲食店・宿・観光施設の多言語化</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho+B1:wght@700;800&display=swap">
 <style>
 :root{
-  --bg:#FFFDF8; --surface:#FFFFFF; --ink:#0A2350; --sub:#33415C; --mute:#5B6578; --line:#E4DCC8;
-  --band:#FFFFFF; --band2:#143A7A; --on-band:#0A2350; --on-band-sub:#33415C;
-  --gold:#D6AE52; --gold2:#F3D683; --on-gold:#0A2350;
-  --chip:#FFFFFF; --chip-on:#0A2350; --chip-on-ink:#F3D683;
-  --mark:#F3D683; --soft:#F8F1DE; --ok:#1E7A4C; --bar:#143A7A; --grid:#E4DCC8; --paper:#FFFDF6; --paper-ink:#2B2B2B;
-  --navy:#0A2350; --accent-text:#8F6608; --icon:#0A2350; --t-warm:#FFF8E8; --t-cool:#F1F6FF; --t-white:#FFFFFF; --t-gold:#FFF0C9;
-  --font:"Noto Sans JP","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,"Malgun Gothic","Apple SD Gothic Neo","Microsoft JhengHei","PingFang TC",sans-serif;
-  --r:18px;
+  --bg:#F4F2ED; --surface:#FFFFFF; --ink:#17203A; --sub:#3F4860; --mute:#4E576C; --line:#E2DED5;
+  --indigo:#1D2F57; --indigo-2:#2A4172; --on-indigo:#FFFFFF; --on-indigo-sub:#CBD4E6; --indigo-soft:#E6EAF2; --indigo-text:#1D2F57;
+  --amber:#D9922F; --amber-text:#7C4507; --amber-soft:#FAEFDD; --on-amber:#17203A;
+  --ok:#1E7A4C; --bar:#A9B5CE; --grid:#E2DED5; --danger-soft:#F6E2DD;
+  --chip:#FFFFFF; --chip-on:#1D2F57; --chip-on-ink:#FFFFFF;
+  --shadow:0 10px 30px -14px rgba(18,28,56,.30); --shadow-sm:0 2px 10px -4px rgba(18,28,56,.18);
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;
+  --f-head:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-num:"Inter","Noto Sans JP",system-ui,sans-serif;
+  --r:16px;
+  --veil-bg:244,242,237; --veil-sf:255,255,255; --veil-nv:29,47,87; --va:.86; --va2:.92;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#071634; --surface:#0E2450; --ink:#F4EEDD; --sub:#D2D9E8; --mute:#A3AEC6; --line:#2A4379;
-    --band:#04102A; --band2:#3D63B0; --on-band:#FFFFFF; --on-band-sub:#C9D3E8;
-    --gold:#D6AE52; --gold2:#F3D683; --on-gold:#0A2350;
-    --chip:#0E2450; --chip-on:#F3D683; --chip-on-ink:#0A2350;
-    --mark:#6B5416; --soft:#112B5E; --ok:#6FD29E; --bar:#6F93D8; --grid:#2A4379; --paper:#FFFDF6; --paper-ink:#2B2B2B;
-    --navy:#04102A; --accent-text:#F3D683; --icon:#F3D683; --t-warm:#0B2150; --t-cool:#071634; --t-white:#0A1C44; --t-gold:#0B2150;
+    --bg:#0D1323; --surface:#151E34; --ink:#E8EBF2; --sub:#C3CAD9; --mute:#A3ACC0; --line:#26314B;
+    --indigo:#18284B; --indigo-2:#2A3F6E; --on-indigo:#FFFFFF; --on-indigo-sub:#C9D3E8; --indigo-soft:#1B2641; --indigo-text:#B4C7F0;
+    --amber:#E8A64A; --amber-text:#F1B862; --amber-soft:#2C2416; --on-amber:#17203A;
+    --ok:#6FD29E; --bar:#4A5A80; --grid:#26314B; --danger-soft:#3A2220;
+    --chip:#151E34; --chip-on:#E8A64A; --chip-on-ink:#17203A;
+    --shadow:0 10px 30px -12px rgba(0,0,0,.7); --shadow-sm:0 2px 10px -4px rgba(0,0,0,.6);
+    --veil-bg:13,19,35; --veil-sf:21,30,52; --veil-nv:24,40,75; --va:.88; --va2:.93;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#071634; --surface:#0E2450; --ink:#F4EEDD; --sub:#D2D9E8; --mute:#A3AEC6; --line:#2A4379;
-  --band:#04102A; --band2:#3D63B0; --on-band:#FFFFFF; --on-band-sub:#C9D3E8;
-  --gold:#D6AE52; --gold2:#F3D683; --on-gold:#0A2350;
-  --chip:#0E2450; --chip-on:#F3D683; --chip-on-ink:#0A2350;
-  --mark:#6B5416; --soft:#112B5E; --ok:#6FD29E; --bar:#6F93D8; --grid:#2A4379; --paper:#FFFDF6; --paper-ink:#2B2B2B;
-    --navy:#04102A; --accent-text:#F3D683; --icon:#F3D683; --t-warm:#0B2150; --t-cool:#071634; --t-white:#0A1C44; --t-gold:#0B2150;
+  --bg:#0D1323; --surface:#151E34; --ink:#E8EBF2; --sub:#C3CAD9; --mute:#A3ACC0; --line:#26314B;
+  --indigo:#18284B; --indigo-2:#2A3F6E; --on-indigo:#FFFFFF; --on-indigo-sub:#C9D3E8; --indigo-soft:#1B2641; --indigo-text:#B4C7F0;
+  --amber:#E8A64A; --amber-text:#F1B862; --amber-soft:#2C2416; --on-amber:#17203A;
+  --ok:#6FD29E; --bar:#4A5A80; --grid:#26314B; --danger-soft:#3A2220;
+  --chip:#151E34; --chip-on:#E8A64A; --chip-on-ink:#17203A;
+  --shadow:0 10px 30px -12px rgba(0,0,0,.7); --shadow-sm:0 2px 10px -4px rgba(0,0,0,.6);
+  --veil-bg:13,19,35; --veil-sf:21,30,52; --veil-nv:24,40,75; --va:.88; --va2:.93;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.7;font-weight:500;font-feature-settings:"palt";-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.75;font-weight:400;line-break:strict}
 h1,h2,h3,h4,p,ul,ol,figure,dl,dd{margin:0;padding:0}
 ul,ol{list-style:none}
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
+b,strong{font-weight:700}
 button{font:inherit;color:inherit;cursor:pointer}
-:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
-.in{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.num{font-variant-numeric:tabular-nums}
-.bgsec{--v:88%;background-color:var(--tint);background-image:linear-gradient(color-mix(in srgb,var(--tint) var(--v),transparent),color-mix(in srgb,var(--tint) var(--v),transparent)),var(--photo,none);background-size:cover;background-position:var(--pos,center)}
-.bgsec.strong{--v:85%}
-@media (min-width:640px){.bgsec{--v:85%}.bgsec.strong{--v:80%}}
-section{border-bottom:1px solid var(--line)}
-.draft{background:var(--gold);color:var(--on-gold);font-size:12px;font-weight:700;text-align:center}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.in{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums;letter-spacing:0}
+.nw{white-space:nowrap}
+.draft{background:var(--amber-soft);color:var(--amber-text);font-size:12px;font-weight:700;text-align:center}
 .draft .in{padding-block:5px}
-.top{color:var(--on-band);border-bottom:8px solid var(--gold)}
-.top .in{padding-block:14px 34px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:10px 22px;border-radius:12px;border:1.5px solid var(--indigo);background:var(--indigo);color:var(--on-indigo);font-weight:700;font-size:15px;text-decoration:none;line-height:1.35;text-align:center}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.sub{background:transparent;color:var(--indigo-text);border-color:currentColor}
+.btn.light{background:#FFFFFF;border-color:#FFFFFF;color:#1D2F57}
+.btn.ghost{background:transparent;border-color:rgba(255,255,255,.55);color:#FFFFFF}
+.btn.sm{min-height:40px;padding:6px 14px;font-size:13px;border-radius:10px;white-space:nowrap}
+.tlink{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--indigo-text);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;background:none;border:0;padding:6px 0;min-height:40px}
+.tlink::after{content:"→";text-decoration:none;font-family:var(--f-num)}
+.kicker{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--amber-text);letter-spacing:.06em}
+.kicker .no{font-family:var(--f-num);font-weight:800;font-size:12px;letter-spacing:.08em;color:var(--amber-text);border:1.5px solid currentColor;border-radius:999px;padding:0 8px;line-height:1.6}
+h1,h2{font-family:var(--f-head);font-weight:800;word-break:keep-all;overflow-wrap:anywhere;letter-spacing:.02em}
+h2{font-size:clamp(25px,6.4vw,38px);line-height:1.4;margin-top:10px}
+.sec-h{margin-bottom:24px}
+.sec-h p{margin-top:10px;color:var(--sub);max-width:42em}
+section .in{padding-block:44px}
+.s-white{background:var(--surface)}
+.small{font-size:12.5px;color:var(--mute);line-height:1.7}
+.small a{text-underline-offset:3px}
+.bgp{--vc:var(--veil-bg);--ih:calc(max(100vw,640px) * .5625);
+  --veil:linear-gradient(180deg,rgba(var(--vc),var(--va)) 0,rgba(var(--vc),var(--va2)) calc(var(--ih) * .55),rgb(var(--vc)) calc(var(--ih) - 24px));
+  background:var(--veil),var(--img) center top/max(100%,640px) auto no-repeat rgb(var(--vc))}
+.s-white.bgp{--vc:var(--veil-sf)}
+.top.bgp,.apply.bgp{--vc:var(--veil-nv)}
+.top.bgp{background:radial-gradient(120% 80% at 100% 0%,rgba(217,146,47,.16),transparent 60%),var(--veil),var(--img) center top/max(100%,640px) auto no-repeat rgb(var(--vc))}
+.apply.bgp{background:radial-gradient(100% 90% at 50% 0%,rgba(217,146,47,.14),transparent 65%),var(--veil),var(--img) center top/max(100%,640px) auto no-repeat rgb(var(--vc))}
+.bg-hero{--img:url(images/bg_hero.jpg)} .bg-inbound{--img:url(images/bg_inbound.jpg)} .bg-subsidy{--img:url(images/bg_subsidy.jpg)} .bg-sample{--img:url(images/bg_sample.jpg)}
+.bg-flow{--img:url(images/bg_flow.jpg)} .bg-faq{--img:url(images/bg_faq.jpg)} .bg-apply{--img:url(images/bg_apply.jpg)}
+@media (max-width:639px){
+  .bg-hero{--img:url(images/bg_hero_s.jpg)} .bg-inbound{--img:url(images/bg_inbound_s.jpg)} .bg-subsidy{--img:url(images/bg_subsidy_s.jpg)} .bg-sample{--img:url(images/bg_sample_s.jpg)}
+  .bg-flow{--img:url(images/bg_flow_s.jpg)} .bg-faq{--img:url(images/bg_faq_s.jpg)} .bg-apply{--img:url(images/bg_apply_s.jpg)}
+}
+.top{background:var(--indigo);color:var(--on-indigo);background-image:radial-gradient(120% 80% at 100% 0%,rgba(217,146,47,.16),transparent 60%),radial-gradient(90% 70% at 0% 100%,rgba(255,255,255,.06),transparent 60%)}
+.top .in{padding-block:14px 32px}
 .bar{display:flex;align-items:center;gap:10px;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:10px;min-width:0}
-.brand img{width:40px;height:40px;border-radius:50%;flex:none}
-.brand b{font-weight:900;font-size:15px;line-height:1.25;display:block}
-.brand span{font-size:12px;color:var(--accent-text);font-weight:700;display:block;line-height:1.3}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:8px 20px;border-radius:999px;border:2px solid var(--gold);background:var(--gold);color:var(--on-gold);font-weight:900;text-decoration:none;line-height:1.3;text-align:center}
-.btn.ghost{background:var(--surface);color:var(--on-band)}
-.btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
-.btn.sm{min-height:38px;padding:4px 14px;font-size:13px;white-space:nowrap}
-.hero{display:grid;gap:24px;margin-top:24px;align-items:center}
-.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--accent-text);font-weight:700;font-size:14px;letter-spacing:.03em}
-.kicker::before{content:"";width:6px;height:18px;border-radius:2px;background:var(--gold)}
-h1{font-size:clamp(38px,10.4vw,64px);line-height:1.18;font-weight:900;letter-spacing:.01em;margin-top:8px;text-wrap:balance}
-h1 em{font-style:normal;background:linear-gradient(transparent 64%,var(--mark) 64%)}
-.lead{margin-top:14px;font-size:16px;color:var(--on-band-sub);max-width:34em}
-.lead b{color:var(--on-band);font-weight:700}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.promise{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.promise li{border:1.5px solid var(--gold);background:var(--surface);color:var(--ink);border-radius:10px;padding:4px 10px;font-size:13px;font-weight:700;line-height:1.5}
-.map{display:grid;gap:8px}
-.map-k{font-size:12.5px;font-weight:900;color:var(--accent-text);letter-spacing:.04em;margin-bottom:6px}
-.who ul{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-.who li{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:8px 2px 6px;text-align:center;font-size:11.5px;font-weight:700;line-height:1.3}
-.who svg{width:28px;height:28px;display:block;margin:0 auto 3px;color:var(--icon)}
-.map-arrow{justify-self:center;color:var(--gold);line-height:0}
-.map-arrow svg{width:26px;height:26px;transform:rotate(90deg)}
-.what ol{display:grid;gap:8px}
-.what li{display:grid;grid-template-columns:auto 1fr auto;gap:2px 10px;align-items:center;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;box-shadow:0 2px 10px rgba(10,35,80,.06)}
-.what i{font-style:normal;grid-row:1/3;width:30px;height:30px;border-radius:50%;background:var(--navy);color:var(--gold2);font-weight:900;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--gold)}
-.what b{font-weight:900;font-size:15.5px;line-height:1.35}
-.what span{grid-column:2/3;font-size:12px;color:var(--mute);line-height:1.5}
-.what em{font-style:normal;grid-row:1/3;grid-column:3;font-weight:900;font-size:17px;white-space:nowrap;text-align:right}
-.what em small{font-size:11px;font-weight:700}
-.map-note{font-size:12px;color:var(--on-band-sub);margin-top:6px}
-section .in{padding-block:44px}
-.sec-h{margin-bottom:20px}
-.sec-h .kicker{color:var(--ink)}
-h2{font-size:clamp(26px,6.6vw,38px);line-height:1.3;font-weight:900;text-wrap:balance;margin-top:4px}
-h2 em,.mk{font-style:normal;background:linear-gradient(transparent 62%,var(--mark) 62%)}
-.sec-h p{margin-top:8px;color:var(--sub);max-width:40em}
-.small{font-size:12.5px;color:var(--mute);line-height:1.65}
-.small a{text-underline-offset:3px}
-.stats{display:grid;gap:18px}
-.bigs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.bigs li{background:var(--surface);border:2px solid var(--gold);border-radius:16px;padding:12px 12px 10px}
-.bigs small{display:block;font-size:12.5px;font-weight:700;color:var(--mute);line-height:1.4}
-.bigs b{display:block;font-weight:900;font-size:clamp(44px,13.5vw,76px);line-height:1.1;letter-spacing:-.02em}
-.bigs b span{font-size:.3em;letter-spacing:0;margin-left:2px}
-.bigs em{font-style:normal;display:inline-block;font-size:12.5px;font-weight:900;background:var(--gold);color:var(--on-gold);border-radius:8px;padding:1px 8px;line-height:1.6;margin-top:4px}
-.chart{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:14px 14px 10px}
-.chart-t{font-size:13px;font-weight:900;margin-bottom:10px}
-.plot{position:relative;height:150px;margin-left:44px;border-bottom:2px solid var(--mute)}
-.gl{position:absolute;left:0;right:0;border-top:1px solid var(--grid)}
-.gl span{position:absolute;left:-44px;top:-9px;width:38px;text-align:right;font-size:11px;color:var(--mute)}
+.brand img{width:40px;height:40px;border-radius:50%;flex:none;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+.brand b{font-weight:700;font-size:15px;line-height:1.3;display:block;white-space:nowrap}
+.brand span{font-size:11.5px;color:var(--on-indigo-sub);display:block;line-height:1.35}
+.top .btn.sm{background:transparent;border-color:rgba(255,255,255,.55);color:#FFFFFF}
+.hero{display:grid;gap:26px;margin-top:22px;align-items:start}
+.top .kicker{color:#F1B862}
+.top .kicker .no{color:#F1B862}
+h1{font-size:clamp(36px,10vw,60px);line-height:1.3;margin-top:12px}
+h1 .em{color:#F1B862}
+h1 .ln{display:block;text-indent:-.5em}
+.lead{margin-top:12px;font-size:16px;line-height:1.85;color:var(--on-indigo-sub);max-width:34em}
+.lead b{color:#FFFFFF}
+.promise{display:grid;gap:6px;margin-top:18px}
+.promise li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;line-height:1.5}
+.promise li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:#F1B862 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3.2L15 7' fill='none' stroke='%231D2F57' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.cta .btn{flex:1 1 220px}
+.cta-sub{margin-top:8px}
+.top .tlink{color:#FFFFFF}
+.svc{background:var(--surface);color:var(--ink);border-radius:20px;padding:18px 16px 14px;box-shadow:0 20px 50px -20px rgba(0,0,0,.55)}
+.svc-k{font-size:12.5px;font-weight:700;color:var(--amber-text);letter-spacing:.06em}
+.who{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin:8px 0 14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.who li{text-align:center;font-size:11.5px;font-weight:700;line-height:1.3;color:var(--sub)}
+.who svg{width:26px;height:26px;display:block;margin:0 auto 4px;color:var(--indigo-text)}
+.what{display:grid}
+.what li{display:grid;grid-template-columns:auto 1fr auto;gap:0 12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.what li:last-child{border-bottom:0}
+.what i{font-style:normal;grid-row:1/3;width:30px;height:30px;border-radius:50%;background:var(--indigo-soft);color:var(--indigo-text);font-family:var(--f-num);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.what b{word-break:keep-all;overflow-wrap:anywhere;font-weight:700;font-size:15px;line-height:1.45}
+.what span{word-break:keep-all;overflow-wrap:anywhere;grid-column:2/3;font-size:12.5px;color:var(--mute);line-height:1.6}
+.what em{font-style:normal;grid-row:1/3;grid-column:3;font-family:var(--f-num);font-weight:800;font-size:18px;white-space:nowrap;text-align:right;color:var(--indigo-text)}
+.what em small{font-family:var(--f-body);font-size:11px;font-weight:700;margin-left:1px}
+.svc-note{font-size:12px;color:var(--mute);line-height:1.65;margin-top:6px;padding-top:10px;border-top:1px solid var(--line)}
+.stats{display:grid;gap:22px}
+.stats > div{min-width:0}
+.bigs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bigs li{border-top:3px solid var(--indigo);padding-top:10px}
+.bigs li + li{border-top-color:var(--amber)}
+.bigs small{display:block;font-size:12.5px;font-weight:700;color:var(--mute);line-height:1.45}
+.bigs b{display:block;font-family:var(--f-num);font-weight:800;font-size:clamp(42px,12.5vw,68px);line-height:1.1;letter-spacing:-.02em;color:var(--indigo-text);margin-top:2px}
+.bigs b span{font-family:var(--f-body);font-size:.3em;letter-spacing:0;margin-left:3px;font-weight:700}
+.bigs em{font-style:normal;display:inline-block;font-size:12.5px;font-weight:700;background:var(--amber-soft);color:var(--amber-text);border-radius:6px;padding:1px 8px;line-height:1.7;margin-top:6px}
+.tiles{display:grid;gap:0;margin-top:16px;border-top:1px solid var(--line)}
+.tile{padding:12px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr;gap:2px}
+.tile small{font-size:12.5px;color:var(--mute);font-weight:700;line-height:1.45}
+.tile b{font-family:var(--f-num);font-size:26px;font-weight:800;line-height:1.25;color:var(--indigo-text)}
+.tile b span{font-family:var(--f-body);font-size:13px;font-weight:700;margin-left:2px}
+.tile em{font-style:normal;font-size:12.5px;color:var(--sub);line-height:1.6}
+.chart{background:var(--bg);border-radius:var(--r);padding:16px 14px 12px}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chart-u{font-size:12px;color:var(--mute);margin:-6px 0 10px}
+.chart-t{font-size:13px;font-weight:700;margin-bottom:16px}
+.plot{position:relative;height:104px;margin-left:40px;border-bottom:1.5px solid var(--mute)}
+.gl{position:absolute;left:0;right:0;border-top:1px dashed var(--grid)}
+.gl span{position:absolute;left:-40px;top:-9px;width:34px;text-align:right;font-size:11px;color:var(--mute);font-family:var(--f-num)}
 .bars{position:absolute;inset:0;display:grid;grid-template-columns:repeat(var(--n,8),1fr);gap:2px;align-items:end;padding:0 2px}
 .bw{position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;outline-offset:0}
-.bw .b{width:72%;max-width:44px;min-height:3px;background:var(--bar);border-radius:4px 4px 0 0}
-.bw.hi .b{background:var(--gold)}
-.bl{position:absolute;left:50%;transform:translateX(-50%);font-size:11.5px;font-weight:900;color:var(--ink);white-space:nowrap;padding-bottom:3px}
+.bw .b{width:70%;max-width:36px;min-height:3px;background:var(--bar);border-radius:4px 4px 0 0}
+.bw.hi .b{background:var(--amber)}
+.bl{position:absolute;left:50%;transform:translateX(-50%);font-family:var(--f-num);font-size:11.5px;font-weight:800;color:var(--ink);white-space:nowrap;padding-bottom:3px}
 .tt{position:absolute;left:50%;top:0;transform:translateX(-50%);background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;border-radius:8px;padding:3px 8px;white-space:nowrap;display:none;z-index:2}
 .bw:hover .tt,.bw:focus .tt{display:block}
 .bw:nth-child(n+6) .tt{left:auto;right:0;transform:none}
 .bw:nth-child(-n+2) .tt{left:0;transform:none}
-.xl{display:grid;grid-template-columns:repeat(var(--n,8),1fr);gap:2px;margin-left:44px;padding:4px 2px 0;font-size:11.5px;color:var(--mute);text-align:center}
-.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.tiles2{grid-template-columns:1fr}
-.tile{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:10px 12px}
-.tile small{display:block;font-size:12px;color:var(--mute);font-weight:700;line-height:1.4}
-.tile b{font-size:clamp(24px,7vw,30px);font-weight:900;line-height:1.25}
-.tile b span{font-size:14px}
-.tile em{font-style:normal;display:block;font-size:12.5px;font-weight:700;color:var(--sub);line-height:1.4}
-.tbl{margin-top:8px;font-size:13px}
-.tbl summary{cursor:pointer;font-weight:700;color:var(--sub)}
-.tbl table{border-collapse:collapse;margin-top:6px}
-.tbl td,.tbl th{border-bottom:1px solid var(--line);padding:3px 12px 3px 0;text-align:right;font-weight:500}
+.xl span{white-space:nowrap;display:flex;justify-content:center;min-width:0}
+.charts > div{min-width:0}
+.xl{display:grid;grid-template-columns:repeat(var(--n,8),minmax(0,1fr));gap:2px;margin-left:40px;padding:4px 2px 0;font-size:11px;color:var(--mute);text-align:center;font-family:var(--f-num)}
+.tbl{margin-top:10px;font-size:13px}
+.tbl summary{cursor:pointer;font-weight:700;color:var(--indigo-text);min-height:36px;display:flex;align-items:center}
+.tbl table{border-collapse:collapse;margin-top:6px;white-space:nowrap}
+.tbl td,.tbl th{border-bottom:1px solid var(--line);padding:3px 12px 3px 0;text-align:right;font-weight:400}
 .tbl th{text-align:left;font-weight:700}
-.egs{display:grid;gap:10px}
-.eg{background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:14px;display:grid;gap:2px;align-content:start}
-.eg-p{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:900;font-size:19px;line-height:1.3}
-.pill{display:inline-block;border-radius:999px;padding:0 10px;font-size:11.5px;font-weight:900;line-height:1.9;background:var(--soft);color:var(--ink)}
-.pill.gold{background:var(--gold);color:var(--on-gold)}
+.egs{display:grid;gap:12px}
+.eg{background:var(--surface);border-radius:var(--r);padding:16px 16px 8px;display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-content:start;box-shadow:var(--shadow-sm);border:1px solid var(--line)}
+.eg-p{grid-column:1/-1;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--f-head);font-weight:800;font-size:20px;line-height:1.35}
+.pill{display:inline-block;border-radius:999px;padding:0 10px;font-family:var(--f-body);font-size:11.5px;font-weight:700;line-height:1.9;background:var(--indigo-soft);color:var(--indigo-text)}
+.pill.gold{background:var(--amber-soft);color:var(--amber-text)}
 .pill.open{background:var(--ok);color:var(--surface)}
 .pill.end{background:var(--mute);color:var(--surface)}
-.eg-f{font-size:13px;color:var(--sub);margin-top:6px}
-.eg-f s{text-decoration-thickness:2px;text-decoration-color:var(--gold)}
-.eg-n{font-weight:900;line-height:1.15;display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+.eg-f{grid-column:1;grid-row:2;align-self:center;word-break:keep-all;overflow-wrap:anywhere;font-size:13px;color:var(--sub);margin-top:6px;line-height:1.6}
+.eg-n{grid-column:2;grid-row:2;align-self:end;justify-content:flex-end;line-height:1.15;display:flex;align-items:baseline;gap:4px;flex-wrap:nowrap;white-space:nowrap;color:var(--indigo-text)}
 .eg-n small{font-size:13px;font-weight:700}
-.eg-n b{font-size:40px}
-.eg-c{font-size:12px;color:var(--mute);line-height:1.55}
-.eg button{justify-self:start;margin-top:8px;min-height:40px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);font-weight:900;padding:4px 14px;font-size:13px}
-.sum-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:16px}
-.sum-row p{font-weight:700;font-size:14px}
-.ba{display:grid;grid-template-columns:1fr;gap:6px;justify-items:center;background:var(--soft);color:var(--ink);border:1.5px solid var(--line);border-radius:22px;padding:18px 14px}
-.ba figcaption{display:flex;align-items:center;gap:8px;font-weight:900;font-size:15px;margin-bottom:8px}
-.tag{display:inline-block;flex:none;white-space:nowrap;border-radius:8px;padding:1px 10px;font-size:13px;font-weight:900;line-height:1.7}
-.tag.b{background:var(--ink);color:var(--surface)}
-.tag.a{background:var(--gold);color:var(--on-gold)}
-.ba-before,.ba-after{width:100%;max-width:340px}
-.paper{position:relative;background:var(--paper);color:var(--paper-ink);border-radius:6px;padding:12px 16px 14px;transform:rotate(-1.6deg);box-shadow:0 8px 20px rgba(0,0,0,.28);font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:700}
-.paper-h{text-align:center;border-bottom:1px solid #2B2B2B;padding-bottom:4px;margin-bottom:6px;letter-spacing:.4em;font-size:14px}
-.paper li{display:flex;justify-content:space-between;gap:10px;font-size:15px;line-height:1.75}
-.q{position:absolute;right:-6px;top:-16px;background:#C8342B;color:#fff;font-family:var(--font);font-weight:900;font-size:13px;border-radius:999px;padding:3px 12px;transform:rotate(4deg);box-shadow:0 3px 8px rgba(0,0,0,.25)}
-.ba-arrow{color:var(--gold);line-height:0;margin:10px 0 4px}
-.ba-arrow svg{width:30px;height:30px;transform:rotate(90deg)}
-.phone{background:#101828;border-radius:28px;padding:10px;box-shadow:0 10px 26px rgba(0,0,0,.35)}
-.screen{background:#fff;color:#1B2540;border-radius:20px;padding:10px 12px 14px;min-height:268px}
-.tabs{display:flex;gap:6px;margin-bottom:10px}
-.tabs button{flex:1;min-height:38px;border-radius:999px;border:1.5px solid #C9CFDB;background:#fff;color:#1B2540;font-weight:700;font-size:13px;padding:2px 4px}
-.tabs button[aria-pressed="true"]{background:#0A2350;border-color:#0A2350;color:#F3D683}
-.dish{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:start}
-.dish .no{grid-row:1/3;width:30px;height:30px;border-radius:50%;background:#8A3B12;color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:15px;margin-top:2px}
-.dish .nm{font-weight:900;font-size:17px;line-height:1.35}
-.dish .jp{font-size:11px;color:#5B6578;border:1.5px solid #D6AE52;border-radius:5px;padding:0 6px;justify-self:start;line-height:1.6}
-.dish .ds,.dish .kv,.dish .pr{grid-column:1/3;font-size:13px;line-height:1.55}
+.eg-n b{font-family:var(--f-num);font-size:34px;font-weight:800;letter-spacing:-.01em}
+.eg-c{grid-column:1/-1;font-size:12px;color:var(--mute);line-height:1.65;margin-top:6px}
+.eg button{grid-column:1/-1;justify-self:start;margin-top:4px;display:inline-flex;align-items:center;gap:6px;font-weight:700;color:var(--indigo-text);text-decoration:underline;text-underline-offset:4px;background:none;border:0;padding:6px 0;min-height:40px;font-size:14px}
+.eg button::after{content:"→";font-family:var(--f-num)}
+.sum-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:18px}
+.sum-row p{font-size:14px;color:var(--sub)}
+.sum-row p b{color:var(--ink);font-size:16px}
+.phones{display:grid;grid-auto-flow:column;grid-auto-columns:min(72vw,320px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 12px;margin:0 -16px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.ph{scroll-snap-align:center;margin:0}
+.ph-frame{position:relative;background:#11182B;border-radius:34px;padding:22px 9px 12px;box-shadow:var(--shadow)}
+.ph-frame::before{content:"";position:absolute;top:9px;left:50%;width:28%;height:5px;border-radius:3px;background:#3A4566;transform:translateX(-50%);z-index:1}
+.ph-frame img{width:100%;height:auto;aspect-ratio:600/1022;object-fit:cover;border-radius:18px;background:#F4F2ED}
+.ph figcaption{margin-top:10px;font-size:13px;font-weight:700;line-height:1.5;text-align:center}
+.ph figcaption small{word-break:keep-all;overflow-wrap:anywhere;display:block;font-size:12px;color:var(--mute);font-weight:400}
+.swipe{font-size:12px;color:var(--mute);margin-top:2px}
+.ph-note{margin-top:14px;background:var(--amber-soft);color:var(--ink);border-radius:12px;padding:10px 14px;font-size:13px;line-height:1.7}
+.ph-note b{color:var(--amber-text)}
+.qr{display:grid;gap:4px;margin-top:22px}
+.qr b{word-break:keep-all;overflow-wrap:anywhere;font-size:17px;font-weight:700;line-height:1.55}
+.qr p{font-size:14px;color:var(--sub)}
+.deliver{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.dv{background:var(--bg);border-radius:14px;padding:12px 6px 10px;text-align:center;word-break:keep-all;overflow-wrap:anywhere;font-size:12px;line-height:1.55;color:var(--sub)}
+.dv svg{width:34px;height:34px;margin:0 auto 4px;display:block;color:var(--indigo-text)}
+.dv b{display:block;color:var(--ink);font-size:13.5px;font-weight:700;line-height:1.45}
+.sample{margin-top:18px;border-top:1px solid var(--line)}
+.sample summary{word-break:keep-all;overflow-wrap:anywhere;cursor:pointer;font-weight:700;padding:14px 26px 14px 0;position:relative;list-style:none;color:var(--indigo-text)}
+.sample summary::-webkit-details-marker{display:none}
+.sample summary::after{content:"＋";position:absolute;right:0;top:13px;color:var(--amber-text);font-weight:700}
+.sample[open] summary::after{content:"−"}
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.tabs button{flex:1 1 auto;min-height:42px;border-radius:10px;border:1.5px solid var(--line);background:var(--chip);color:var(--ink);font-weight:700;font-size:14px;padding:2px 10px}
+.tabs button[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-ink)}
+.cards{display:grid;gap:10px}
+.dish{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;align-items:start;border:1px solid var(--line);border-radius:14px;padding:12px;background:var(--surface);color:var(--ink)}
+.dish .no{grid-row:1/3;width:30px;height:30px;border-radius:50%;background:var(--indigo-soft);color:var(--indigo-text);font-family:var(--f-num);font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px}
+.dish .nm{font-weight:700;font-size:16px;line-height:1.4}
+.dish .jp{font-size:11px;color:var(--mute);border:1px solid var(--line);border-radius:5px;padding:0 6px;justify-self:start;line-height:1.6}
+.dish .ds,.dish .kv,.dish .pr{grid-column:1/3;font-size:13px;line-height:1.6}
 .dish .ds{margin-top:6px}
 .dish .kv{margin-top:5px}
-.dish .kv b{display:block;font-size:11px;color:#8A6A12;font-weight:900;letter-spacing:.02em}
-.dish .pr{margin-top:6px;font-weight:900;font-size:16px;text-align:right}
-.order{margin-top:8px;background:#F4EDDC;color:#0A2350;border-radius:10px;padding:5px 10px;font-size:12px;font-weight:700}
-.photo{display:grid;gap:12px;align-items:center;margin-top:18px}
-.photo img{border-radius:var(--r);border:1px solid var(--line);width:100%;height:auto;aspect-ratio:1200/640;object-fit:contain}
-.photo figcaption{font-size:12.5px;color:var(--mute);line-height:1.65}
-.photo figcaption b{display:block;color:var(--ink);font-size:17px;font-weight:900;margin-bottom:4px;line-height:1.45}
-.deliver{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
-.dv{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center;font-size:12.5px;line-height:1.5;color:var(--sub)}
-.dv svg{width:44px;height:44px;margin:0 auto 4px;display:block;color:var(--ink)}
-.dv b{display:block;color:var(--ink);font-size:14px;font-weight:900;line-height:1.4}
-.sample{margin-top:14px}
-.sample summary{cursor:pointer;font-weight:900;padding:10px 0}
-.sample .tabs button{border-color:var(--line);background:var(--chip);color:var(--ink);min-height:42px;font-size:14px}
-.sample .tabs button[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-ink)}
-.cards{display:grid;gap:10px}
-.sample .dish{border:1.5px solid var(--line);border-radius:14px;padding:12px;background:var(--surface);color:var(--ink)}
-.sample .dish .jp,.sample .dish .kv b{color:var(--mute)}
-.rules{margin-top:12px;background:var(--soft);border-radius:14px;padding:12px 14px}
-.rules b{font-weight:900;font-size:14px}
-.rules li{font-size:13.5px;line-height:1.6;padding-left:14px;position:relative;margin-top:4px}
-.rules li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--gold)}
-.flows{display:grid;gap:26px}
-.flow-t{font-size:19px;font-weight:900;line-height:1.4;margin-bottom:4px}
-.flow-s{font-size:13px;color:var(--sub);margin-bottom:12px}
-.flow{display:grid;gap:10px}
-.flow li{position:relative;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:start;background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:12px 14px}
-.flow li:not(:last-child)::after{content:"";position:absolute;left:30px;bottom:-12px;width:6px;height:12px;background:var(--gold)}
-.flow i{font-style:normal;grid-row:1/4;width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--gold2);font-weight:900;font-size:18px;display:flex;align-items:center;justify-content:center;border:1.5px solid var(--gold)}
-.flow b{font-size:17px;font-weight:900;line-height:1.4}
-.flow span{font-size:13px;color:var(--sub);line-height:1.55}
-.flow .we{justify-self:start;font-size:12px;font-weight:900;background:var(--gold);color:var(--on-gold);border-radius:6px;padding:0 8px;line-height:1.8;margin-top:4px}
-.flow li.hot{background:var(--soft);border:2px solid var(--gold);color:var(--ink)}
-.flow li.hot span:not(.we){color:var(--on-band-sub)}
-.flow li.hot i{background:var(--gold);color:var(--on-gold)}
-.free{color:var(--on-gold);background:var(--gold2);border-radius:6px;padding:0 6px;font-size:12px;font-weight:900;margin-left:6px;vertical-align:2px}
-.alert{margin-top:12px;background:var(--gold);color:var(--on-gold);border-radius:16px;padding:12px 14px;text-align:center;font-weight:900;line-height:1.4}
-.alert b{font-size:24px}
-.facts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-.facts li{background:var(--soft);border-radius:8px;padding:2px 10px;font-size:13px;font-weight:700}
-.cav{margin-top:8px;display:grid;gap:3px}
-.cav li{font-size:12.5px;color:var(--sub);line-height:1.6;padding-left:1em;text-indent:-1em}
+.dish .kv b{display:block;font-size:11px;color:var(--mute);font-weight:700;letter-spacing:.02em}
+.dish .pr{margin-top:6px;font-weight:700;font-size:15px;text-align:right}
+.rules{margin-top:12px;background:var(--bg);border-radius:14px;padding:12px 14px}
+.rules b{font-weight:700;font-size:14px}
+.rules li{font-size:13.5px;line-height:1.65;padding-left:14px;position:relative;margin-top:4px}
+.rules li::before{content:"";position:absolute;left:0;top:.66em;width:6px;height:6px;border-radius:50%;background:var(--amber)}
+.flows{display:grid;gap:32px}
+.flow-t{font-family:var(--f-head);font-size:21px;font-weight:800;line-height:1.45}
+.flow-s{font-size:13px;color:var(--sub);margin:2px 0 14px}
+.flow{display:grid;gap:0;position:relative}
+.flow li{position:relative;padding:5px 0 14px 48px;min-height:48px}
+.flow li:not(:last-child)::before{content:"";position:absolute;left:16px;top:36px;bottom:0;width:2px;background:var(--line)}
+.flow i{font-style:normal;position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--indigo-soft);color:var(--indigo-text);font-family:var(--f-num);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.flow b{font-size:15.5px;font-weight:700;line-height:1.6;margin-right:.6em}
+.flow span{font-size:13px;color:var(--sub);line-height:1.65}
+.flow .we{display:table;font-size:12px;font-weight:700;background:var(--amber-soft);color:var(--amber-text);border-radius:6px;padding:0 8px;line-height:1.8;margin-top:4px}
+.flow li.hot i{background:var(--amber);color:var(--on-amber)}
+.free{color:var(--amber-text);background:var(--amber-soft);border-radius:6px;padding:1px 7px;font-size:12px;font-weight:700;margin-left:8px;vertical-align:2px}
+.alert{display:flex;align-items:center;gap:10px;margin-top:6px;background:var(--danger-soft);color:var(--ink);border-radius:12px;padding:10px 14px;font-weight:700;line-height:1.5;font-size:14.5px}
+.alert svg{width:22px;height:22px;flex:none;color:#B4432F}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.facts li{background:var(--bg);border-radius:8px;padding:2px 10px;font-size:13px;font-weight:700}
+.s-white .facts li{background:var(--indigo-soft);color:var(--indigo-text)}
+.cav{margin-top:10px;display:grid;gap:3px}
+.cav li{font-size:12.5px;color:var(--sub);line-height:1.65;padding-left:1em;text-indent:-1em}
 .cav li::before{content:"※"}
-.faq{display:grid;gap:8px}
-.faq details{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:0 14px}
-.faq summary{cursor:pointer;font-weight:900;padding:13px 26px 13px 0;position:relative;list-style:none;line-height:1.5}
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:700;padding:13px 30px 13px 0;position:relative;list-style:none;line-height:1.6}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"＋";position:absolute;right:0;top:12px;color:var(--gold);font-weight:900}
+.faq summary::after{content:"＋";position:absolute;right:2px;top:12px;color:var(--amber-text);font-weight:700}
 .faq details[open] summary::after{content:"−"}
-.faq p{padding:0 0 14px;color:var(--sub);font-size:14px}
-.apply{color:var(--on-band);border-top:8px solid var(--gold);text-align:center}
-.apply h2{color:var(--on-band)}
-.apply p{color:var(--on-band-sub);margin:10px auto 0;max-width:34em}
-.apply-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
-.apply .btn{min-height:58px;font-size:17px;padding:10px 26px}
-.apply .btn.line{background:var(--surface)}
-.apply .id{margin-top:12px;font-weight:900;color:var(--accent-text);font-size:15px}
-.apply .id a{text-underline-offset:3px}
+.faq p{padding:0 0 16px;color:var(--sub);font-size:14px;line-height:1.8}
+.apply{background:var(--indigo);color:var(--on-indigo);text-align:center;background-image:radial-gradient(100% 90% at 50% 0%,rgba(217,146,47,.14),transparent 65%)}
+.apply .kicker{justify-content:center;color:#F1B862}
+.apply h2{color:#FFFFFF}
+.apply p{color:var(--on-indigo-sub);margin:12px auto 0;max-width:34em}
+.apply-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:24px}
+.apply .btn{min-height:56px;font-size:16px;padding:10px 26px;flex:1 1 240px;max-width:340px}
+.apply .id{margin-top:16px;font-weight:700;font-size:14.5px}
+.apply .id a{color:#FFFFFF;text-underline-offset:3px}
 .mailbox{margin-top:6px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:center;font-size:14px;font-weight:700}
 .mailbox span{user-select:all;-webkit-user-select:all;overflow-wrap:anywhere}
-.minibtn{min-height:36px;border-radius:999px;border:1.5px solid var(--ink);background:var(--surface);color:var(--ink);font-weight:700;padding:2px 12px;font-size:12.5px}
-.copymsg{margin-top:10px;font-weight:700;font-size:14px;background:var(--surface);border:1.5px solid var(--gold);border-radius:12px;padding:8px 12px;color:var(--ink);text-align:center}
+.minibtn{min-height:36px;border-radius:8px;border:1.5px solid rgba(255,255,255,.55);background:transparent;color:#FFFFFF;font-weight:700;padding:2px 12px;font-size:12.5px}
+.copymsg{margin-top:10px;font-weight:700;font-size:14px;background:var(--surface);border:1.5px solid var(--amber);border-radius:12px;padding:8px 12px;color:var(--ink);text-align:center}
 .apply .copymsg{display:inline-block;color:var(--ink)}
-footer .in{padding-block:28px 110px}
-.owner{display:grid;gap:4px;font-size:14px}
+footer .in{padding-block:30px 40px}
+.owner{display:grid;gap:4px;font-size:14px;word-break:normal}
 .owner dt{font-size:12px;color:var(--mute);font-weight:700}
-.owner dd{margin:0 0 8px;font-weight:700}
+.owner dd{margin:0 0 8px;font-weight:500}
 .fine{margin-top:14px;display:grid;gap:4px}
-.fine li{font-size:12px;color:var(--mute);line-height:1.6}
-.fab{position:fixed;z-index:40;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:10px;min-height:60px;padding:8px 20px 8px 14px;border-radius:999px;border:2.5px solid var(--gold);background:#0A2350;color:#FFFFFF;font-weight:900;font-size:16px;line-height:1.25;text-align:left;box-shadow:0 8px 24px rgba(0,0,0,.32)}
-.fab svg{width:34px;height:34px;flex:none;color:#F3D683}
-.fab small{display:block;font-size:11.5px;color:#F3D683;font-weight:700}
-.backdrop{position:fixed;inset:0;z-index:45;background:rgba(4,16,42,.55)}
-.win{position:fixed;z-index:50;left:0;right:0;bottom:0;height:90%;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);border-top:3px solid var(--gold);border-radius:22px 22px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.35);overflow:hidden}
-.win-h{flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#0A2350;color:#FFFFFF;padding:10px 12px 10px 16px}
-.win-h b{font-weight:900;font-size:16px;line-height:1.3}
-.win-h b small{display:block;font-size:11.5px;color:#F3D683;font-weight:700}
-.win-x{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);background:transparent;color:#FFFFFF;font-size:20px;font-weight:900;line-height:1}
+.fine li{font-size:12px;color:var(--mute);line-height:1.65}
+.fab{position:fixed;z-index:40;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:8px;min-height:50px;padding:6px 18px 6px 14px;border-radius:999px;border:0;background:#1D2F57;color:#FFFFFF;font-weight:700;font-size:15px;line-height:1.2;box-shadow:0 10px 28px -8px rgba(0,0,0,.45);transition:transform .22s ease,opacity .22s ease}
+.fab svg{width:24px;height:24px;flex:none;color:#F1B862}
+.fab.away{transform:translateY(calc(100% + 30px));opacity:0;pointer-events:none}
+.backdrop{position:fixed;inset:0;z-index:45;background:rgba(9,14,28,.55)}
+.win{position:fixed;z-index:50;left:0;right:0;bottom:0;height:90%;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);border-radius:20px 20px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.35);overflow:hidden}
+.win-h{flex:none;display:flex;align-items:center;justify-content:space-between;gap:8px;background:#1D2F57;color:#FFFFFF;padding:10px 12px 10px 16px}
+.win-h b{font-weight:700;font-size:16px;line-height:1.3}
+.win-h b small{display:block;font-size:11.5px;color:#F1B862;font-weight:700}
+.win-x{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);background:transparent;color:#FFFFFF;font-size:20px;font-weight:700;line-height:1}
 .nav{flex:none;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:8px 10px;background:var(--surface);border-bottom:1px solid var(--line)}
-.nav button{min-height:44px;border-radius:10px;border:1.5px solid var(--line);background:var(--chip);color:var(--ink);padding:2px 4px;font-size:11px;font-weight:700;line-height:1.3;overflow:hidden}
-.nav button b{display:block;font-size:12px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nav button[aria-current="step"]{border-color:var(--gold);border-width:2.5px}
-.nav button.done{background:var(--soft)}
+.nav button{min-height:44px;border-radius:10px;border:1.5px solid var(--line);background:var(--chip);color:var(--ink);padding:2px 4px;font-size:11px;font-weight:500;line-height:1.3;overflow:hidden}
+.nav button b{display:block;font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav button[aria-current="step"]{border-color:var(--amber);border-width:2.5px}
+.nav button.done{background:var(--indigo-soft)}
 .nav button:disabled{opacity:.45;cursor:default}
 .win-b{flex:1;min-height:0;overflow-y:auto;padding:14px 14px 18px;-webkit-overflow-scrolling:touch}
-.qb{display:inline-block;background:var(--surface);border:1.5px solid var(--line);border-radius:4px 16px 16px 16px;padding:8px 14px;font-weight:900;font-size:15.5px;line-height:1.5;margin-bottom:12px}
+.qb{display:inline-block;background:var(--surface);border:1px solid var(--line);border-radius:4px 16px 16px 16px;padding:8px 14px;font-weight:700;font-size:15.5px;line-height:1.5;margin-bottom:12px}
 .lbl{font-size:12.5px;font-weight:700;color:var(--mute);margin:12px 0 6px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{min-height:44px;padding:6px 14px;border-radius:12px;border:2px solid var(--line);background:var(--chip);color:var(--ink);font-weight:700;line-height:1.3}
+.chip{min-height:44px;padding:6px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--chip);color:var(--ink);font-weight:700;line-height:1.3}
 .chip.s{min-height:42px;padding:4px 12px;font-size:14px}
 .chip[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-ink)}
-.chip.dot::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:6px;vertical-align:middle}
+.chip.dot::after{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-left:6px;vertical-align:middle}
 .hint{font-size:12px;color:var(--mute);margin-top:10px;line-height:1.6}
-.hint i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-right:4px;vertical-align:middle}
+.hint i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-right:4px;vertical-align:middle}
 .biz{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.bz{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:86px;padding:10px 4px;border-radius:14px;border:2px solid var(--line);background:var(--chip);color:var(--ink);font-weight:700;font-size:13px;line-height:1.3;text-align:center}
-.bz svg{width:32px;height:32px;flex:none}
+.bz{display:flex;flex-direction:column;align-items:center;gap:4px;min-height:86px;padding:10px 4px;border-radius:14px;border:1.5px solid var(--line);background:var(--chip);color:var(--ink);font-weight:700;font-size:13px;line-height:1.3;text-align:center}
+.bz svg{width:30px;height:30px;flex:none}
+.bz span{word-break:keep-all;overflow-wrap:anywhere}
 .bz[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-ink)}
 .svcs{display:grid;gap:8px}
-.sv{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;text-align:left;padding:11px 13px;border-radius:14px;border:2px solid var(--line);background:var(--chip);color:var(--ink);width:100%}
-.sv .n{font-weight:900;font-size:15.5px;line-height:1.4}
-.sv .d{grid-column:1/2;font-size:12.5px;color:var(--mute);line-height:1.55;font-weight:500}
-.sv .p{grid-row:1/3;grid-column:2;font-weight:900;font-size:17px;white-space:nowrap;text-align:right}
-.sv .p small{font-size:12px;font-weight:700}
-.sv .rec{display:inline-block;background:var(--gold);color:var(--on-gold);font-size:11px;font-weight:900;border-radius:6px;padding:0 7px;margin-left:6px;vertical-align:2px;line-height:1.7}
+.sv{display:grid;grid-template-columns:1fr auto;gap:2px 12px;align-items:center;text-align:left;padding:11px 13px;border-radius:14px;border:1.5px solid var(--line);background:var(--chip);color:var(--ink);width:100%}
+.sv .n{font-weight:700;font-size:15px;line-height:1.45}
+.sv .d{grid-column:1/2;font-size:12.5px;color:var(--mute);line-height:1.55;font-weight:400}
+.sv .p{grid-row:1/3;grid-column:2;font-family:var(--f-num);font-weight:800;font-size:17px;white-space:nowrap;text-align:right}
+.sv .p small{font-family:var(--f-body);font-size:12px;font-weight:700}
+.sv .rec{display:inline-block;background:var(--amber-soft);color:var(--amber-text);font-size:11px;font-weight:700;border-radius:6px;padding:0 7px;margin-left:6px;vertical-align:2px;line-height:1.7}
 .sv[aria-pressed="true"]{background:var(--chip-on);border-color:var(--chip-on);color:var(--chip-on-ink)}
 .sv[aria-pressed="true"] .d{color:inherit;opacity:.85}
-.addon{margin-top:10px;display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:10px 14px;border-radius:14px;border:2px dashed var(--gold);background:var(--chip);color:var(--ink);font-weight:700;line-height:1.45}
-.addon .box{flex:none;width:24px;height:24px;border-radius:7px;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-weight:900;color:transparent}
-.addon[aria-pressed="true"]{border-style:solid;background:var(--soft)}
-.addon[aria-pressed="true"] .box{background:var(--gold);color:var(--on-gold)}
 .stepper{display:flex;align-items:center;gap:10px}
-.stepper button{width:56px;height:50px;border-radius:12px;border:2px solid var(--line);background:var(--chip);font-weight:900;font-size:22px;line-height:1}
-.stepper output{min-width:110px;text-align:center;font-weight:900;font-size:22px}
-.res{background:var(--surface);color:var(--ink);border-radius:18px;border:2px solid var(--gold);padding:14px}
-.res-k{font-weight:900;color:var(--accent-text);font-size:13px;letter-spacing:.03em}
-.res-k small{color:var(--on-band-sub);font-weight:700;margin-left:6px}
-.res-total{font-weight:900;line-height:1.15;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px}
-.res-total b{font-size:50px;letter-spacing:-.01em}
-.res-total span{font-size:18px}
-.res-total em{font-style:normal;font-size:13px;color:var(--accent-text)}
-.res-sel{font-size:12.5px;color:var(--on-band-sub);margin-top:2px}
+.stepper button{width:56px;height:50px;border-radius:12px;border:1.5px solid var(--line);background:var(--chip);font-weight:700;font-size:22px;line-height:1}
+.stepper output{min-width:110px;text-align:center;font-weight:800;font-size:22px}
+.res{background:var(--surface);color:var(--ink);border-radius:16px;border:1px solid var(--line);box-shadow:var(--shadow-sm);padding:14px}
+.res-k{font-weight:700;color:var(--amber-text);font-size:13px;letter-spacing:.03em}
+.res-k small{color:var(--sub);font-weight:500;margin-left:6px}
+.res-total{line-height:1.15;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px;color:var(--indigo-text)}
+.res-total b{font-family:var(--f-num);font-weight:800;font-size:46px;letter-spacing:-.01em}
+.res-total span{font-size:18px;font-weight:700}
+.res-total em{font-style:normal;font-size:13px;font-weight:700;color:var(--amber-text)}
+.res-sel{font-size:12.5px;color:var(--sub);margin-top:2px}
 .lines{margin-top:8px;border-top:1px solid var(--line)}
 .lines li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;border-bottom:1px solid var(--line);font-size:13px}
 .lines li span:last-child{white-space:nowrap;font-weight:700}
-.pnote{margin-top:8px;background:var(--soft);border-radius:10px;padding:6px 10px;font-size:12.5px;color:var(--ink);font-weight:700;line-height:1.55}
-.blk{margin-top:12px;background:var(--surface);color:var(--ink);border:1.5px solid var(--line);border-radius:16px;padding:12px 14px}
-.blk h4{font-size:14px;font-weight:900;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.net{font-weight:900;line-height:1.2;margin-top:4px;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px}
-.net b{font-size:40px}
+.pnote{margin-top:8px;background:var(--amber-soft);border-radius:10px;padding:6px 10px;font-size:12.5px;color:var(--ink);font-weight:700;line-height:1.55}
+.blk{margin-top:12px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:16px;padding:12px 14px}
+.blk h4{font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.net{line-height:1.2;margin-top:4px;display:flex;flex-wrap:wrap;align-items:baseline;gap:0 6px;color:var(--indigo-text)}
+.net b{font-family:var(--f-num);font-weight:800;font-size:38px}
+.net span{font-weight:700}
 .net small{font-size:13px;color:var(--sub);font-weight:700}
-.sbar{display:flex;height:14px;border-radius:7px;overflow:hidden;margin-top:6px;gap:2px}
-.sbar .pay{background:var(--bar)}
-.sbar .aid{background:var(--gold)}
+.sbar{display:flex;height:12px;border-radius:6px;overflow:hidden;margin-top:6px;gap:2px}
+.sbar .pay{background:var(--indigo-text)}
+.sbar .aid{background:var(--amber)}
 .legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;font-weight:700;margin-top:6px}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
-.prog{margin-top:10px;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+.prog{margin-top:10px;font-size:13px;line-height:1.65;overflow-wrap:anywhere}
 .prog + .prog{border-top:1px dashed var(--line);padding-top:10px}
-.prog b{font-weight:900}
+.prog b{font-weight:700}
 .prog a{font-weight:700;text-underline-offset:3px}
-.rec-n{font-weight:900;font-size:16px;line-height:1.4;margin-top:6px}
+.rec-n{font-weight:700;font-size:16px;line-height:1.45;margin-top:6px}
 .rec-r{font-size:13px;color:var(--sub);margin-top:2px}
 .incl{margin-top:8px;display:grid;gap:4px}
-.incl li{font-size:13px;line-height:1.55;padding-left:16px;position:relative}
-.incl li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
-.swap{margin-top:8px;min-height:40px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);font-weight:900;padding:4px 16px;font-size:13.5px}
+.incl li{font-size:13px;line-height:1.6;padding-left:16px;position:relative}
+.incl li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:var(--amber)}
+.swap{margin-top:8px;min-height:40px;border-radius:10px;border:1.5px solid var(--indigo-text);background:transparent;color:var(--indigo-text);font-weight:700;padding:4px 16px;font-size:13.5px}
 .res-cta{display:grid;gap:8px;margin-top:12px}
 .res-cta .btn{width:100%}
-.res-cta .btn.line{background:var(--surface)}
 .res-cta .copymsg{margin-top:0}
 .res-cta .alt{font-size:12.5px;color:var(--sub);text-align:center;overflow-wrap:anywhere}
 .res-cta .alt a{text-underline-offset:3px}
@@ -329,193 +354,205 @@ footer .in{padding-block:28px 110px}
 .win-f{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--surface);border-top:1px solid var(--line);padding:8px 14px calc(8px + env(safe-area-inset-bottom,0px))}
 .win-f div{min-width:0}
 .win-f span{font-size:11.5px;color:var(--mute);font-weight:700;display:block;line-height:1.3}
-.win-f b{font-size:22px;font-weight:900;line-height:1.2;white-space:nowrap}
+.win-f b{font-family:var(--f-num);font-size:22px;font-weight:800;line-height:1.2;white-space:nowrap}
 .win-f .btn{min-height:44px;padding:6px 18px;white-space:nowrap}
 .win-f .btn:disabled{opacity:.4;cursor:default}
+@media (max-width:399px){
+  .bar .lg{display:none}
+}
+@media (max-width:379px){
+  .eg-n b{font-size:29px}
+}
+@media (max-width:639px){
+  .plot{margin-left:30px}
+  .gl span{left:-30px;width:26px}
+  .xl{margin-left:30px}
+  .xl span:not(:first-child):not(:last-child){visibility:hidden}
+  .bw:not(.hi) .bl{display:none}
+}
 @media (min-width:640px){
-  .ba{grid-template-columns:1fr auto 1.15fr;align-items:center;gap:12px;padding:24px}
-  .ba-arrow svg{transform:none}
-  .photo{grid-template-columns:1.5fr 1fr;gap:24px}
-  .cards{grid-template-columns:repeat(3,1fr)}
+  section .in{padding-block:56px}
+  .tiles{grid-template-columns:1fr 1fr;column-gap:20px}
   .egs{grid-template-columns:repeat(2,1fr)}
-  .tiles2{grid-template-columns:1fr 1fr}
-  .deliver{gap:14px}
-  .win{left:auto;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:410px;height:min(700px,calc(100% - 32px));border:2.5px solid var(--gold);border-radius:22px}
+  .eg:last-child:nth-child(odd){grid-column:1/-1}
+  .phones{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);grid-auto-columns:auto;overflow:visible;margin:0;padding:4px 0 0;gap:22px}
+  .swipe{display:none}
+  .deliver{gap:12px}
+  .dv{font-size:12.5px}
+  .win{left:auto;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:410px;height:min(700px,calc(100% - 32px));border:1px solid var(--line);border-radius:20px}
   .backdrop{display:none}
+  .cta .btn{flex:0 1 auto}
 }
 @media (min-width:900px){
-  .hero{grid-template-columns:1fr 1fr;gap:40px;margin-top:36px}
-  .top .in{padding-block:16px 48px}
-  .stats{grid-template-columns:1fr 1.15fr;gap:28px;align-items:start}
+  .top .in{padding-block:18px 64px}
+  .hero{grid-template-columns:1.05fr .95fr;gap:48px;margin-top:44px;align-items:center}
+  .stats{grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+  .charts{grid-template-columns:1fr}
   .egs{grid-template-columns:repeat(3,1fr)}
-  .flows{grid-template-columns:1fr 1fr;gap:32px}
-  section .in{padding-block:60px}
+  .eg:last-child:nth-child(odd){grid-column:auto}
+  .flows{grid-template-columns:1fr 1fr;gap:48px}
+  section .in{padding-block:76px}
+  .phones{max-width:860px;margin:0 auto}
+  .qr{grid-template-columns:1fr 1.2fr;gap:6px 28px;align-items:start}
+  .qr p{grid-column:2;grid-row:1/3}
 }
 @media (prefers-reduced-motion:no-preference){
-  .chip,.bz,.sv,.addon{transition:background-color .12s,border-color .12s,color .12s}
+  .chip,.bz,.sv{transition:background-color .12s,border-color .12s,color .12s}
   .win{animation:up .18s ease-out}
   @keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
 }
+@media (prefers-reduced-motion:reduce){.fab{transition:none}}
 </style>
 </head>
 <body>
-<header class="top bgsec strong" style="--photo:url(images/bg_hero.jpg);--pos:22% center;--tint:var(--t-warm)">
+<header class="top bgp bg-hero" id="top">
   <div class="in">
     <div class="bar">
       <div class="brand">
         <img src="icon.png" alt="" width="40" height="40">
         <div><b>多言語メニュー作成</b><span>訪日のお客様向けの多言語化</span></div>
       </div>
-      <a class="btn sm" href="https://ig.me/m/tagengo.menu" target="_blank" rel="noopener">インスタDMで相談</a>
+      <a class="btn sm" href="https://ig.me/m/tagengo.menu" target="_blank" rel="noopener"><span class="lg">インスタ</span>DMで相談</a>
     </div>
 
     <div class="hero">
       <div>
-        <div class="kicker">英語・韓国語・繁体字</div>
-        <h1>「読めない」を、<br><em>「伝わる」</em>に。</h1>
-        <p class="lead">メニュー・POP・注文画面の多言語化と、ホームページの英語・韓国語の校正で、<b>海外のお客様に伝わる言葉</b>に。飲食店から宿・観光施設・観光協会・お店まで承ります。</p>
+        <p class="kicker">英語・韓国語・繁体字</p>
+        <h1><span class="ln">「読めない」を、</span><span class="ln"><span class="em">「伝わる」</span>に。</span></h1>
+        <p class="lead">メニュー・POPの多言語化と、ホームページの英語・韓国語の校正で、<b>海外のお客様に伝わる言葉</b>に。飲食店から宿・観光施設・観光協会・お店まで承ります。</p>
         <ul class="promise">
           <li>まず無料の見本から</li>
           <li>お支払いは納品・ご確認の後</li>
           <li>納品後30日以内の直しは無料</li>
         </ul>
         <div class="cta">
-          <button type="button" class="btn" data-open-sim>ポチポチ選んで見積もり</button>
+          <button type="button" class="btn light" data-open-sim><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 6.5h7v3h-7z" fill="currentColor"/><path d="M9 13h.01M12 13h.01M15 13h.01M9 16.5h.01M12 16.5h.01M15 16.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>条件を選んで見積もり</button>
           <a class="btn ghost" href="https://ig.me/m/tagengo.menu" target="_blank" rel="noopener">インスタのDMで相談する</a>
         </div>
+        <p class="cta-sub"><a class="tlink" href="#sample">実際の見本の画面を見る</a></p>
       </div>
 
-      <div class="map" aria-label="サービスの図解">
-        <div class="who">
-          <div class="map-k">こんな方に</div>
-          <ul>
-            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6v14a5 5 0 0 0 10 0V6M19 6v36M34 6c-4 3-6 9-6 16h6zm0 16v20" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>飲食店</li>
-            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 12v26M5 30h38v8M43 30v-5a6 6 0 0 0-6-6H21v11" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="22" r="4" fill="currentColor"/></svg>宿</li>
-            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18 24 6l19 12z" fill="currentColor"/><path d="M11 22v14M19 22v14M29 22v14M37 22v14M5 41h38" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>観光施設</li>
-            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 42V6M12 8h24l-5 8 5 8H12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>観光協会</li>
-            <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 18h32l-3 24H11z" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/><path d="M17 22v-7a7 7 0 0 1 14 0v7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>お店</li>
-          </ul>
-        </div>
-        <div class="map-arrow" aria-hidden="true"><svg viewBox="0 0 40 44"><path d="M4 4 L36 22 L4 40 Z" fill="currentColor"/></svg></div>
-        <div class="what">
-          <div class="map-k">3つのサービス</div>
-          <ol>
-            <li><i>1</i><b>メニューとPOPの多言語化</b><span>英語＋韓国語。繁体字も入る3言語版は89,800円</span><em class="num">59,800<small>円〜</small></em></li>
-            <li><i>2</i><b>タブレット・スマホ注文のデータパック</b><span>今の注文の仕組みのまま、訳を入れるだけ</span><em class="num">59,800<small>円</small></em></li>
-            <li><i>3</i><b>英語・韓国語ページの校正</b><span>5ページまで9,800円・6ページ目から1ページ＋3,000円</span><em class="num">9,800<small>円〜</small></em></li>
-          </ol>
-          <p class="map-note">韓国語だけのメニュー一式・施設案内一式（各29,800円）もあります。英語・韓国語・繁体字の案の作成にはAIを活用しています。</p>
-        </div>
+      <div class="svc" aria-label="サービスの図解">
+        <div class="svc-k">こんな方に</div>
+        <ul class="who">
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 6v14a5 5 0 0 0 10 0V6M19 6v36M34 6c-4 3-6 9-6 16h6zm0 16v20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>飲食店</li>
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 12v26M5 30h38v8M43 30v-5a6 6 0 0 0-6-6H21v11" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13" cy="22" r="4" fill="currentColor"/></svg>宿</li>
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18 24 6l19 12z" fill="currentColor"/><path d="M11 22v14M19 22v14M29 22v14M37 22v14M5 41h38" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>観光施設</li>
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 42V6M12 8h24l-5 8 5 8H12" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>観光協会</li>
+          <li><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 18h32l-3 24H11z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M17 22v-7a7 7 0 0 1 14 0v7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>お店</li>
+        </ul>
+        <div class="svc-k">2つのサービス</div>
+        <ol class="what">
+          <li><i>1</i><b>メニューとPOPの<wbr><span class="nw">多言語化</span></b><span>英語＋韓国語。<wbr>繁体字も入る<wbr>3言語版は<wbr><span class="nw">89,800円</span></span><em>59,800<small>円〜</small></em></li>
+          <li><i>2</i><b><span class="nw">英語・韓国語</span><wbr>ページの校正</b><span>5ページまで<wbr><span class="nw">9,800円</span>・<wbr>6ページ目から<wbr>1ページ<span class="nw">＋3,000円</span></span><em>9,800<small>円〜</small></em></li>
+        </ol>
+        <p class="svc-note">韓国語だけのメニュー一式・施設案内一式（<span class="nw">各29,800円</span>）もあります。英語・韓国語・繁体字の案の作成にはAIを活用しています。</p>
       </div>
     </div>
   </div>
 </header>
 
-<section class="bgsec" style="--photo:url(images/bg_inbound.jpg);--pos:center;--tint:var(--t-cool)">
+<section class="bgp bg-inbound s-white">
   <div class="in">
     <div class="sec-h">
-      <div class="kicker">訪日のお客様の数字</div>
-      <h2>韓国・台湾のお客様が<em style="white-space:nowrap">過去最高ペース</em>で増加中。</h2>
+      <p class="kicker"><span class="no">01</span>訪日のお客様の数字</p>
+      <h2>韓国・台湾のお客様が<wbr>過去最高ペースで<wbr>増加中。</h2>
       <p>2026年1〜9月の訪日のお客様は、韓国・台湾とも、1〜9月として過去最高です。</p>
     </div>
     <div class="stats">
       <div>
         <ul class="bigs">
-          <li><small>韓国から（2026年1〜9月）</small><b class="num">826<span>万人</span></b><em>前年の同じ時期より 21.6%増</em></li>
-          <li><small>台湾から（2026年1〜9月）</small><b class="num">600<span>万人</span></b><em>前年の同じ時期より 19.1%増</em></li>
+          <li><small>韓国から（2026年1〜9月）</small><b class="num">826<span>万人</span></b><em>前年の同じ時期より <span class="nw">21.6%増</span></em></li>
+          <li><small>台湾から（2026年1〜9月）</small><b class="num">600<span>万人</span></b><em>前年の同じ時期より <span class="nw">19.1%増</span></em></li>
         </ul>
-        <ul class="tiles tiles2" style="margin-top:8px">
+        <ul class="tiles">
           <li class="tile"><small>訪日のお客様 全体（2025年）</small><b class="num">4,268<span>万人</span></b><em>年間で過去最高。2026年1〜9月は3,073万人（前年の同じ時期より2.9%減）</em></li>
           <li class="tile"><small>札幌に泊まった外国人（2025年度）</small><b class="num">約249<span>万人</span></b><em>前年度より14.1%増。新千歳空港の調査（1,036人）では、90.2%が札幌で「美味しいものを食べる」</em></li>
         </ul>
       </div>
       <div>
         <div class="chart">
-          <div class="chart-t">韓国からのお客様（各年の1〜9月・万人）</div>
-          <div class="plot" id="plotKo" role="img"></div>
-          <div class="xl" id="xlKo" aria-hidden="true"></div>
-          <div class="chart-t" style="margin-top:16px">台湾からのお客様（各年の1〜9月・万人）</div>
-          <div class="plot" id="plotTw" role="img"></div>
-          <div class="xl" id="xlTw" aria-hidden="true"></div>
+          <p class="chart-u">各年の1〜9月・万人</p>
+          <div class="charts">
+            <div>
+              <div class="chart-t">韓国からのお客様</div>
+              <div class="plot" id="plotKo" role="img"></div>
+              <div class="xl" id="xlKo" aria-hidden="true"></div>
+            </div>
+            <div>
+              <div class="chart-t">台湾からのお客様</div>
+              <div class="plot" id="plotTw" role="img"></div>
+              <div class="xl" id="xlTw" aria-hidden="true"></div>
+            </div>
+          </div>
           <details class="tbl"><summary>数字を表で見る</summary><div style="overflow-x:auto"><table class="num" id="tbl"></table></div></details>
         </div>
-        <p class="small" style="margin-top:8px">出どころ：日本政府観光局（JNTO）「国籍/月別 訪日外客数（2003年～2026年）」（2026年10月21日公表。2026年8・9月は推計値）、「年別 訪日外客数、出国日本人数の推移（1964年‐2025年）」（確定値）。「1〜9月として過去最高」は、同じ表の2003年からの各年の1〜9月を足して比べたものです。札幌市「2025年度札幌の観光動向に関する調査結果」「令和7年度新千歳空港における観光客動態調査」。2026年11月16日に確認。</p>
+        <p class="small" style="margin-top:10px">出どころ：日本政府観光局（JNTO）「国籍/月別 訪日外客数（2003年～2026年）」（2026年10月21日公表。2026年8・9月は推計値）、「年別 訪日外客数、出国日本人数の推移（1964年‐2025年）」（確定値）。「1〜9月として過去最高」は、同じ表の2003年からの各年の1〜9月を足して比べたものです。札幌市「2025年度札幌の観光動向に関する調査結果」「令和7年度新千歳空港における観光客動態調査」。2026年11月16日に確認。</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bgsec" style="--photo:url(images/bg_subsidy.jpg);--pos:74% center;--tint:var(--t-warm)">
+<section class="bgp bg-subsidy">
   <div class="in">
     <div class="sec-h">
-      <div class="kicker">補助金のまとめ</div>
-      <h2>費用の<em>半分〜3分の2</em>が補助される地域があります。</h2>
+      <p class="kicker"><span class="no">02</span>補助金のまとめ</p>
+      <h2>費用の<wbr>半分〜3分の2が<wbr>補助される<wbr>地域があります。</h2>
       <p>外国語メニューの翻訳・制作に補助を出している自治体の例です。</p>
     </div>
     <div class="egs" id="egs"></div>
     <div class="sum-row">
       <p id="subCount"></p>
-      <button type="button" class="btn line" data-open-sim>自分の地域で調べる</button>
+      <button type="button" class="btn sub" data-open-sim>自分の地域で調べる</button>
     </div>
-    <p class="small" style="margin-top:10px">金額は、補助が最大で出た場合の目安です。多くの制度で消費税分は補助の対象外のため、補助は消費税相当額を除いた金額から計算しています。対象になる場合があります。最終判断は自治体・事務局です。申請はお店ご自身で行います（申請書の作成はできません）。</p>
+    <p class="small" style="margin-top:12px">金額は、補助が最大で出た場合の目安です。多くの制度で消費税分は補助の対象外のため、補助は消費税相当額を除いた金額から計算しています。対象になる場合があります。最終判断は自治体・事務局です。申請はお店ご自身で行います（申請書の作成はできません）。</p>
   </div>
 </section>
 
-<section class="bgsec" style="--photo:url(images/bg_sample.jpg);--pos:18% center;--tint:var(--t-white)">
+<section class="bgp bg-sample s-white" id="sample">
   <div class="in">
     <div class="sec-h">
-      <div class="kicker">見本（メニューの場合）</div>
-      <h2>料理名だけで終わらせない。<em>説明・食材・アレルギー表示</em>まで。</h2>
+      <p class="kicker"><span class="no">03</span>見本（メニューの場合）</p>
+      <h2>料理名だけで<wbr>終わらせない。<wbr><span class="nw">説明・食材・</span><wbr>アレルギー表示まで。</h2>
     </div>
-    <div class="ba" aria-label="ビフォー・アフターの図解">
-      <figure class="ba-before">
-        <figcaption><span class="tag b">ビフォー</span>日本語だけのメニュー</figcaption>
-        <div class="paper">
-          <span class="q">？ 何の料理…</span>
-          <div class="paper-h">お品書き</div>
-          <ul>
-            <li><span>ジンギスカン</span><span>1,580円</span></li>
-            <li><span>スープカレー</span><span>1,380円</span></li>
-            <li><span>味噌ラーメン</span><span>980円</span></li>
-          </ul>
-        </div>
+    <div class="phones" role="list" aria-label="見本の画面（架空の店）">
+      <figure class="ph" role="listitem">
+        <div class="ph-frame"><img src="images/sample_en_dish.jpg" alt="見本の画面（英語）。料理の番号、名前、説明、使用食材、お店のアレルギー表示が並ぶ。" width="600" height="1022"></div>
+        <figcaption>英語<small>料理の説明・<wbr>食材・<wbr>アレルギー</small></figcaption>
       </figure>
-      <div class="ba-arrow" aria-hidden="true"><svg viewBox="0 0 40 44"><path d="M4 4 L36 22 L4 40 Z" fill="currentColor"/></svg></div>
-      <figure class="ba-after">
-        <figcaption><span class="tag a">アフター</span>3言語で、番号で注文</figcaption>
-        <div class="phone"><div class="screen">
-          <div class="tabs" id="heroTabs" role="group" aria-label="見本の言語"></div>
-          <div id="heroDish"></div>
-        </div></div>
+      <figure class="ph" role="listitem">
+        <div class="ph-frame"><img src="images/sample_ko_dish.jpg" alt="同じ見本の画面を韓国語に切り替えたところ。" width="600" height="1022"></div>
+        <figcaption>韓国語<small>ボタンひとつで切り替え</small></figcaption>
+      </figure>
+      <figure class="ph" role="listitem">
+        <div class="ph-frame"><img src="images/sample_en_rules.jpg" alt="見本の画面（英語）。入店から会計までのお店のきまりを、番号つきで説明している。" width="600" height="1022"></div>
+        <figcaption>お店のきまり<small>お通し・注文・会計の仕方</small></figcaption>
       </figure>
     </div>
+    <p class="swipe">横にずらすと、ほかの画面も見られます。</p>
+    <p class="ph-note"><b>見本は架空の店（例）の画面です。</b>料理・値段・食材・アレルギー・お店のきまりはすべて例です。英語・韓国語はAIで作った案です。</p>
 
+    <div class="qr">
+      <b>卓上のコードを読み取ると、<wbr>お客様のスマホに<wbr>外国語メニュー。</b>
+      <p>注文の仕方・お通し・お会計などの「お店のきまり」は卓上POPでご案内します。<span class="small">※QRコードは(株)デンソーウェーブの登録商標です</span></p>
+    </div>
     <ul class="deliver">
       <li class="dv">
         <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="5" width="28" height="38" rx="3" fill="none" stroke="currentColor" stroke-width="3"/><path d="M16 15h16M16 22h16M16 29h10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-        <b>メニュー</b>40品まで・印刷用PDF（A4）
+        <b>メニュー</b>40品まで・<wbr>印刷用PDF<wbr><span class="nw">（A4）</span>
       </li>
       <li class="dv">
         <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 8h24l4 30H8z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M6 41h36M17 17h14M16 24h16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-        <b>卓上POP 2枚</b>注文と会計のきまり／指でさして伝える表
+        <b>卓上POP 2枚</b>注文と会計の<wbr>きまり／<wbr>指でさして<wbr>伝える表
       </li>
       <li class="dv">
         <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="14" y="4" width="20" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="3"/><path d="M19 13h10M19 19h10M19 25h6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><rect x="21" y="36" width="6" height="3" rx="1.5" fill="currentColor"/></svg>
-        <b>スマホで見るメニュー</b>読み取りコードの図柄つき
+        <b>スマホで見る<wbr>メニュー</b>読み取りコードの<wbr>図柄つき
       </li>
     </ul>
 
-    <figure class="photo">
-      <img src="before_after.jpg" alt="左：日本語のメニューを見て困っている海外のお客様。右：スマホで韓国語・繁体字のメニューを見て笑顔のお客様。" width="1200" height="640">
-      <figcaption>
-        <b>卓上のコードを読み取ると、<span class="mk">お客様のスマホ</span>に外国語メニュー。</b>
-        注文の仕方・お通し・お会計などの「お店のきまり」は卓上POPでご案内します。<br>
-        画像はAIで作ったイメージです。画面は見本（例）です。※QRコードは(株)デンソーウェーブの登録商標です
-      </figcaption>
-    </figure>
-
-    <details class="sample" open>
-      <summary>見本をもっと見る（3品・お店のきまり）</summary>
+    <details class="sample">
+      <summary>見本の文を<wbr>4つの言葉で読む<wbr>（3品・お店のきまり）</summary>
       <div class="tabs" id="sampleTabs" role="group" aria-label="見本の言語"></div>
       <div class="cards" id="sampleCards"></div>
       <div class="rules" id="sampleRules"></div>
@@ -524,11 +561,11 @@ footer .in{padding-block:28px 110px}
   </div>
 </section>
 
-<section class="bgsec" style="--photo:url(images/bg_flow.jpg);--pos:10% center;--tint:var(--t-cool)">
+<section class="bgp bg-flow">
   <div class="in">
     <div class="sec-h">
-      <div class="kicker">流れの図解</div>
-      <h2>見本から。<em>お支払いは最後</em>です。</h2>
+      <p class="kicker"><span class="no">04</span>流れの図解</p>
+      <h2>見本から。<wbr>お支払いは<wbr>最後です。</h2>
     </div>
     <div class="flows">
       <div>
@@ -537,10 +574,10 @@ footer .in{padding-block:28px 110px}
         <ol class="flow">
           <li><i>1</i><b>無料の見本<span class="free">無料</span></b><span>インスタのDMかメールでひと言。メニューは3品の見本、ページの校正は修正案を3点、お作りします。</span></li>
           <li><i>2</i><b>ご依頼</b><span>メニューや資料と、お店のきまりをうかがう質問票をお送りいただきます。</span></li>
-          <li><i>3</i><b>納品</b><span>メニューは材料がそろってから7日前後（3言語版・データパックは10日前後）。直しは2回まで無料。</span></li>
+          <li><i>3</i><b>納品</b><span>メニューは材料がそろってから7日前後（3言語版は10日前後）。直しは2回まで無料。</span></li>
           <li class="hot"><i>4</i><b>ご確認の後にお支払い</b><span>請求書から7日以内に銀行振込（振込手数料はご負担ください）。</span></li>
         </ol>
-        <p class="small" style="margin-top:12px">納品後30日以内に「伝わっていない」という声があれば、無料で直します。</p>
+        <p class="small">納品後30日以内に「伝わっていない」という声があれば、無料で直します。</p>
       </div>
       <div>
         <div class="flow-t">補助金の流れ（札幌市の例）</div>
@@ -553,7 +590,7 @@ footer .in{padding-block:28px 110px}
           <li><i>4</i><b>実績報告</b><span>請求書・領収書・納品書・写真など。</span></li>
           <li><i>5</i><b>振込</b><span>金額確定の通知のあと。</span></li>
         </ol>
-        <div class="alert">交付決定の前に発注すると<br><b>対象外</b>です</div>
+        <div class="alert"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 21h20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v5M12 18h.01" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg><span>交付決定の前に発注すると<span class="nw">対象外です</span></span></div>
         <ul class="cav">
           <li>流れは制度ごとに違います。消費税は原則として補助の対象外とされています。</li>
           <li>出典：札幌市「観光施設受入環境整備補助金」公式ページ・募集要領（2026年11月16日確認）</li>
@@ -563,10 +600,10 @@ footer .in{padding-block:28px 110px}
   </div>
 </section>
 
-<section class="bgsec" style="--pos:center;--tint:var(--t-white)">
+<section class="bgp bg-faq s-white">
   <div class="in">
     <div class="sec-h">
-      <div class="kicker">よくある質問</div>
+      <p class="kicker"><span class="no">05</span>よくある質問</p>
       <h2>ご依頼の前に</h2>
     </div>
     <div class="faq">
@@ -578,18 +615,19 @@ footer .in{padding-block:28px 110px}
       <details><summary>訳はどうやって作っていますか？</summary><p>英語・韓国語・繁体字の案の作成にはAIを活用しています。</p></details>
       <details><summary>アレルギーの表示はどうなりますか？</summary><p>お店の表示のとおりに訳します（足したり引いたりしません）。中身の確認はお店でお願いします。</p></details>
       <details><summary>印刷やホームページへの組み込みもお願いできますか？</summary><p>含みません。印刷用のPDFとデータでお渡しします。写真の撮影・加工も含みません（スマホで見るメニューには、お店でご用意いただいた写真を入れます）。</p></details>
-      <details><summary>タブレット注文・スマホ注文の画面も外国語にできますか？</summary><p>「タブレット注文 3言語データパック」で、料理名・説明・使用食材の訳を、お店の仕組みに合わせた取り込み用のファイルか貼り付け用の表と、入れ方の手順書でお渡しします。ログイン情報はお預かりせず、お店の画面にも触れません。「注文する」などのボタンの文字は、こちらでは変えられません。</p></details>
+      <details><summary>タブレット注文・スマホ注文の画面も外国語にできますか？</summary><p>今は承っていません。紙のメニュー・卓上POP・スマホで見るメニューをご案内しています。</p></details>
     </div>
   </div>
 </section>
 
-<section class="apply bgsec strong" style="--pos:center;--tint:var(--t-gold)">
+<section class="bgp bg-apply apply" id="apply">
   <div class="in">
-    <h2>まずは<em>無料の見本</em>から。</h2>
+    <p class="kicker">お問い合わせ</p>
+    <h2>まずは<wbr>無料の見本から。</h2>
     <p>インスタのDMかメールで「見本を見たい」とひと言お送りください。見積もりの結果を貼っていただくと、話が早く進みます。</p>
     <div class="apply-btns">
-      <a class="btn" href="https://ig.me/m/tagengo.menu" target="_blank" rel="noopener">インスタのDMで相談する</a>
-      <a class="btn line" data-mail href="mailto:1017.sou.329@gmail.com">メールで相談する</a>
+      <a class="btn light" href="https://ig.me/m/tagengo.menu" target="_blank" rel="noopener">インスタのDMで相談する</a>
+      <a class="btn ghost" data-mail href="mailto:1017.sou.329@gmail.com">メールで相談する</a>
     </div>
     <div class="id"><a href="https://www.instagram.com/tagengo.menu/" target="_blank" rel="noopener">インスタ：@tagengo.menu</a></div>
     <div class="mailbox">メール：<span class="mailtext">1017.sou.329@gmail.com</span><button type="button" class="minibtn" data-copy-mail>アドレスをコピー</button></div>
@@ -597,7 +635,7 @@ footer .in{padding-block:28px 110px}
   </div>
 </section>
 
-<footer>
+<footer id="owner">
   <div class="in">
     <dl class="owner">
       <dt>運営者</dt><dd>畠山元希</dd>
@@ -607,19 +645,20 @@ footer .in{padding-block:28px 110px}
     <ul class="fine">
       <li>お見積もりは目安です。正式な金額は、メニューや資料を拝見してからDMかメールでお伝えします。</li>
       <li>英語・韓国語・繁体字の案の作成にはAIを活用しています。</li>
+      <li>背景の画像はAIで作ったイメージです（実在の店・人ではありません）。</li>
       <li>※QRコードは(株)デンソーウェーブの登録商標です</li>
     </ul>
   </div>
 </footer>
 
-<button type="button" class="fab" id="fab" aria-haspopup="dialog" aria-controls="simWin">
-  <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="4" width="30" height="40" rx="5" fill="none" stroke="currentColor" stroke-width="3.2"/><rect x="15" y="10" width="18" height="8" rx="2" fill="currentColor"/><path d="M16 26h3M23 26h3M30 26h3M16 33h3M23 33h3M30 33h3" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/></svg>
-  <span>かんたん見積もり<small>補助金の目安も出ます</small></span>
+<button type="button" class="fab away" id="fab" aria-haspopup="dialog" aria-controls="simWin">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8.5 6.5h7v3h-7z" fill="currentColor"/><path d="M9 13h.01M12 13h.01M15 13h.01M9 16.5h.01M12 16.5h.01M15 16.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+  <span>かんたん見積もり</span>
 </button>
 <div class="backdrop" id="backdrop" hidden></div>
 <div class="win" id="simWin" role="dialog" aria-modal="false" aria-labelledby="simTitle" hidden>
   <div class="win-h">
-    <b id="simTitle" tabindex="-1">かんたん見積もり<small>ポチポチ選ぶだけ・目安です</small></b>
+    <b id="simTitle" tabindex="-1">かんたん見積もり<small>条件を選ぶだけ・目安です</small></b>
     <button type="button" class="win-x" id="simClose" aria-label="見積もりを閉じる">×</button>
   </div>
   <div class="nav" id="simNav" role="group" aria-label="えらぶ順番"></div>
@@ -643,7 +682,7 @@ footer .in{padding-block:28px 110px}
  {"都道府県": "大阪府", "市区町村": "", "制度名": "令和8年度 大阪府新法民泊施設の環境整備促進事業", "対象の事業者": "住宅宿泊事業の届出事業者・予定者", "外国語メニューの翻訳・制作が対象か": "宿の案内・パンフ・HPの多言語化は対象。メニューは対象外", "補助率": "1/2以内", "上限額": "1施設40万円", "受付期間・締切": "2026-08-20〜2027-02-26（予算到達で終了）", "受付状況": "受付中", "先着か審査か": "予算到達で終了", "交付決定前の発注が対象外か": "不明（要領で確認）", "公式URL": "https://www.pref.osaka.lg.jp/o070070/toshimiryoku/syukuhaku_hojyo/r8shinpou_hojyo.html", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "千円未満切り捨て", "地域の注記": "（府）新法民泊", "締切": "2027-02-26", "業種": ["宿"], "出どころ": "中部近畿_2026-11-16.csv"},
  {"都道府県": "富山県", "市区町村": "", "制度名": "持続可能な観光地域づくり支援事業費補助金（受入環境整備）", "対象の事業者": "県内の観光事業者・観光関係団体など", "外国語メニューの翻訳・制作が対象か": "はい（ほぼ）", "補助率": "1/2（二次情報・未確認）", "上限額": "100万円（二次情報・未確認）", "受付期間・締切": "第3期 2026-09-01〜10-20（事前相談は〜10-13・必須）", "受付状況": "終了（来年度未定）", "先着か審査か": "審査", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.pref.toyama.jp/810111/hojokin/kankochiikidukuri.html", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "千円未満切り捨て", "地域の注記": "（県）", "締切": "2026-10-20", "業種": ["観光施設", "観光協会・団体"], "出どころ": "中部近畿_2026-11-16.csv"},
  {"都道府県": "三重県", "市区町村": "", "制度名": "インバウンド・ユニバーサルツーリズム・観光防災推進補助事業", "対象の事業者": "宿泊施設・観光施設", "外国語メニューの翻訳・制作が対象か": "宿・観光施設の多言語対応のみ（飲食店は不明）", "補助率": "1/2", "上限額": "100万〜1,000万円", "受付期間・締切": "令和8年度分は審査済み", "受付状況": "終了（来年度未定）", "先着か審査か": "審査", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.pref.mie.lg.jp/KANKOSHI/HP/m0369700022.htm", "確認日": "2026-11-16", "消費税の扱い": "不明", "端数の扱い": "不明", "地域の注記": "（県）", "締切": "", "業種": ["宿", "観光施設"], "出どころ": "中部近畿_2026-11-16.csv"},
- {"都道府県": "東京都", "市区町村": "", "制度名": "インバウンド対応力強化支援事業補助金（令和8年度）", "対象の事業者": "都内の宿泊施設・飲食店・小売店・体験施設等（中小企業要件あり）", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2（多言語対応は2/3以内）（千円未満切捨て）", "上限額": "1施設・店舗あたり300万円", "受付期間・締切": "2026-04-01〜2027-03-31（当日消印有効・Jグランツ電子申請可）", "受付状況": "受付中（予算到達で終了。現在の残り予算は未確認）", "先着か審査か": "書類審査（予算額に達した時点で受付終了）", "交付決定前の発注が対象外か": "はい：「交付決定日より前に補助事業を開始した場合は、補助金は交付しません」", "公式URL": "https://www.tcvb.or.jp/jp/project/infra/welcome-foreigner/", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "千円未満切り捨て", "地域の注記": "（都内全域）東京観光財団", "締切": "2027-03-31", "業種": ["飲食店", "宿", "観光施設", "小売"], "条件": "中小企業であること、飲食店は「EAT東京」に外国語メニューを掲載済みであることが条件。すでに外国語にしている場合は、新しく足す言語だけが対象。交付決定の前に始めた事業は対象外。", "出どころ": "東日本_2026-11-16.csv"},
+ {"都道府県": "東京都", "市区町村": "", "制度名": "インバウンド対応力強化支援事業補助金（令和8年度）", "対象の事業者": "都内の宿泊施設・飲食店・小売店・体験施設等（中小企業要件あり）", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2（多言語対応は2/3以内）（千円未満切捨て）", "上限額": "1施設・店舗あたり300万円", "受付期間・締切": "2026-04-01〜2027-03-31（当日消印有効・Jグランツ電子申請可）", "受付状況": "受付中（予算到達で終了。現在の残り予算は未確認）", "先着か審査か": "書類審査（予算額に達した時点で受付終了）", "交付決定前の発注が対象外か": "はい：「交付決定日より前に補助事業を開始した場合は、補助金は交付しません」", "公式URL": "https://www.tcvb.or.jp/jp/project/infra/welcome-foreigner/", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "千円未満切り捨て", "地域の注記": "（都内全域）東京観光財団", "締切": "2027-03-31", "業種": ["飲食店", "宿", "観光施設", "小売"], "条件": "中小企業であること、飲食店は「EAT東京」に外国語メニューを掲載済みであることが条件。すでに外国語にしている場合は、新しく足す言語だけが対象。交付決定の前に始めた事業は対象外。", "実質を出さない理由": "東京都（東京観光財団）の制度は、すでに外国語にしているメニューは新しく足す言語だけが対象で、「EAT東京」に載せたメニューがあるお店で英語が対象になるかは公式に書かれていないため、実質負担の目安は出していません。多言語対応は補助率2/3以内・上限は1施設・店舗あたり300万円（千円未満切り捨て）。対象になる範囲は、事前に東京観光財団へご確認ください。", "出どころ": "東日本_2026-11-16.csv"},
  {"都道府県": "東京都", "市区町村": "港区", "制度名": "港区チャレンジ商店街店舗応援事業補助金（令和8年度）", "対象の事業者": "区内商店会加盟店（賛助会員含む）の小売・飲食・一部サービス。区内3年以上営業、資本金1000万円以下または従業員30人以下", "外国語メニューの翻訳・制作が対象か": "不明（一部）", "補助率": "1/2（千円未満切捨て）", "上限額": "50万円", "受付期間・締切": "〜2027-01-29（郵送は必着）", "受付状況": "受付中（予算額に達した時点で終了）", "先着か審査か": "先着（予算到達で終了）", "交付決定前の発注が対象外か": "はい：「交付決定以降に事業を実施することが条件」", "公式URL": "https://www.city.minato.tokyo.jp/sangyousinkou/sangyo/shinko/challenge0928hozyokin.html", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "千円未満切り捨て", "締切": "2027-01-29", "業種": ["飲食店", "小売"], "出どころ": "東日本_2026-11-16.csv"},
  {"都道府県": "栃木県", "市区町村": "宇都宮市", "制度名": "外国人観光客受入体制整備事業補助金", "対象の事業者": "市内に施設・店舗を持つ宿泊施設・飲食店・土産品販売店・観光施設等", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2（千円未満切捨）", "上限額": "15万円（1事業者年度1回）", "受付期間・締切": "2026-04-01〜2027-02末", "受付状況": "受付中（予算がなくなり次第終了）", "先着か審査か": "先着（予算がなくなり次第）", "交付決定前の発注が対象外か": "不明（要綱・概要に明記なし。過去にこの補助金を使った事業は対象外）", "公式URL": "https://www.city.utsunomiya.lg.jp/_res/projects/default_project/_page_/001/017/899/r8gaiyou.pdf", "確認日": "2026-11-16", "消費税の扱い": "不明", "端数の扱い": "千円未満切り捨て", "締切": "", "業種": ["飲食店", "宿", "観光施設", "小売"], "条件": "過去にこの補助金を使った事業は対象外。メニューは「メニュー等印刷物」の項目（ウェブは別の項目）。要事前相談。", "実質を出さない理由": "宇都宮市の制度は、メニューを「メニュー等印刷物」の項目で対象にしていて、ウェブは別の項目のため、実質負担の目安は出していません。補助率1/2・上限15万円（千円未満切り捨て。1事業者年度1回）。対象になる範囲は、事前に宇都宮市へご相談ください。", "出どころ": "東日本_2026-11-16.csv"},
  {"都道府県": "栃木県", "市区町村": "日光市", "制度名": "商品メニュー等多言語化促進事業補助金", "対象の事業者": "市内に事務所・店舗を持つ宿泊事業者・飲食事業者・土産品販売店等", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "1/2", "上限額": "5万円（1事業者年度1回）", "受付期間・締切": "要綱に期間の記載なし。公式ページ（更新2024-04-01）にも受付期間の記載なし", "受付状況": "不明（要綱は有効。募集期間・予算残は電話確認が必要）", "先着か審査か": "不明（要綱に先着・審査の記載なし）", "交付決定前の発注が対象外か": "不明（要綱に明記なし）", "公式URL": "https://www.city.nikko.lg.jp/soshiki/6/1024/7/592.html", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "千円未満切り捨て", "締切": "", "業種": ["飲食店", "宿", "小売"], "出どころ": "東日本_2026-11-16.csv"},
@@ -659,7 +698,7 @@ footer .in{padding-block:28px 110px}
  {"都道府県": "鳥取県", "市区町村": "米子市", "制度名": "インバウンド観光客歓迎飲食店受入環境整備事業（第2弾）", "対象の事業者": "米子駅・朝日町・角盤町・皆生温泉周辺の飲食店", "外国語メニューの翻訳・制作が対象か": "はい（Q&Aの例に外国語表記メニュー表の作成）", "補助率": "不明", "上限額": "不明", "受付期間・締切": "不明", "受付状況": "不明（令和8年度の公募か未確認。上の令和8年度制度に置き換わった可能性）", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.city.yonago.lg.jp/46153.htm", "確認日": "2026-11-16", "消費税の扱い": "不明", "端数の扱い": "不明", "締切": "", "業種": ["飲食店"], "出どころ": "西日本_2026-11-16.csv"},
  {"都道府県": "鳥取県", "市区町村": "鳥取市", "制度名": "鳥取市インバウンド受入環境整備事業補助金（令和8年度。対象拡大）", "対象の事業者": "観光事業者等。ただし鳥取市観光コンベンション協会の会員、または指定セミナー参加者などの条件あり", "外国語メニューの翻訳・制作が対象か": "不明（「多言語対応パンフレットやHP、その他ツールの作成」が対象。メニューの文言なし）", "補助率": "区分で異なる（(1)は2/3。表が結合セルで(4)の率は確実に読めず）", "上限額": "区分で異なる（(1)20万円、(6)以降40万円。(4)は確実に読めず）", "受付期間・締切": "2026-04-01から。予算上限に達した時点で終了（二次では2027-03-31まで）", "受付状況": "受付中", "先着か審査か": "先着（申請書を受理した順）", "交付決定前の発注が対象外か": "不明（申請は事業着手の30日前までと二次に記載）", "公式URL": "https://www.city.tottori.lg.jp/page/5340.html", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "不明", "締切": "", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "出どころ": "西日本_2026-11-16.csv"},
  {"都道府県": "島根県", "市区町村": "", "制度名": "外国人観光客誘致事業補助金", "対象の事業者": "県内に事業所を有し外国人観光客誘致に取り組む事業者・団体", "外国語メニューの翻訳・制作が対象か": "不明（多言語パンフレット・HPの翻訳料、看板の翻訳料、OTA掲載内容の翻訳料が対象。メニューの文言なし）", "補助率": "1/2", "上限額": "50万円（OTA等の区分は20万円、同一事業者の申請は合計50万円まで）", "受付期間・締切": "2026-04-01以降の事業が対象。事業実施の20日前までに申請", "受付状況": "不明（令和8年度の募集開始は確認。終了の表示は見つからず）", "先着か審査か": "予算額に達し次第終了", "交付決定前の発注が対象外か": "はい（交付決定前に着手した事業は対象外）", "公式URL": "https://www.pref.shimane.lg.jp/tourism/tourist/kankou/kokusai/gaikokujin_yuchi.html", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "不明", "地域の注記": "島根県全域", "締切": "", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "出どころ": "西日本_2026-11-16.csv"},
- {"都道府県": "徳島県", "市区町村": "", "制度名": "令和8年度 徳島県インバウンド等受入環境整備促進事業補助金", "対象の事業者": "県内の飲食店・宿泊施設・免税店・観光施設・交通事業者など", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "多言語対応は2/3以内、その他は1/2以内（千円未満切捨て）", "上限額": "50万円（飲食・宿泊等）／100万円（バス・鉄道）／300万円（空港）", "受付期間・締切": "2026-05-15〜2027-01-29", "受付状況": "受付中", "先着か審査か": "不明", "交付決定前の発注が対象外か": "はい（交付決定前に発注・施工・導入した経費は対象外）", "公式URL": "https://www.awanavi.jp/archives/71543", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "千円未満切り捨て", "地域の注記": "徳島県全域（徳島県観光協会）", "締切": "2027-01-29", "業種": ["飲食店", "宿", "観光施設"], "条件": "英語が基本。すでに外国語にしている場合は、新しく足す言語だけが対象。飲食店は県の「外国語メニューがある飲食店検索サイト」の掲載店が対象。交付決定の前の発注は対象外。", "出どころ": "西日本_2026-11-16.csv"},
+ {"都道府県": "徳島県", "市区町村": "", "制度名": "令和8年度 徳島県インバウンド等受入環境整備促進事業補助金", "対象の事業者": "県内の飲食店・宿泊施設・免税店・観光施設・交通事業者など", "外国語メニューの翻訳・制作が対象か": "はい", "補助率": "多言語対応は2/3以内、その他は1/2以内（千円未満切捨て）", "上限額": "50万円（飲食・宿泊等）／100万円（バス・鉄道）／300万円（空港）", "受付期間・締切": "2026-05-15〜2027-01-29", "受付状況": "受付中", "先着か審査か": "不明", "交付決定前の発注が対象外か": "はい（交付決定前に発注・施工・導入した経費は対象外）", "公式URL": "https://www.awanavi.jp/archives/71543", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "千円未満切り捨て", "地域の注記": "徳島県全域（徳島県観光協会）", "締切": "2027-01-29", "業種": ["飲食店", "宿", "観光施設"], "条件": "英語が基本。すでに外国語にしている場合は、新しく足す言語だけが対象。飲食店は県の「外国語メニューがある飲食店検索サイト」の掲載店が対象。交付決定の前の発注は対象外。", "実質を出さない理由": "徳島県（徳島県観光協会）の制度は、すでに外国語にしているメニューは新しく足す言語だけが対象で、県の検索サイトに載せたメニューがあるお店で英語が対象になるかは公式に書かれていないため、実質負担の目安は出していません。多言語対応は補助率2/3以内・上限50万円（飲食・宿泊等。千円未満切り捨て）。対象になる範囲は、事前に徳島県観光協会へご確認ください。", "出どころ": "西日本_2026-11-16.csv"},
  {"都道府県": "徳島県", "市区町村": "", "制度名": "インバウンド受入環境整備事業助成金", "対象の事業者": "徳島東部圏域の観光関連事業者", "外国語メニューの翻訳・制作が対象か": "不明", "補助率": "不明", "上限額": "10万円", "受付期間・締切": "2026-05-18〜2027-02-10", "受付状況": "不明（二次では受付期間内）", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://hojyokin-portal.jp/subsidies/84523", "確認日": "2026-11-16", "消費税の扱い": "不明", "端数の扱い": "不明", "地域の注記": "徳島東部圏域（イーストとくしま観光推進機構）", "締切": "2027-02-10", "業種": ["飲食店", "宿", "観光施設", "観光協会・団体", "小売"], "出どころ": "西日本_2026-11-16.csv"},
  {"都道府県": "福岡県", "市区町村": "", "制度名": "令和8年度 新たな観光地域づくり補助金（第3期）", "対象の事業者": "県が指定する広域観光エリア内の観光関連事業者（飲食店・土産店・観光施設等）", "外国語メニューの翻訳・制作が対象か": "不明（「多言語パンフレット制作」「外国語表記の案内板設置」が例。メニューの文言なし）", "補助率": "補助対象経費の1/2以内", "上限額": "200万円（前の調べ2026-11-14の公式確認）", "受付期間・締切": "第3期 2026-11-05〜12-25", "受付状況": "受付中", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明（今回は確認せず）", "公式URL": "https://www.pref.fukuoka.lg.jp/contents/r8aratanakanko-hojo.html", "確認日": "2026-11-16", "消費税の扱い": "除く", "端数の扱い": "千円未満切り捨て", "地域の注記": "福岡県（福岡市・北九州市を除く広域観光エリア）", "締切": "2026-12-25", "業種": ["飲食店", "観光施設", "小売"], "対象外の市区町村": ["福岡市", "北九州市"], "出どころ": "西日本_2026-11-16.csv"},
  {"都道府県": "福岡県", "市区町村": "福岡市", "制度名": "令和8年度 福岡市宿泊事業者受入環境充実支援補助金", "対象の事業者": "宿泊事業者（旅館業・民泊。宿泊税の申告あり）。飲食店は対象外", "外国語メニューの翻訳・制作が対象か": "宿のみ（多言語化のHP・広報物・館内案内は対象）", "補助率": "1/2", "上限額": "客室数に応じた上限（前の調べ）。民泊は10万円", "受付期間・締切": "2026-05-13〜11-30", "受付状況": "受付中", "先着か審査か": "不明", "交付決定前の発注が対象外か": "不明", "公式URL": "https://www.city.fukuoka.lg.jp/keizai/kankou-s/ukeireshien_1.html", "確認日": "2026-11-15（前の調べ。今回は再確認できず）", "消費税の扱い": "不明", "端数の扱い": "不明", "締切": "2026-11-30", "業種": ["宿"], "出どころ": "西日本_2026-11-16.csv"},
@@ -679,9 +718,6 @@ footer .in{padding-block:28px 110px}
 var PRICE = {
   menu2: 59800,
   menu3: 89800,
-  addon: 9800,
-  datapack: 59800,
-  datapackPer10: 9000,
   ko: 29800,
   koPer10: 3000,
   facility: 29800,
@@ -695,7 +731,6 @@ var PAGE_MIN = 1, PAGE_MAX = 20;
 var BIZ = {
   paper:      {kind:'飲食店',         name:'飲食店（紙のメニュー）',           svcs:['menu2','menu3','ko','proof'], rec:'menu2'},
   ticket:     {kind:'飲食店',         name:'飲食店（券売機）',                 svcs:['menu2','menu3','ko','proof'], rec:'menu2'},
-  tablet:     {kind:'飲食店',         name:'飲食店（タブレット・スマホ注文）', svcs:['datapack','menu2','menu3','ko','proof'], rec:'datapack'},
   lodging:    {kind:'宿',             name:'宿（ホテル・旅館）',               svcs:['proof'], rec:'proof'},
   attraction: {kind:'観光施設',       name:'観光施設',                         svcs:['facility','proof'], rec:'facility'},
   assoc:      {kind:'観光協会・団体', name:'観光協会・団体',                   svcs:['proof'], rec:'proof'},
@@ -704,7 +739,6 @@ var BIZ = {
 var SVC = {
   menu2:    {name:'メニューとPOPの多言語化（英語＋韓国語）', qty:'items'},
   menu3:    {name:'メニューとPOPの多言語化（英語＋韓国語＋繁体字）', qty:'items'},
-  datapack: {name:'タブレット・スマホ注文 3言語データパック', qty:'items'},
   ko:       {name:'韓国語メニュー一式', qty:'items'},
   facility: {name:'韓国語の施設案内一式', qty:'sheets'},
   proof:    {name:'英語・韓国語ページの校正', qty:'pages'}
@@ -714,7 +748,6 @@ function normalize(s){
   o.pref = s.pref; o.city = s.city; o.biz = BIZ[s.biz] ? s.biz : 'paper';
   var b = BIZ[o.biz];
   o.svc = b.svcs.indexOf(s.svc) >= 0 ? s.svc : b.rec;
-  o.addon = !!s.addon && o.biz === 'tablet' && (o.svc === 'menu2' || o.svc === 'menu3');
   o.items = ITEM_STEPS.indexOf(s.items) >= 0 ? s.items : 40;
   o.sheets = SHEET_STEPS.indexOf(s.sheets) >= 0 ? s.sheets : 3;
   o.pages = Math.min(PAGE_MAX, Math.max(PAGE_MIN, s.pages | 0 || 5));
@@ -725,12 +758,7 @@ function quote(s0){
   if (s.svc === 'menu2' || s.svc === 'menu3'){
     base = PRICE[s.svc]; total = base;
     L.push([SVC[s.svc].name + '（40品まで）', base]);
-    if (s.addon){ L.push(['データパック（メニューと一緒のご依頼）', PRICE.addon]); total += PRICE.addon; }
     if (s.items > 40) partial = '41品以上の分は、DMでお見積もりします（上は40品までの金額です）';
-  } else if (s.svc === 'datapack'){
-    total = PRICE.datapack; L.push([SVC.datapack.name + '（40品まで）', PRICE.datapack]);
-    if (s.items > 100) partial = '101品以上の分は、DMでお見積もりします（上は40品までの金額です）';
-    else if (s.items > 40){ k = Math.ceil((s.items - 40) / 10); L.push(['追加 ' + (s.items - 40) + '品（10品ごとに9,000円）', k * PRICE.datapackPer10]); total += k * PRICE.datapackPer10; }
   } else if (s.svc === 'ko'){
     total = PRICE.ko; L.push([SVC.ko.name + '（40品まで）', PRICE.ko]);
     if (s.items > 100) partial = '101品以上の分は、DMでお見積もりします（上は40品までの金額です）';
@@ -824,8 +852,7 @@ function subsidy(q, progs){
   if (best) return {kind: 'amount', prog: best.prog, amount: best.amount, net: q.total - best.amount, taxBase: taxBase(q.base, best.prog), progs: progs};
   if (noNet) why = noNet;
   else if (full.length){
-    if (s.svc === 'datapack') why = 'データパックが補助の対象になるかは未確認のため、実質負担の目安は出していません。メニューとPOPの多言語化は、対象になる場合があります。';
-    else if (s.svc === 'ko' || s.svc === 'facility') why = '韓国語だけの版は、英語を必須・基本とする制度があるため、実質負担の目安は出していません。';
+    if (s.svc === 'ko' || s.svc === 'facility') why = '韓国語だけの版は、英語を必須・基本とする制度があるため、実質負担の目安は出していません。';
     else if (s.svc === 'proof') why = 'ページの校正が対象になるかは未確認のため、実質負担の目安は出していません。';
     else why = 'この業種・商品が対象になるかは未確認のため、実質負担の目安は出していません。';
   }
@@ -887,7 +914,7 @@ function subsidy(q, progs){
       var place = e[1] ? e[1] : e[0], lang = e[2] === 'menu3' ? '3言語' : '英語＋韓国語';
       if (sb.kind !== 'amount') return '<div class="eg"><div class="eg-p">' + esc(place) + '</div><div class="eg-c">受付の状況が変わりました。見積もりの窓でご確認ください。</div><button type="button" data-open-sim data-pref="' + esc(e[0]) + '" data-city="' + esc(e[1]) + '">この地域で見積もる</button></div>';
       return '<div class="eg"><div class="eg-p">' + esc(place) + '<span class="pill gold">補助率 ' + rateLabel(sb.prog.rate) + '</span></div>' +
-        '<div class="eg-f num">' + yen(q.total) + '円のメニュー（' + lang + '）が</div>' +
+        '<div class="eg-f num">' + yen(q.total) + '円のメニュー<wbr><span class="nw">（' + lang + '）が</span></div>' +
         '<div class="eg-n num"><small>実質</small><b>' + yen(sb.net) + '</b><small>円</small></div>' +
         '<div class="eg-c">補助 最大' + yen(sb.amount) + '円の場合（消費税相当額を除いた' + yen(sb.taxBase) + '円から計算）。' + (sb.prog.deadline ? '受付は' + jdate(sb.prog.deadline) + 'まで。' : '予算に達するまで。') + (e[3] ? '<br>' + esc(e[3]) + '。' : '') + '</div>' +
         '<button type="button" data-open-sim data-pref="' + esc(e[0]) + '" data-city="' + esc(e[1]) + '">この地域で見積もる</button></div>';
@@ -912,9 +939,9 @@ function subsidy(q, progs){
     assoc: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 42V6M12 8h24l-5 8 5 8H12" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     retail: '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 18h32l-3 24H11z" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linejoin="round"/><path d="M17 22v-7a7 7 0 0 1 14 0v7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg>'
   };
-  var TOPS = [['restaurant','飲食店'],['lodging','宿（ホテル・旅館）'],['attraction','観光施設'],['assoc','観光協会・団体'],['retail','小売・お土産店']];
-  var ORDER = [['paper','紙のメニュー'],['ticket','券売機'],['tablet','タブレット・スマホ注文']];
-  var SHORT = {paper:'飲食店・紙', ticket:'飲食店・券売機', tablet:'飲食店・タブレット', lodging:'宿', attraction:'観光施設', assoc:'観光協会', retail:'小売'};
+  var TOPS = [['restaurant','飲食店'],['lodging','宿<wbr>（ホテル・<wbr>旅館）'],['attraction','観光施設'],['assoc','観光協会・団体'],['retail','小売・お土産店']];
+  var ORDER = [['paper','紙のメニュー'],['ticket','券売機']];
+  var SHORT = {paper:'飲食店・紙', ticket:'飲食店・券売機', lodging:'宿', attraction:'観光施設', assoc:'観光協会', retail:'小売'};
   var PROOF_INCL = ['英語・韓国語ページの見直し（「現在の文 → 修正案 → 理由」の形でお渡し）','まず修正案を3点、無料でお送りします','修正案の作成にはAIを活用しています'];
   var SVC_UI = {
     menu2: {short:'メニュー2言語', price:'59,800<small>円</small>', desc:'英語＋韓国語。メニュー40品まで・卓上POP 2枚・スマホで見るメニュー',
@@ -925,10 +952,6 @@ function subsidy(q, progs){
     menu3: {short:'メニュー3言語', price:'89,800<small>円</small>', desc:'繁体字（台湾向け）も入る3言語版',
       incl:['メニュー40品まで（英語・韓国語・繁体字。料理名・説明1行・使用食材・お店のアレルギー表示・値段）','卓上POP（英語・韓国語版 2枚＋繁体字版 2枚。A5・印刷用PDF）','メニューの印刷用PDF（A4・言語ごと）','スマホで見るメニュー（3言語）と読み取りコードの図柄'],
       days:'材料がそろってから10日前後（初稿は5日以内）'},
-    datapack: {short:'データパック', price:'59,800<small>円</small>', desc:'今の注文の仕組みのまま、訳を入れるだけ',
-      why:{tablet:'今の注文の仕組みはそのまま。料理の訳を、お店の仕組みに入る形（取り込み用のファイルか貼り付け用の表）と手順書でお渡しします。メニューとPOPと一緒なら＋9,800円です。'},
-      incl:['40品までの料理名・説明1行・使用食材を、英語・韓国語・繁体字に','お店の仕組みに合わせた取り込み用のファイル（CSV）か、貼り付け用の表','入れ方の手順書','入れた後の画面写真で点検1回','ログイン情報はお預かりしません。「注文する」などのボタンの文字は変えられません'],
-      days:'資料を受け取ってから10日前後（初稿は5日以内）'},
     ko: {short:'韓国語一式', price:'29,800<small>円</small>', desc:'韓国語だけ・文字だけの簡単な体裁',
       incl:['韓国語メニュー40品まで（番号つき・日本語を併記）','卓上POP 2枚（注文と会計のきまり／指さしの表）','スマホで見るメニューのデータと読み取りコードの図柄','そのまま印刷できる、文字だけの簡単な体裁のPDF'],
       days:'材料がそろってから7日前後（初稿は3日以内）'},
@@ -942,7 +965,7 @@ function subsidy(q, progs){
            retail:'お店のホームページの英語・韓国語ページを見直します。まず修正案を3点、無料でお送りします。'},
       incl:PROOF_INCL, days:''}
   };
-  var st = {area:0, pref:'北海道', city:'', top:'', biz:'paper', svc:'menu2', addon:false, items:40, sheets:3, pages:5, step:0, done:[false,false,false,false]};
+  var st = {area:0, pref:'北海道', city:'', top:'', biz:'paper', svc:'menu2', items:40, sheets:3, pages:5, step:0, done:[false,false,false,false]};
   function citiesOf(pref){
     var list = [];
     AREAS.forEach(function(a){ a[1].forEach(function(p){ if (p[0] === pref) list = p[1].slice(); }); });
@@ -972,7 +995,7 @@ function subsidy(q, progs){
     var s = normalize(st), vals = [
       st.done[0] ? (st.city && st.city !== OTHER ? st.city : st.pref) : '—',
       st.done[1] ? SHORT[s.biz] : '—',
-      st.done[2] ? SVC_UI[s.svc].short + (s.addon ? '＋' : '') : '—',
+      st.done[2] ? SVC_UI[s.svc].short : '—',
       st.done[3] ? qtyText(s) : '—'];
     return ['地域','業種','サービス','数'].map(function(n, i){
       var can = i === 0 || st.done[i - 1];
@@ -997,8 +1020,6 @@ function subsidy(q, progs){
         var u = SVC_UI[k];
         return '<button type="button" class="sv" data-svc="' + k + '" aria-pressed="' + (st.done[2] && s.svc === k) + '"><span class="n">' + SVC[k].name + (bz.rec === k ? '<span class="rec">おすすめ</span>' : '') + '</span><span class="d">' + u.desc + '</span><span class="p num">' + u.price + '</span></button>';
       }).join('') + '</div>';
-      if (s.biz === 'tablet' && st.done[2] && (s.svc === 'menu2' || s.svc === 'menu3'))
-        h += '<button type="button" class="addon" id="addonBtn" aria-pressed="' + (s.addon ? 'true' : 'false') + '"><span class="box">✓</span><span>データパックも一緒に（＋9,800円）。メニューの訳を注文画面にも使い回せます</span></button>';
       if (bz.svcs.length === 1) h += '<p class="hint">館内・店内の案内やPOPなど、ほかの内容はDMでご相談ください。</p>';
     } else if (st.step === 3){
       var kind = SVC[s.svc].qty;
@@ -1033,7 +1054,6 @@ function subsidy(q, progs){
         (/未満切り捨て$/.test(bp.round) ? '<li>この制度は補助の額の' + bp.round.replace('未満切り捨て', '') + '未満を切り捨てるため、切り捨てた額を出しています。</li>'
           : bp.round === '不明' ? '<li>この制度の端数の扱いは確認できていないため、少なめに見て千円未満を切り捨てた額を出しています。</li>' : '') +
         '<li>対象になる場合があります。最終判断は自治体・事務局です。申請はお店ご自身で行います（申請書の作成はできません）。</li>' +
-        (s.addon ? '<li>データパックが対象になるかは未確認のため、＋9,800円は全額ご負担で計算しています。</li>' : '') +
         (q.partial ? '<li>40品までの金額で計算しています。</li>' : '') + '</ul>';
     } else {
       h += '<h4>補助金</h4>' + sb.progs.map(progHtml).join('') + '<ul class="cav">' + (sb.why ? '<li>' + esc(sb.why) + '</li>' : '') +
@@ -1046,14 +1066,14 @@ function subsidy(q, progs){
     h += '<div class="rec-n">' + SVC[rec].name + '</div><div class="rec-r">' + ((ru.why && ru.why[s.biz]) || ru.desc) + '</div>';
     if (rec !== s.svc) h += '<button type="button" class="swap" data-swap="' + rec + '">おすすめに切り替える</button>';
     h += '<h4 style="margin-top:14px">' + (rec === s.svc ? 'このサービス' : 'いまえらんでいるサービス') + 'に入るもの</h4><ul class="incl">' + u.incl.map(function(t){ return '<li>' + t + '</li>'; }).join('') +
-      (s.addon ? '<li>データパック：訳を注文画面に入れる形（取り込み用のファイルか貼り付け用の表）・入れ方の手順書・点検1回</li>' : '') + '</ul>';
+      '</ul>';
     if (u.days) h += '<div class="rec-r" style="margin-top:8px">納期の目安：' + u.days + '</div>';
     if (s.svc !== 'proof') h += '<div class="rec-r">写真の撮影・加工、印刷、ホームページへの組み込みは含みません。</div>';
     h += '</div>';
-    var txt = '【見積もりの結果】\n地域：' + s.pref + (s.city === OTHER ? '' : ' ' + s.city) + '\n業種：' + BIZ[s.biz].name + '\nサービス：' + SVC[s.svc].name + (s.addon ? '＋データパック' : '') + '\n数：' + qtyText(s) + '\nお見積もり（目安）：' + yen(q.total) + '円' + (q.partial ? '＋別途お見積もり' : '') + '\n見本をお願いします。';
+    var txt = '【見積もりの結果】\n地域：' + s.pref + (s.city === OTHER ? '' : ' ' + s.city) + '\n業種：' + BIZ[s.biz].name + '\nサービス：' + SVC[s.svc].name + '\n数：' + qtyText(s) + '\nお見積もり（目安）：' + yen(q.total) + '円' + (q.partial ? '＋別途お見積もり' : '') + '\n見本をお願いします。';
     var mbody = txt;
     if (encodeURIComponent(mbody).length > MAIL_MAX)
-      mbody = '【見積もりの結果】\n' + SVC[s.svc].name + (s.addon ? '＋データパック' : '') + '・' + qtyText(s) + '\n目安：' + yen(q.total) + '円' + (q.partial ? '＋別途' : '') + '\n見本をお願いします。';
+      mbody = '【見積もりの結果】\n' + SVC[s.svc].name + '・' + qtyText(s) + '\n目安：' + yen(q.total) + '円' + (q.partial ? '＋別途' : '') + '\n見本をお願いします。';
     h += '<div class="res-cta"><a class="btn" id="dmCopy" href="' + DM_URL + '" target="_blank" rel="noopener">この内容をコピーしてDMで相談</a>' +
       '<p class="copymsg" id="dmMsg" role="status" hidden></p>' +
       '<textarea id="dmtext" readonly hidden aria-label="DMに貼る文">' + esc(txt) + '</textarea>' +
@@ -1071,8 +1091,9 @@ function subsidy(q, progs){
     return left + '<button type="button" class="btn" id="simNext"' + (ok ? '' : ' disabled') + '>' + (st.step === 3 ? '結果を見る' : '次へ') + '</button>';
   }
   function renderWin(scrollTop){
-    var n = normalize(st); st.svc = n.svc; st.addon = n.addon;
+    var n = normalize(st); st.svc = n.svc;
     $('simNav').innerHTML = navHtml(); $('simBody').innerHTML = stepHtml(); $('simFoot').innerHTML = footHtml();
+    fixTails($('simBody'));
     if (scrollTop) $('simBody').scrollTop = 0;
   }
   function openSim(pref, city){
@@ -1129,23 +1150,22 @@ function subsidy(q, progs){
     else if (d.pref){ st.pref = d.pref; st.city = ''; st.done[0] = false; }
     else if (d.city){ st.city = d.city; st.done[0] = true; go(st.done[1] && st.done[2] && st.done[3] ? 4 : 1); return; }
     else if (d.top){
-      st.top = d.top; st.addon = false;
+      st.top = d.top;
       if (d.top === 'restaurant'){ st.done[1] = false; }
       else { st.biz = d.top; st.svc = BIZ[st.biz].rec; st.done[1] = true; st.done[2] = false; st.done[3] = false; go(2); return; }
     }
-    else if (d.biz){ st.biz = d.biz; st.svc = BIZ[st.biz].rec; st.addon = false; st.done[1] = true; st.done[2] = false; st.done[3] = false; go(2); return; }
+    else if (d.biz){ st.biz = d.biz; st.svc = BIZ[st.biz].rec; st.done[1] = true; st.done[2] = false; st.done[3] = false; go(2); return; }
     else if (d.svc){
       st.svc = d.svc; st.done[2] = true; st.done[3] = false;
-      if (!(st.biz === 'tablet' && (d.svc === 'menu2' || d.svc === 'menu3'))){ st.addon = false; go(3); return; }
+      go(3); return;
     }
-    else if (t.id === 'addonBtn'){ st.addon = !st.addon; }
     else if (d.items){ st.items = +d.items; st.done[3] = true; go(4); return; }
     else if (d.sheets){ st.sheets = +d.sheets; st.done[3] = true; go(4); return; }
     else if (t.id === 'pgMinus'){ st.pages = Math.max(PAGE_MIN, st.pages - 1); st.done[3] = true; }
     else if (t.id === 'pgPlus'){ st.pages = Math.min(PAGE_MAX, st.pages + 1); st.done[3] = true; }
     else if (t.id === 'simNext'){ if (st.step === 3) st.done[3] = true; go(Math.min(4, st.step + 1)); return; }
-    else if (t.id === 'simRestart'){ st.done = [false,false,false,false]; st.city = ''; st.top = ''; st.addon = false; go(0); return; }
-    else if (d.swap){ st.svc = d.swap; st.addon = false; }
+    else if (t.id === 'simRestart'){ st.done = [false,false,false,false]; st.city = ''; st.top = ''; go(0); return; }
+    else if (d.swap){ st.svc = d.swap; }
     else return;
     renderWin(false);
   });
@@ -1180,14 +1200,109 @@ function subsidy(q, progs){
       '<span class="ds">' + esc(d[2]) + '</span><span class="kv"><b>' + esc(L.ing) + '</b>' + esc(d[3]) + '</span><span class="kv"><b>' + esc(L.alg) + '</b>' + esc(d[4]) + '</span><span class="pr num">' + esc(d[5]) + '</span></div>';
   }
   function renderSample(){
-    var L = SAMPLE[lang], hl = lang === 'ja' ? 'en' : lang, H = SAMPLE[hl];
-    $('heroTabs').innerHTML = LANGS.slice(0, 3).map(function(l){ return '<button type="button" data-lang="' + l[0] + '" aria-pressed="' + (hl === l[0]) + '">' + l[1] + '</button>'; }).join('');
-    $('heroDish').innerHTML = dishHtml(H, H.d[0], 0) + '<div class="order">' + esc(H.order) + '</div>';
+    var L = SAMPLE[lang];
     $('sampleTabs').innerHTML = LANGS.map(function(l){ return '<button type="button" data-lang="' + l[0] + '" aria-pressed="' + (lang === l[0]) + '">' + l[1] + '</button>'; }).join('');
     $('sampleCards').innerHTML = L.d.map(function(d, i){ return dishHtml(L, d, i); }).join('');
     $('sampleRules').innerHTML = '<b>' + esc(L.rt) + '</b><ul>' + L.rules.map(function(r){ return '<li>' + esc(r) + '</li>'; }).join('') + '</ul>';
+    fixTails($('sampleCards')); fixTails($('sampleRules'));
   }
-  renderExamples(); renderSample();
+  var TAIL_SEL = 'p,li,dd,summary,.d,.n,.ds,.kv,.rec-r,.rec-n,.eg-c,.prog,.res-sel,.pnote,.lines span,.alert span,.flow span:not(.we):not(.free)';
+  var PUNCT = /[。、．，.,)）」』!?！？・:：]/;
+  function inlineChain(node, el){
+    for (var p = node.parentElement; p && p !== el; p = p.parentElement){
+      if (/^(A|BUTTON|SUMMARY)$/.test(p.tagName)) return false;
+      if (p.classList.contains('nw') || !/^inline/.test(getComputedStyle(p).display)) return false;
+    }
+    return true;
+  }
+  function wrapTail(node){
+    var v = node.nodeValue, end = v.replace(/\s+$/, '').length, k = end, start;
+    while (k > 0 && PUNCT.test(v[k - 1])) k--;
+    start = k - 2;
+    if (start < 2 || /\s/.test(v.slice(start, k)) && !/[A-Za-z]/.test(v.slice(start, k))) return;
+    if (v.slice(0, start).replace(/\s/g, '').length < 2) return;
+    var s = document.createElement('span'); s.className = 'nw tl'; s.textContent = v.slice(start, end);
+    node.nodeValue = v.slice(0, start);
+    node.parentNode.insertBefore(s, node.nextSibling);
+    if (end < v.length) s.parentNode.insertBefore(document.createTextNode(v.slice(end)), s.nextSibling);
+  }
+  var PRICE_RE = /(?:各|＋|\+)?\d[\d,]*円〜?/g;
+  function wrapPrices(root){
+    var w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT), n, list = [];
+    while ((n = w.nextNode())){
+      var p = n.parentElement;
+      if (!p || /^(SCRIPT|STYLE|TEXTAREA|OPTION|TITLE)$/.test(p.tagName) || p.closest('.nw') || /flex|grid/.test(getComputedStyle(p).display)) continue;
+      PRICE_RE.lastIndex = 0;
+      if (PRICE_RE.test(n.nodeValue)) list.push(n);
+    }
+    list.forEach(function(node){
+      var v = node.nodeValue, frag = document.createDocumentFragment(), last = 0, m;
+      PRICE_RE.lastIndex = 0;
+      while ((m = PRICE_RE.exec(v))){
+        if (m.index > last) frag.appendChild(document.createTextNode(v.slice(last, m.index)));
+        var sp = document.createElement('span'); sp.className = 'nw'; sp.textContent = m[0]; frag.appendChild(sp);
+        last = m.index + m[0].length;
+      }
+      if (last < v.length) frag.appendChild(document.createTextNode(v.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+  function fixTails(root){
+    wrapPrices(root);
+    Array.prototype.forEach.call(root.querySelectorAll(TAIL_SEL), function(el){
+      if (el.querySelector('.tl') || /flex|grid/.test(getComputedStyle(el).display)) return;
+      var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), n, list = [];
+      while ((n = w.nextNode())) if (/\S/.test(n.nodeValue)) list.push(n);
+      list.forEach(function(node, i){
+        var nx = node.nextSibling, ends = i === list.length - 1 ||
+          (nx && nx.nodeType === 1 && (nx.tagName === 'BR' || getComputedStyle(nx).display === 'inline-block'));
+        if (ends && inlineChain(node, el)) wrapTail(node);
+      });
+    });
+  }
+  (function(){
+    var fab = $('fab'), lastY = window.scrollY || 0, up = false, blocked = true, ticking = false, vis = {}, stopT = 0;
+    function hit(a, b){ return a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top; }
+    function coversText(){
+      var r = fab.getBoundingClientRect(), seen = [], xs = [.15, .5, .85], ys = [.25, .75], i, j, k, els, el, c, rs;
+      for (i = 0; i < xs.length; i++) for (j = 0; j < ys.length; j++){
+        els = document.elementsFromPoint(r.left + r.width * xs[i], r.top + r.height * ys[j]);
+        for (k = 0; k < els.length; k++){
+          el = els[k];
+          if (fab.contains(el) || seen.indexOf(el) >= 0) continue;
+          seen.push(el);
+          if (/^(IMG|svg|SUMMARY|BUTTON|A|INPUT|SELECT|LABEL)$/.test(el.tagName)) return true;
+          for (c = el.firstChild; c; c = c.nextSibling){
+            if (c.nodeType !== 3 || !/\S/.test(c.nodeValue)) continue;
+            var rg = document.createRange(); rg.selectNodeContents(c); rs = rg.getClientRects();
+            for (var q = 0; q < rs.length; q++) if (hit(rs[q], r)) return true;
+          }
+        }
+      }
+      return false;
+    }
+    var zones = ['top', 'apply', 'owner'].map(function(id){ return document.getElementById(id); });
+    function update(){ var away = blocked || !up; fab.classList.toggle('away', away); fab.tabIndex = away ? -1 : 0; }
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ vis[e.target.id] = e.isIntersecting; });
+        blocked = zones.some(function(z){ return vis[z.id]; }); update();
+      });
+      zones.forEach(function(z){ io.observe(z); });
+    } else { blocked = false; up = true; }
+    window.addEventListener('scroll', function(){
+      if (ticking) return; ticking = true;
+      requestAnimationFrame(function(){
+        var y = window.scrollY || 0;
+        if (Math.abs(y - lastY) > 6){ up = y < lastY; lastY = y; update(); }
+        ticking = false;
+        clearTimeout(stopT);
+        stopT = setTimeout(function(){ if (!fab.classList.contains('away') && coversText()){ up = false; update(); } }, 1200);
+      });
+    }, {passive: true});
+    update();
+  })();
+  renderExamples(); renderSample(); fixTails(document.body);
 })();
 </script>
 </body>
